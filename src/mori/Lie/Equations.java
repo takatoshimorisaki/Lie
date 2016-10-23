@@ -120,7 +120,7 @@ public class Equations{
 		
 		int size = mValues.size();
 		
-		equ = mGet(size -1);
+		equ = mGet(size - 1);
 		
 		Node leftNode = mFactory.mExe(equ.mGetSubNode(1));
 
