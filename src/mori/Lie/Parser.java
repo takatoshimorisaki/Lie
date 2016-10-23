@@ -10,7 +10,7 @@ public class Parser extends mori.Lie.Lie {
 	
 	private static String mCharSet = "UTF-8"; // "US-ASCII"; // "UTF-8";
 	
-	private static mori.Lie.Command.I_Command mBracketCmd = new mori.Lie.Command.BracketParser();
+	private static mori.Lie.Command.I_Command mBracketCmd = new mori.Lie.Command.BracketCmd();
 
 	private static mori.Lie.Command.I_Command mExpandCmd = new mori.Lie.Command.ExpandCmd();
 	

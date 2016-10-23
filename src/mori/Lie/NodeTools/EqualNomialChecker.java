@@ -14,10 +14,10 @@ public class EqualNomialChecker{
 			return false;
 		}else
 		if(oneNode.mNodeType == NULL_NODE){
-			return true;
+			return false;
 		}else
 		if(oneNode.mNodeType == NUMBER_NODE){
-			return true;
+			return false;
 		}else
 		if(oneNode.mNodeType == MONO_NODE){
 			

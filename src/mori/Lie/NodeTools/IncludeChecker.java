@@ -5,31 +5,45 @@ import mori.Lie.Node;
 
 public class IncludeChecker {
 
-	public boolean mExe(
+	private IncludeCheckerMonoMono mMonoMono = new IncludeCheckerMonoMono();
+	
+	private IncludeCheckerMultiMono mMultiMono = new IncludeCheckerMultiMono();
+	
+	private IncludeCheckerMultiMulti mMultiMulti = new IncludeCheckerMultiMulti();
+	
+	public int mExe(
 			Node aLargerNode,
 			Node aSmallerNode
 	)throws Exception{
-		boolean ans = false;
+		int ans = -1;
 		
-		if(aLargerNode.mNodeType == MONO_NODE
-		&& aSmallerNode.mNodeType == MONO_NODE){
-
-			if(aLargerNode.mToken.equals(aSmallerNode.mToken)){
-				
-				if(aLargerNode.mPower > 0
-				&& aSmallerNode.mPower > 0
-				&& aLargerNode.mPower >= aSmallerNode.mPower){
-					
-					ans = true;
-					
-				}else
-				if(aLargerNode.mPower < 0
-				&& aSmallerNode.mPower < 0
-				&& aLargerNode.mPower <= aSmallerNode.mPower){
+		if(aLargerNode.mNodeType == MONO_NODE){
 			
-					ans = true;
-				}
+			if(aSmallerNode.mNodeType == MONO_NODE){
+
+				ans = mMonoMono.mExe(aLargerNode, aSmallerNode);
+				
+			}else{
+				throw new Exception("not implemented.");
 			}
+		}else
+		if(aLargerNode.mNodeType == MULTI_NODE){
+
+			if(aSmallerNode.mNodeType == MONO_NODE){
+
+				ans = mMultiMono.mExe(aLargerNode, aSmallerNode);
+
+			}else
+			if(aSmallerNode.mNodeType == MULTI_NODE){
+				
+				ans = mMultiMulti.mExe(aLargerNode, aSmallerNode);
+				
+			}else{
+				throw new Exception("not implemented.");
+			}
+		
+		}else{
+			throw new Exception("not implemented.");
 		}
 		
 		return ans;

@@ -7,12 +7,16 @@ public class Remover {
 
 	private static Factory mFactory = new Factory();
 
-	public void mExe(
+	public Node[] mExe(
 			Node aDestNode,
 			Node aLargerNode,
 			Node aSmallerNode,
 			int aPos
 	)throws Exception{
+		Node[] splitedNode = new Node[2];
+		
+		splitedNode[0] = new Node();
+		splitedNode[1] = new Node();
 		
 		aDestNode.mInit();
 
@@ -36,20 +40,30 @@ public class Remover {
 					if(destSubNode.mPower != 0){
 						
 						aDestNode.add(destSubNode);
+
+						splitedNode[0].add(destSubNode);
 					}
 				}else
 				if(aPos < id
 				&& id < (aPos + aSmallerNode.mSubNodes.size())){
-					// nothing to do.
+					
+					Node destSubNode = mFactory.mExe(aLargerNode.mGetSubNode(id));
+
+					splitedNode[1].add(destSubNode);
+					
 				}else{
 					Node destSubNode = mFactory.mExe(aLargerNode.mGetSubNode(id));
 					
 					aDestNode.add(destSubNode);
+					
+					splitedNode[0].add(destSubNode);
 				}
 			}// for id
 
 		}else{
 			throw new Exception();
 		}
+		
+		return splitedNode;
 	}
 }

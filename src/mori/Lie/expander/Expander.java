@@ -17,12 +17,12 @@ public class Expander{
 		Node equ
 	)throws Exception{
 		boolean expanded = false;
+
+		Node leftNode = equ.mGetSubNode(0);
 		
-		Node rightNode = equ.mGetSubNode(0);
+		Node rightNode = equ.mGetSubNode(1);
 		
-		Node leftNode = equ.mGetSubNode(1);
-		
-		expanded = mExe(aDestNode, arg, rightNode, leftNode);
+		expanded = mExe(aDestNode, arg, leftNode, rightNode);
 
 		return expanded;
 	}
@@ -30,8 +30,8 @@ public class Expander{
 	public boolean mExe(
 		Node aDestNode,
 		Node arg,
-		Node rightNode,
-		Node leftNode
+		Node leftNode,
+		Node rightNode
 	)throws Exception{
 		boolean expanded = false;
 		
@@ -40,21 +40,21 @@ public class Expander{
 			// nothing to do.
 		}else 
 		if(arg.mNodeType == MONOMIAL_NODE
-		&& rightNode.mNodeType == MONOMIAL_NODE){
+		&& leftNode.mNodeType == MONOMIAL_NODE){
 			
-			expanded = mExpanderMono.mExe(aDestNode, arg, rightNode, leftNode);
+			expanded = mExpanderMono.mExe(aDestNode, arg, leftNode, rightNode);
 			
 		}else
 		if(arg.mNodeType == MULTI_NODE){
 			
-			if(rightNode.mNodeType == MONOMIAL_NODE){
+			if(leftNode.mNodeType == MONOMIAL_NODE){
 
-				expanded = mExpanderMultiMono.mExe(aDestNode, arg, rightNode, leftNode);
+				expanded = mExpanderMultiMono.mExe(aDestNode, arg, leftNode, rightNode);
 					
 			}else
-			if(rightNode.mNodeType == MULTI_NODE){
+			if(leftNode.mNodeType == MULTI_NODE){
 
-				expanded = mExpanderMultiMulti.mExe(aDestNode, arg, rightNode, leftNode);
+				expanded = mExpanderMultiMulti.mExe(aDestNode, arg, leftNode, rightNode);
 					
 			}else{
 				// nothing to do.

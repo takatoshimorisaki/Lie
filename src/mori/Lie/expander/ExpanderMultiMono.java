@@ -18,8 +18,8 @@ public class ExpanderMultiMono {
 	public boolean mExe(
 		Node aDestNode,
 		Node arg,
-		Node rightNode,
-		Node leftNode
+		Node leftNode,
+		Node rightNode
 	)throws Exception{
 		boolean expanded = false;
 
@@ -35,7 +35,7 @@ public class ExpanderMultiMono {
 				
 				newNode = new Node();
 				
-				boolean rtn = mExpanderMono.mExe(newNode, node, rightNode, leftNode);
+				boolean rtn = mExpanderMono.mExe(newNode, node, leftNode, rightNode);
 				
 				if(rtn = true){
 	
@@ -47,23 +47,6 @@ public class ExpanderMultiMono {
 				}
 			}// for id
 
-			if(replacedId >= 0){
-				Node[] splitedNode = mNodeSplitter.mExe(replacedId, arg);
-			
-				if(splitedNode[0] != null){
-					aDestNode = mMultiplier.mExe(splitedNode[0], newNode);
-					
-					if(splitedNode[1] != null){
-						aDestNode = mMultiplier.mExe(aDestNode, splitedNode[1]);
-					}
-				}else{
-					aDestNode = newNode;
-	
-					if(splitedNode[1] != null){
-						aDestNode = mMultiplier.mExe(aDestNode, splitedNode[1]);
-					}
-				}
-			}
 		}while(replacedId >= 0);
 		
 		return expanded;

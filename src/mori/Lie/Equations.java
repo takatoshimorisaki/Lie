@@ -54,9 +54,11 @@ public class Equations{
 			}
 		}
 	}
-	public void add(Node equ){
+	public int add(Node equ){
 	
 		mValues.add(equ);
+		
+		return (mValues.size() - 1);
 	}
 	
 	public void add(String arg)throws Exception{
@@ -122,10 +124,9 @@ public class Equations{
 		
 		equ = mGet(size - 1);
 		
-		Node leftNode = mFactory.mExe(equ.mGetSubNode(1));
+		Node rightNode = mFactory.mExe(equ.mGetSubNode(1));
 
 		boolean expanded = true;
-		Node    srcNode  = leftNode;
 		Node    destNode = new Node();
 		
 		while(expanded){
@@ -134,10 +135,10 @@ public class Equations{
 				
 				Node replaceNode = (Node)mValues.elementAt(ect);
 				
-				expanded = mExpander.mExe(destNode, srcNode, replaceNode);
+				expanded = mExpander.mExe(destNode, rightNode, replaceNode);
 		
 				if(expanded){
-					srcNode = destNode;
+					rightNode = destNode;
 					
 					destNode = new Node();
 					
@@ -145,8 +146,6 @@ public class Equations{
 				}
 			}// for ect
 		}// while expanded
-		
-		equ.mSet(1, destNode);
 		
 		mPrinter.mExe(equ);
 	}

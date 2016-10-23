@@ -14,33 +14,33 @@ public class ExpanderMono {
 	public boolean mExe(
 		Node aDestNode,
 		Node arg,
-		Node rightNode,
-		Node leftNode
+		Node leftNode,
+		Node rightNode
 	)throws Exception{
 		boolean expanded = false;
 
 		mFactory.mCopy(aDestNode, arg);
 		
-		if(aDestNode.mToken.equals(rightNode.mToken)){
+		if(aDestNode.mToken.equals(leftNode.mToken)){
 			
 			if(aDestNode.mPower > 0
-			&& rightNode.mPower > 0
-			&& aDestNode.mPower >= rightNode.mPower){
+			&& leftNode.mPower > 0
+			&& aDestNode.mPower >= leftNode.mPower){
 				
-				aDestNode.mCoef /= rightNode.mCoef;
+				aDestNode.mCoef /= leftNode.mCoef;
 				
-				aDestNode.mPower -= rightNode.mPower;
+				aDestNode.mPower -= leftNode.mPower;
 				
 				expanded = true;
 				
 			}else
 			if(aDestNode.mPower < 0
-			&& rightNode.mPower < 0
-			&& aDestNode.mPower <= rightNode.mPower){
+			&& leftNode.mPower < 0
+			&& aDestNode.mPower <= leftNode.mPower){
 
-				aDestNode.mCoef /= rightNode.mCoef;
+				aDestNode.mCoef /= leftNode.mCoef;
 				
-				aDestNode.mPower -= rightNode.mPower;
+				aDestNode.mPower -= leftNode.mPower;
 								
 				expanded = true;
 			}
@@ -57,7 +57,7 @@ public class ExpanderMono {
 				aDestNode.mNodeType = NUMBER_NODE;
 			}
 			
-			aDestNode = mMultiplier.mExe(aDestNode, leftNode);
+			aDestNode = mMultiplier.mExe(aDestNode, rightNode);
 		}
 		
 		return expanded;

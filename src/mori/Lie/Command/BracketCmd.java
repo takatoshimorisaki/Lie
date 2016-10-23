@@ -1,10 +1,11 @@
 package mori.Lie.Command;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 import mori.Lie.NodeTools.*;
 
-public class BracketParser extends mori.Lie.Lie implements I_Command{
+public class BracketCmd extends mori.Lie.Lie implements I_Command{
 	
 	private static mori.Lie.NodeTools.Factory mFactory = new mori.Lie.NodeTools.Factory();
 	
@@ -38,11 +39,13 @@ public class BracketParser extends mori.Lie.Lie implements I_Command{
 		Node rightNode = mBracketExpander.mExe(leftNode);
 		
 		Node equ = mFactory.mExe(leftNode, rightNode, EQU_NODE);
+
+		int equId = mEquations.add(equ);
+		
+		out.printf("%d ", equId);
 		
 		mPrinter.mExeln(equ);
-		
-		mEquations.add(equ);
-		
+				
 		return true;
 	}
 }
