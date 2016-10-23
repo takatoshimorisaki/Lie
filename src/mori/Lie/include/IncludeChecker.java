@@ -1,15 +1,15 @@
-package mori.Lie.NodeTools;
+package mori.Lie.include;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 
 public class IncludeChecker {
 
-	private IncludeCheckerMonoMono mMonoMono = new IncludeCheckerMonoMono();
+	private static IncludeCheckerMonoMono mMonoMono = new IncludeCheckerMonoMono();
 	
-	private IncludeCheckerMultiMono mMultiMono = new IncludeCheckerMultiMono();
+	private static IncludeCheckerMultiMono mMultiMono = new IncludeCheckerMultiMono();
 	
-	private IncludeCheckerMultiMulti mMultiMulti = new IncludeCheckerMultiMulti();
+	private static IncludeCheckerMultiMulti mMultiMulti = new IncludeCheckerMultiMulti();
 	
 	public int mExe(
 			Node aLargerNode,
@@ -41,7 +41,21 @@ public class IncludeChecker {
 			}else{
 				throw new Exception("not implemented.");
 			}
-		
+		}else
+		if(aLargerNode.mNodeType == POLY_NODE){
+
+			if(aSmallerNode.mNodeType == MONO_NODE){
+
+
+			}else
+			if(aSmallerNode.mNodeType == MULTI_NODE){
+
+			}else
+			if(aSmallerNode.mNodeType == POLY_NODE){
+				
+			}else{
+				throw new Exception("not implemented.");
+			}
 		}else{
 			throw new Exception("not implemented.");
 		}

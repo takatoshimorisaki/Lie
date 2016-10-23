@@ -2,9 +2,9 @@ package mori.Lie.expander;
 
 import mori.Lie.Node;
 import mori.Lie.NodeTools.Factory;
-import mori.Lie.NodeTools.IncludeChecker;
 import mori.Lie.NodeTools.EqualNomialChecker;
 import mori.Lie.NodeTools.Remover;
+import mori.Lie.include.IncludeChecker;
 import mori.Lie.NodeTools.Multiplier;
 
 public class ExpanderMultiMulti {
