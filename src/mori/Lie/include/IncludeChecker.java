@@ -11,6 +11,8 @@ public class IncludeChecker {
 	
 	private static IncludeCheckerMultiMulti mMultiMulti = new IncludeCheckerMultiMulti();
 	
+	private static IncludeCheckerPoly mPoly = new IncludeCheckerPoly();
+	
 	public int mExe(
 			Node aLargerNode,
 			Node aSmallerNode
@@ -44,14 +46,15 @@ public class IncludeChecker {
 		}else
 		if(aLargerNode.mNodeType == POLY_NODE){
 
-			if(aSmallerNode.mNodeType == MONO_NODE){
+			if(aSmallerNode.mNodeType == MONO_NODE
+			|| aSmallerNode.mNodeType == MULTI_NODE){
 
-
-			}else
-			if(aSmallerNode.mNodeType == MULTI_NODE){
-
+				ans = mPoly.mExe(aLargerNode, aSmallerNode, this);
+				
 			}else
 			if(aSmallerNode.mNodeType == POLY_NODE){
+				
+				throw new Exception("not implemented.");
 				
 			}else{
 				throw new Exception("not implemented.");
