@@ -50,12 +50,26 @@ public class ExpanderMultiMono {
 					node.mPower = newNode.mPower;
 
 				}else
-				if(newNode.mNodeType == MULTI_NODE){
+				if(newNode.mNodeType == MULTI_NODE
+				|| newNode.mNodeType == POLY_NODE){
+
+					aDestNode.mSubNodes.remove(id);
 					
-					throw new Exception("not implemented.");
-				}else
-				if(newNode.mNodeType == POLY_NODE){
-					throw new Exception("not implemented.");
+					if(aDestNode.mSubNodes.size() > 1){
+						
+						Node[] splitNode = mNodeSplitter.mExe(id, aDestNode);
+						
+						mMultiplier.mExe(aDestNode, splitNode[0], newNode);
+						
+						if(splitNode.length > 1){
+	
+							mMultiplier.mExe(aDestNode, newNode, splitNode[1]);
+						}
+					}else{
+						
+						mMultiplier.mExe(aDestNode, aDestNode.mGetSubNode(0), newNode);
+					}
+				
 				}else{
 					throw new Exception("not implemented.");
 				}
