@@ -1,14 +1,13 @@
 package mori.Lie.NodeTools;
 
 import static java.lang.System.out;
+import static mori.Lie.NodeTools.Holder.mFactory;
 import static mori.Lie.Node.*;
 
 import mori.Lie.Node;
 
 public class Together extends mori.Lie.Lie{
 
-	private static Factory mFactory = new Factory();
-	
 	public boolean mExe(
 			Node aDestNode,
 			Node arg)throws Exception{

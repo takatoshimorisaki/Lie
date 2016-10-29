@@ -1,12 +1,11 @@
 package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mMultiplier;
 import mori.Lie.Node;
 
 public class NodeSplitter {
 
-	private static Multiplier mMultiplier = new Multiplier();
-	
 	public Node[] mExe(
 			int splitPos, 
 			Node arg

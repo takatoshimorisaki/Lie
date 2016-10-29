@@ -1,9 +1,11 @@
 package mori.Lie.NodeTools;
 
-import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 
+/*
+ * @brief Token‚ÉŠÜ‚Ü‚ê‚Ä‚é•¶š—ñ‚ğ—p‚¢‚Ä‚¢‚é‚©AŒŸ¸‚·‚éB
+ */
 public class TokenChecker{
 
 	public boolean mExe(Node arg)throws Exception{

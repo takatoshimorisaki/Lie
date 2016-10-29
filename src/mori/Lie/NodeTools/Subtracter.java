@@ -1,17 +1,13 @@
 package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
-
+import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.NodeTools.Holder.mBracketExpander;
+import static mori.Lie.NodeTools.Holder.mSignReverser;
 import mori.Lie.Node;
 
 public class Subtracter{
 
-	private Factory mFactory = new Factory();
-	
-	private BracketExpander mBracketExpander = new BracketExpander();
-		
-	private SignReverser mSignReverser = new SignReverser();
-	
 	public Node mExe(
 		Node aOneNode,
 		Node aAnoNode

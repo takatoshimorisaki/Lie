@@ -1,16 +1,13 @@
 package mori.Lie.expander;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.NodeTools.Holder.mMultiplier;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Factory;
-import mori.Lie.NodeTools.Multiplier;
 
 public class ExpanderMono {
 
-	private static Factory mFactory = new Factory();
-	
-	private static Multiplier mMultiplier = new Multiplier();
-	
 	public boolean mExe(
 		Node aDestNode,
 		Node arg,
@@ -56,8 +53,10 @@ public class ExpanderMono {
 				
 				aDestNode.mNodeType = NUMBER_NODE;
 			}
-			
-			aDestNode = mMultiplier.mExe(aDestNode, rightNode);
+
+			Node multiplyedNode = mMultiplier.mExe(aDestNode, rightNode);
+
+			mFactory.mCopy(aDestNode, multiplyedNode);
 		}
 		
 		return expanded;

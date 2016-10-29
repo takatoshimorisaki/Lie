@@ -59,7 +59,7 @@ public class Printer{
 		}else
 		if(aNode.mNodeType == NUMBER_NODE){
 			
-			ans = String.format("%s", mAdjust(aNode.mCoef));
+			ans = String.format("%s", aNode.mCoef);
 		}else
 		if(aNode.mNodeType == MONOMIAL_NODE){
 			

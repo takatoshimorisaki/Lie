@@ -3,6 +3,9 @@ package mori.Lie.NodeTools;
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 
+/*
+ * @brief Token‚ÉŠÜ‚Ü‚ê‚Ä‚é•¶š—ñ‚ğ—p‚¢‚Ä‚¢‚é‚©AŒŸ¸‚·‚éB
+ */
 public class NodeChecker {
 
 	public boolean mExe(Node arg) throws Exception{

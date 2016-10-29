@@ -1,14 +1,11 @@
 package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
-
+import static mori.Lie.NodeTools.Holder.mMultiplier;
+import static mori.Lie.NodeTools.Holder.mSignReverser;
 import mori.Lie.Node;
 
 public class BracketExpander {
-
-	private Multiplier mMultiplier = new Multiplier();
-	
-	private SignReverser mSignReverser = new SignReverser();
 	
 	public Node mExe(Node arg)throws Exception{
 		

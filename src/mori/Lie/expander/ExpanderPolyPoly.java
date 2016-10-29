@@ -1,17 +1,11 @@
 package mori.Lie.expander;
 
-import mori.Lie.adder.Adder;
-import mori.Lie.include.IncludeChecker;
+import static mori.Lie.adder.Holder.mAdder;
+import static mori.Lie.include.Holder.mIncludeChecker;
+import static mori.Lie.NodeTools.Holder.mSubtracter;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Subtracter;
 
 public class ExpanderPolyPoly {
-	
-	private static Adder mAdder = new Adder();
-	
-	private static IncludeChecker mIncludeChecker = new IncludeChecker();
-	
-	private static Subtracter mSubtracter = new Subtracter();
 	
 	public boolean mExe(
 		Node aDestNode,

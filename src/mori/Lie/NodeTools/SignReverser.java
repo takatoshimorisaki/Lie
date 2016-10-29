@@ -1,13 +1,12 @@
 package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mFactory;
 
 import mori.Lie.Node;
 
 public class SignReverser {
 
-	private Factory mFactory = new Factory();
-	
 	public void mExe(
 			Node arg
 		)throws Exception{

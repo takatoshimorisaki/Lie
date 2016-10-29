@@ -2,11 +2,10 @@ package mori.Lie.NodeTools;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mFactory;
 import mori.Lie.Node;
 
 public class Multiplier{
-	
-	private static Factory mFactory = new Factory();
 	
 	public Node mExe(
 		Node aOneNode,
@@ -111,10 +110,6 @@ public class Multiplier{
 				
 				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
 								
-				if(aAnoNode.mSubNodes.size() == 0){
-					throw new Exception(aAnoNode.toString());
-				}
-				
 				for(int cnt = 0; cnt < aAnoNode.mSubNodes.size(); cnt++){
 					
 					Node node = (Node)aAnoNode.mGetSubNode(cnt);

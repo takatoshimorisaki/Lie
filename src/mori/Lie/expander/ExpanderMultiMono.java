@@ -1,19 +1,14 @@
 package mori.Lie.expander;
 
+import static java.lang.System.out;
+import static mori.Lie.expander.Holder.mExpanderMono;
+import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.NodeTools.Holder.mMultiplier;
+import static mori.Lie.NodeTools.Holder.mNodeSplitter;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Factory;
-import mori.Lie.NodeTools.Multiplier;
-import mori.Lie.NodeTools.NodeSplitter;
 
 public class ExpanderMultiMono {
-
-	private static Factory mFactory = new Factory();
-	
-	private static Multiplier mMultiplier = new Multiplier();
-	
-	private static ExpanderMono mExpanderMono = new ExpanderMono();
-	
-	private static NodeSplitter mNodeSplitter = new NodeSplitter();
 	
 	public boolean mExe(
 		Node aDestNode,
@@ -25,30 +20,52 @@ public class ExpanderMultiMono {
 
 		mFactory.mCopy(aDestNode, arg);
 		
-		int  replacedId = -1;
 		Node newNode    = null;
-		
-		do{
-			for(int id = 0; id < aDestNode.mSubNodes.size(); id++){
-				
-				Node node = aDestNode.mGetSubNode(id);
-				
-				newNode = new Node();
-				
-				boolean rtn = mExpanderMono.mExe(newNode, node, leftNode, rightNode);
-				
-				if(rtn = true){
 	
-					replacedId = id;
-					
-					expanded = true;
-					
-					break;
-				}
-			}// for id
+		for(int id = 0; id < aDestNode.mSubNodes.size(); id++){
+			
+			Node node = aDestNode.mGetSubNode(id);
+			
+			newNode = new Node();
+			
+			boolean rtn = mExpanderMono.mExe(newNode, node, leftNode, rightNode);
+			
+			if(rtn = true){
 
-		}while(replacedId >= 0);
-		
+				if(newNode.mNodeType == NUMBER_NODE){
+					
+					aDestNode.mCoef *= newNode.mCoef;
+					
+					aDestNode.mSubNodes.remove(id);
+					
+				}else
+				if(newNode.mNodeType == MONO_NODE){
+				
+					aDestNode.mCoef *= newNode.mCoef;
+					
+					node.mCoef = 1.0;
+					
+					node.mToken = new String(newNode.mToken);
+					
+					node.mPower = newNode.mPower;
+
+				}else
+				if(newNode.mNodeType == MULTI_NODE){
+					
+					throw new Exception("not implemented.");
+				}else
+				if(newNode.mNodeType == POLY_NODE){
+					throw new Exception("not implemented.");
+				}else{
+					throw new Exception("not implemented.");
+				}
+								
+				expanded = true;
+				
+				break;
+			}// if rtn
+		}// for id
+
 		return expanded;
 	}
 }

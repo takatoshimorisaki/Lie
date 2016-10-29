@@ -1,14 +1,12 @@
 package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.NodeTools.Holder.mMultiplier;
 import mori.Lie.Node;
 
 public class Power {
 
-	private static Multiplier mMultiplier = new Multiplier();
-
-	private static Factory mFactory = new Factory();
-	
 	public Node mExe(Node arg, int aPower)throws Exception{
 		Node ans = null;
 		

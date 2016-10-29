@@ -1,11 +1,10 @@
 package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeTools.Holder.mFactory;
 import mori.Lie.Node;
 
 public class Remover {
-
-	private static Factory mFactory = new Factory();
 
 	public Node[] mExe(
 			Node aDestNode,

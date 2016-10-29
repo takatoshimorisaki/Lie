@@ -142,6 +142,8 @@ public class Equations{
 					
 					destNode = new Node();
 					
+					out.printf("Equations expanded %b\n", expanded);
+					
 					break;
 				}
 			}// for ect

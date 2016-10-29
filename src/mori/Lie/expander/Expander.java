@@ -1,20 +1,16 @@
 package mori.Lie.expander;
 
+import static java.lang.System.out;
+import static mori.Lie.expander.Holder.mExpanderMono;
+import static mori.Lie.expander.Holder.mExpanderMultiMono;
+import static mori.Lie.expander.Holder.mExpanderMultiMulti;
+import static mori.Lie.expander.Holder.mExpanderPolyMono;
+import static mori.Lie.expander.Holder.mExpanderPolyPoly;
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 
 public class Expander{
 
-	private static ExpanderMono mExpanderMono = new ExpanderMono();
-	
-	private static ExpanderMultiMono mExpanderMultiMono = new ExpanderMultiMono();
-	
-	private static ExpanderMultiMulti mExpanderMultiMulti = new ExpanderMultiMulti();
-	
-	private static ExpanderPolyMono mExpanderPolyMono = new ExpanderPolyMono();
-	
-	private static ExpanderPolyPoly mExpanderPolyPoly = new ExpanderPolyPoly();
-	
 	public boolean mExe(
 		Node aDestNode,
 		Node arg,
@@ -38,6 +34,11 @@ public class Expander{
 		Node rightNode
 	)throws Exception{
 		boolean expanded = false;
+		
+		out.printf("Expander arg %s leftNode %s rightNode %s\n",
+				arg.toString(),
+				leftNode.toString(),
+				rightNode.toString());
 		
 		if(arg.mNodeType == NULL_NODE
 		|| arg.mNodeType == NUMBER_NODE){

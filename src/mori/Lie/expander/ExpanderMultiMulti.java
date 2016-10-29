@@ -1,20 +1,12 @@
 package mori.Lie.expander;
 
+import static mori.Lie.include.Holder.mIncludeChecker;
+import static mori.Lie.NodeTools.Holder.mMultiplier;
+import static mori.Lie.NodeTools.Holder.mRemover;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Factory;
-import mori.Lie.NodeTools.EqualNomialChecker;
-import mori.Lie.NodeTools.Remover;
-import mori.Lie.include.IncludeChecker;
-import mori.Lie.NodeTools.Multiplier;
 
 public class ExpanderMultiMulti {
 
-	private Multiplier mMultiplier = new Multiplier();
-	
-	private IncludeChecker mIncludeChecker = new IncludeChecker();
-	
-	private Remover mRemover = new Remover();
-	
 	public boolean mExe(
 		Node aDestNode,
 		Node arg,
