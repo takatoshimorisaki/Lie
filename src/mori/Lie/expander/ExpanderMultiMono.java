@@ -18,6 +18,11 @@ public class ExpanderMultiMono {
 	)throws Exception{
 		boolean expanded = false;
 
+		out.printf("ExpanderMultiMono arg %s leftNode %s rightNode %s\n",
+				arg.toString(),
+				leftNode.toString(),
+				rightNode.toString());
+		
 		mFactory.mCopy(aDestNode, arg);
 		
 		Node newNode    = null;
@@ -80,6 +85,13 @@ public class ExpanderMultiMono {
 			}// if rtn
 		}// for id
 
+		out.printf("ExpanderMultiMono2 expanded %b aDestNode %s arg %s leftNode %s rightNode %s\n",
+				expanded,
+				aDestNode.toString(),
+				arg.toString(),
+				leftNode.toString(),
+				rightNode.toString());
+		
 		return expanded;
 	}
 }

@@ -16,6 +16,11 @@ public class ExpanderMono {
 	)throws Exception{
 		boolean expanded = false;
 
+		out.printf("ExpanderMono arg %s leftNode %s rightNode %s\n",
+				arg.toString(),
+				leftNode.toString(),
+				rightNode.toString());
+		
 		mFactory.mCopy(aDestNode, arg);
 		
 		if(aDestNode.mToken.equals(leftNode.mToken)){
@@ -58,6 +63,13 @@ public class ExpanderMono {
 
 			mFactory.mCopy(aDestNode, multiplyedNode);
 		}
+
+		out.printf("ExpanderMono2 expanded %b aDestNode %s arg %s leftNode %s rightNode %s\n",
+				expanded,
+				aDestNode.toString(),
+				arg.toString(),
+				leftNode.toString(),
+				rightNode.toString());
 		
 		return expanded;
 	}

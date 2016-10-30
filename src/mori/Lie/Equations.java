@@ -128,26 +128,22 @@ public class Equations{
 
 		boolean expanded = true;
 		Node    destNode = new Node();
-		
-		while(expanded){
+	
+		for(int ect = 0; ect < mValues.size(); ect++){
 			
-			for(int ect = 0; ect < mValues.size(); ect++){
+			Node replaceNode = (Node)mValues.elementAt(ect);
+			
+			expanded = mExpander.mExe(destNode, rightNode, replaceNode);
+	
+			if(expanded){
 				
-				Node replaceNode = (Node)mValues.elementAt(ect);
+				equ.mSet(1, destNode);
 				
-				expanded = mExpander.mExe(destNode, rightNode, replaceNode);
-		
-				if(expanded){
-					rightNode = destNode;
-					
-					destNode = new Node();
-					
-					out.printf("Equations expanded %b\n", expanded);
-					
-					break;
-				}
-			}// for ect
-		}// while expanded
+				out.printf("Equations expanded %b\n", expanded);
+				
+				break;
+			}
+		}// for ect
 		
 		mPrinter.mExe(equ);
 	}
