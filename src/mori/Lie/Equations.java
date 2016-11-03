@@ -121,31 +121,33 @@ public class Equations{
 		add(mFactory.mExe(equ));
 		
 		int size = mValues.size();
-		
-		equ = mGet(size - 1);
-		
-		Node rightNode = mFactory.mExe(equ.mGetSubNode(1));
 
 		boolean expanded = true;
 		Node    destNode = new Node();
-	
-		for(int ect = 0; ect < mValues.size(); ect++){
-			
-			Node replaceNode = (Node)mValues.elementAt(ect);
-			
-			expanded = mExpander.mExe(destNode, rightNode, replaceNode);
-	
-			if(expanded){
-				
-				equ.mSet(1, destNode);
-				
-				out.printf("Equations expanded %b\n", expanded);
-				
-				break;
-			}
-		}// for ect
 		
-		mPrinter.mExe(equ);
+		while(expanded){
+			equ = mGet(size - 1);
+			
+			Node rightNode = mFactory.mExe(equ.mGetSubNode(1));
+		
+			for(int ect = 0; ect < mValues.size(); ect++){
+				
+				Node replaceNode = (Node)mValues.elementAt(ect);
+				
+				expanded = mExpander.mExe(destNode, rightNode, replaceNode);
+		
+				if(expanded){
+					
+					equ.mSet(1, destNode);
+					
+					out.printf("Equations expanded %b\n", expanded);
+					
+					break;
+				}
+			}// for ect
+			
+			mPrinter.mExeln(equ);
+		}
 	}
 
 	public void mRemove(int id){

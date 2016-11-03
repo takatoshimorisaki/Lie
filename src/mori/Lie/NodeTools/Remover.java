@@ -2,6 +2,7 @@ package mori.Lie.NodeTools;
 
 import static mori.Lie.Node.*;
 import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.node.translator.Holder.mNodeTranslator;
 import mori.Lie.Node;
 
 public class Remover {
@@ -14,16 +15,13 @@ public class Remover {
 	)throws Exception{
 		Node[] splitedNode = new Node[2];
 		
-		splitedNode[0] = new Node();
-		splitedNode[1] = new Node();
-		
 		aDestNode.mInit();
 
-		aDestNode.mCoef = aLargerNode.mCoef / aSmallerNode.mCoef;
-		
-		if(aDestNode.mNodeType == MULTI_NODE
+		if(aLargerNode.mNodeType == MULTI_NODE
 		&& aSmallerNode.mNodeType == MULTI_NODE){
-			
+
+			aDestNode.mCoef = aLargerNode.mCoef / aSmallerNode.mCoef;
+						
 			for(int id = 0; id < aLargerNode.mSubNodes.size(); id++){
 				
 				if(id == aPos){
@@ -40,6 +38,10 @@ public class Remover {
 						
 						aDestNode.add(destSubNode);
 
+						if(splitedNode[0] == null){
+							splitedNode[0] = new Node();
+						}
+						
 						splitedNode[0].add(destSubNode);
 					}
 				}else
@@ -48,16 +50,34 @@ public class Remover {
 					
 					Node destSubNode = mFactory.mExe(aLargerNode.mGetSubNode(id));
 
+					if(splitedNode[1] == null){
+						splitedNode[1] = new Node();
+					}
+					
 					splitedNode[1].add(destSubNode);
 					
 				}else{
 					Node destSubNode = mFactory.mExe(aLargerNode.mGetSubNode(id));
 					
 					aDestNode.add(destSubNode);
+
+					if(splitedNode[1] == null){
+						splitedNode[1] = new Node();
+					}
 					
 					splitedNode[0].add(destSubNode);
 				}
 			}// for id
+
+			mNodeTranslator.mExe(aDestNode, aDestNode);
+			
+			for(int id = 0; id < splitedNode.length; id++){
+				
+				if(splitedNode[id] != null){
+				
+					mNodeTranslator.mExe(splitedNode[id], splitedNode[id]);
+				}
+			}
 
 		}else{
 			throw new Exception();
