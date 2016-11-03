@@ -3,9 +3,10 @@ package mori.Lie.NodeTools;
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.NodeTools.Holder.mFactory;
+import mori.Lie.I_Operator;
 import mori.Lie.Node;
 
-public class Multiplier{
+public class Multiplier implements I_Operator{
 	
 	public Node mExe(
 		Node aOneNode,

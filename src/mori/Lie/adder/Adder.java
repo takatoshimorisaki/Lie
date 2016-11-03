@@ -1,10 +1,11 @@
 package mori.Lie.adder;
 
 import static mori.Lie.Node.*;
+import mori.Lie.I_Operator;
 import mori.Lie.Node;
 import mori.Lie.NodeTools.Factory;
 
-public class Adder {
+public class Adder implements I_Operator{
 
 	private static Factory mFactory = new Factory();
 	
