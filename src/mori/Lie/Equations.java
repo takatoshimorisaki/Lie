@@ -9,11 +9,11 @@ public class Equations{
 	
 	public java.util.Vector mValues = new java.util.Vector<Node>();
 	
-	private static mori.Lie.NodeTools.Factory mFactory = new mori.Lie.NodeTools.Factory();
+	private static mori.Lie.node.tools.Factory mFactory = new mori.Lie.node.tools.Factory();
 	
-	private static mori.Lie.NodeTools.Printer mPrinter = new mori.Lie.NodeTools.Printer();
+	private static mori.Lie.node.tools.Printer mPrinter = new mori.Lie.node.tools.Printer();
 	
-	private static mori.Lie.NodeTools.Together mTogether = new mori.Lie.NodeTools.Together();
+	private static mori.Lie.node.tools.Together mTogether = new mori.Lie.node.tools.Together();
 
 	private static Expander mExpander = new Expander();
 	

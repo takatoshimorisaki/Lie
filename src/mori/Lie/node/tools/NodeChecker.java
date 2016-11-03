@@ -1,4 +1,4 @@
-package mori.Lie.NodeTools;
+package mori.Lie.node.tools;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;

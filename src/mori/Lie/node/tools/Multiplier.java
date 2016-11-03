@@ -1,8 +1,9 @@
-package mori.Lie.NodeTools;
+package mori.Lie.node.tools;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
-import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.node.tools.Holder.mFactory;
+
 import mori.Lie.I_Operator;
 import mori.Lie.Node;
 

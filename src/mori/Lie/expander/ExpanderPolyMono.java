@@ -2,8 +2,9 @@ package mori.Lie.expander;
 
 import static java.lang.System.out;
 import static mori.Lie.adder.Holder.mAdder;
-import static mori.Lie.NodeTools.Holder.mFactory;
-import static mori.Lie.NodeTools.Holder.mNodeSplitter;
+import static mori.Lie.node.tools.Holder.mFactory;
+import static mori.Lie.node.tools.Holder.mNodeSplitter;
+
 import mori.Lie.Node;
 
 public class ExpanderPolyMono {

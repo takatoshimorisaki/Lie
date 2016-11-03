@@ -2,7 +2,8 @@ package mori.Lie.expander;
 
 import static mori.Lie.adder.Holder.mAdder;
 import static mori.Lie.include.Holder.mIncludeChecker;
-import static mori.Lie.NodeTools.Holder.mSubtracter;
+import static mori.Lie.node.tools.Holder.mSubtracter;
+
 import mori.Lie.Node;
 
 public class ExpanderPolyPoly {

@@ -1,14 +1,14 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 import mori.Lie.Lie;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Printer;
+import mori.Lie.node.tools.Printer;
 
 public class MultiplyCmd extends Lie implements I_Command {
 
-	private static mori.Lie.NodeTools.Multiplier mMultiplier = new mori.Lie.NodeTools.Multiplier();
+	private static mori.Lie.node.tools.Multiplier mMultiplier = new mori.Lie.node.tools.Multiplier();
 
-	private static mori.Lie.NodeTools.Together mTogether = new mori.Lie.NodeTools.Together(); 
+	private static mori.Lie.node.tools.Together mTogether = new mori.Lie.node.tools.Together(); 
 			
 	private static Printer mPrinter = new Printer();
 	

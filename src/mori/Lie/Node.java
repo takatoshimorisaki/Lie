@@ -1,12 +1,13 @@
 package mori.Lie;
 
 import static java.lang.System.out;
-import mori.Lie.NodeTools.EqualChecker;
-import mori.Lie.NodeTools.EqualNomialChecker;
-import mori.Lie.NodeTools.Printer;
-import mori.Lie.NodeTools.TokenChecker;
+
 import mori.Lie.expander.Expander;
-import mori.Lie.NodeTools.NodeChecker;
+import mori.Lie.node.tools.EqualChecker;
+import mori.Lie.node.tools.EqualNomialChecker;
+import mori.Lie.node.tools.NodeChecker;
+import mori.Lie.node.tools.Printer;
+import mori.Lie.node.tools.TokenChecker;
 
 public class Node extends mori.Lie.Lie{
 	

@@ -1,4 +1,4 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 import mori.Lie.*;
 

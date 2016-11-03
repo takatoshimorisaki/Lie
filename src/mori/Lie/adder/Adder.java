@@ -3,7 +3,7 @@ package mori.Lie.adder;
 import static mori.Lie.Node.*;
 import mori.Lie.I_Operator;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Factory;
+import mori.Lie.node.tools.Factory;
 
 public class Adder implements I_Operator{
 

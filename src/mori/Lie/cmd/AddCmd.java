@@ -1,9 +1,9 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 import mori.Lie.Lie;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Printer;
 import mori.Lie.adder.Adder;
+import mori.Lie.node.tools.Printer;
 
 public class AddCmd extends Lie implements I_Command {
 	

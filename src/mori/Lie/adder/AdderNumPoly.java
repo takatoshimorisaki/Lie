@@ -2,7 +2,7 @@ package mori.Lie.adder;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.Factory;
+import mori.Lie.node.tools.Factory;
 
 public class AdderNumPoly {
 

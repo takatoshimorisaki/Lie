@@ -10,19 +10,19 @@ public class Parser extends mori.Lie.Lie {
 	
 	private static String mCharSet = "UTF-8"; // "US-ASCII"; // "UTF-8";
 	
-	private static mori.Lie.Command.I_Command mBracketCmd = new mori.Lie.Command.BracketCmd();
+	private static mori.Lie.cmd.I_Command mBracketCmd = new mori.Lie.cmd.BracketCmd();
 
-	private static mori.Lie.Command.I_Command mExpandCmd = new mori.Lie.Command.ExpandCmd();
+	private static mori.Lie.cmd.I_Command mExpandCmd = new mori.Lie.cmd.ExpandCmd();
 	
-	private static mori.Lie.Command.I_Command mEquationCheckCmd = new mori.Lie.Command.EquationCheckCmd();
+	private static mori.Lie.cmd.I_Command mEquationCheckCmd = new mori.Lie.cmd.EquationCheckCmd();
 	
-	private static mori.Lie.Command.I_Command mMultiplyCmd = new mori.Lie.Command.MultiplyCmd();
+	private static mori.Lie.cmd.I_Command mMultiplyCmd = new mori.Lie.cmd.MultiplyCmd();
 	
-	private static mori.Lie.Command.I_Command mDelCmd = new mori.Lie.Command.DelCmd();
+	private static mori.Lie.cmd.I_Command mDelCmd = new mori.Lie.cmd.DelCmd();
 	
-	private static mori.Lie.Command.I_Command mDetailCmd = new mori.Lie.Command.DetailCmd();
+	private static mori.Lie.cmd.I_Command mDetailCmd = new mori.Lie.cmd.DetailCmd();
 	
-	private static mori.Lie.Command.I_Command mAddCmd = new mori.Lie.Command.AddCmd();
+	private static mori.Lie.cmd.I_Command mAddCmd = new mori.Lie.cmd.AddCmd();
 	
 	public Parser(){
 		

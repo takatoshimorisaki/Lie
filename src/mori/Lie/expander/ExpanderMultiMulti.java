@@ -1,8 +1,9 @@
 package mori.Lie.expander;
 
 import static mori.Lie.include.Holder.mIncludeChecker;
-import static mori.Lie.NodeTools.Holder.mMultiplier;
-import static mori.Lie.NodeTools.Holder.mRemover;
+import static mori.Lie.node.tools.Holder.mMultiplier;
+import static mori.Lie.node.tools.Holder.mRemover;
+
 import mori.Lie.Node;
 
 public class ExpanderMultiMulti {

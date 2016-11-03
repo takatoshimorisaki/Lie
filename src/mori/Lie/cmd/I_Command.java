@@ -1,4 +1,4 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 public interface I_Command{
 	

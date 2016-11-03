@@ -2,10 +2,11 @@ package mori.Lie.expander;
 
 import static java.lang.System.out;
 import static mori.Lie.expander.Holder.mExpanderMono;
+import static mori.Lie.node.tools.Holder.mFactory;
+import static mori.Lie.node.tools.Holder.mMultiplier;
+import static mori.Lie.node.tools.Holder.mNodeSplitter;
 import static mori.Lie.Node.*;
-import static mori.Lie.NodeTools.Holder.mFactory;
-import static mori.Lie.NodeTools.Holder.mMultiplier;
-import static mori.Lie.NodeTools.Holder.mNodeSplitter;
+
 import mori.Lie.Node;
 
 public class ExpanderMultiMono {

@@ -1,8 +1,9 @@
-package mori.Lie.NodeTools;
+package mori.Lie.node.tools;
 
 import static mori.Lie.Node.*;
-import static mori.Lie.NodeTools.Holder.mMultiplier;
-import static mori.Lie.NodeTools.Holder.mSignReverser;
+import static mori.Lie.node.tools.Holder.mMultiplier;
+import static mori.Lie.node.tools.Holder.mSignReverser;
+
 import mori.Lie.Node;
 
 public class BracketExpander {

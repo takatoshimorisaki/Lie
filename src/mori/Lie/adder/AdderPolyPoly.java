@@ -2,9 +2,9 @@ package mori.Lie.adder;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.EqualChecker;
-import mori.Lie.NodeTools.EqualNomialChecker;
-import mori.Lie.NodeTools.Factory;
+import mori.Lie.node.tools.EqualChecker;
+import mori.Lie.node.tools.EqualNomialChecker;
+import mori.Lie.node.tools.Factory;
 
 public class AdderPolyPoly {
 

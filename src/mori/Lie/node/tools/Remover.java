@@ -1,7 +1,7 @@
-package mori.Lie.NodeTools;
+package mori.Lie.node.tools;
 
 import static mori.Lie.Node.*;
-import static mori.Lie.NodeTools.Holder.mFactory;
+import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.translator.Holder.mNodeTranslator;
 import mori.Lie.Node;
 

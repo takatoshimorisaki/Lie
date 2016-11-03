@@ -1,8 +1,8 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 import mori.Lie.Lie;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.DetailPrinter;
+import mori.Lie.node.tools.DetailPrinter;
 
 public class DetailCmd extends Lie implements I_Command  {
 

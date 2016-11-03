@@ -1,4 +1,4 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 public class EquationCheckCmd extends mori.Lie.Lie implements I_Command{
 

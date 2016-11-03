@@ -1,7 +1,7 @@
 package mori.Lie.include;
 
 import mori.Lie.Node;
-import mori.Lie.NodeTools.EqualNomialChecker;
+import mori.Lie.node.tools.EqualNomialChecker;
 
 public class IncludeCheckerMultiMulti {
 

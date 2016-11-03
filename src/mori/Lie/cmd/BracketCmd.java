@@ -1,15 +1,15 @@
-package mori.Lie.Command;
+package mori.Lie.cmd;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
-import mori.Lie.NodeTools.*;
+import mori.Lie.node.tools.*;
 
 public class BracketCmd extends mori.Lie.Lie implements I_Command{
 	
-	private static mori.Lie.NodeTools.Factory mFactory = new mori.Lie.NodeTools.Factory();
+	private static mori.Lie.node.tools.Factory mFactory = new mori.Lie.node.tools.Factory();
 	
-	private static mori.Lie.NodeTools.BracketExpander mBracketExpander = new mori.Lie.NodeTools.BracketExpander();
+	private static mori.Lie.node.tools.BracketExpander mBracketExpander = new mori.Lie.node.tools.BracketExpander();
 	
 	private static Printer mPrinter = new Printer();
 	
