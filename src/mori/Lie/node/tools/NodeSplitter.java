@@ -1,5 +1,6 @@
 package mori.Lie.node.tools;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.adder.Holder.mAdder;
 import static mori.Lie.node.tools.Holder.mMultiplier;
@@ -20,9 +21,7 @@ public class NodeSplitter {
 		if(splitPos < 0
 		|| splitPos > arg.mSubNodes.size() - 1){
 			
-			String errMsg = String.format("splitPos %d", splitPos);
-			
-			throw new Exception(errMsg);
+			throw new Exception();
 		}else
 		if(arg.mSubNodes.size() == 1){
 			throw new Exception();
@@ -45,6 +44,8 @@ public class NodeSplitter {
 			
 			ans[0] = arg.mGetSubNode(0);
 			
+			ans[0] = mMultiplier.mExe(ans[0], arg.mCoef);
+			
 			for(int id = 1; id < splitPos; id++){
 				
 				Node node = arg.mGetSubNode(id);
@@ -56,6 +57,10 @@ public class NodeSplitter {
 		if(splitPos != (arg.mSubNodes.size()-1)){
 			
 			ans[1] = arg.mGetSubNode(splitPos + 1);
+			
+			if(ans[0] == null){
+				ans[1] = mMultiplier.mExe(ans[1], arg.mCoef);
+			}
 			
 			for(int id = (splitPos + 2); id < arg.mSubNodes.size(); id++){
 

@@ -21,10 +21,6 @@ public class ExpanderMono {
 		
 		if(aDestNode.mToken.equals(leftNode.mToken)){
 			
-			out.printf("ExpanderMono aDestNode %s leftNode %s\n",
-					aDestNode.toString(),
-					leftNode.toString());
-			
 			if(aDestNode.mPower > 0
 			&& leftNode.mPower > 0
 			&& aDestNode.mPower >= leftNode.mPower){
@@ -64,8 +60,6 @@ public class ExpanderMono {
 			mFactory.mCopy(aDestNode, multiplyedNode);
 		}
 
-		out.printf("ExpanderMono expanded %b\n", expanded);
-		
 		return expanded;
 	}
 }

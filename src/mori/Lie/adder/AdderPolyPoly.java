@@ -1,5 +1,6 @@
 package mori.Lie.adder;
 
+
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 import mori.Lie.node.tools.EqualChecker;
@@ -68,7 +69,7 @@ public class AdderPolyPoly {
 				}
 			}
 			
-			if(added = false){
+			if(added == false){
 				
 				aDestNode.add(anoSubNode);
 			}

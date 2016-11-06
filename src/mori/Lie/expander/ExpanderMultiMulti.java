@@ -27,7 +27,7 @@ public class ExpanderMultiMulti {
 			
 			if(startPos >= 0){
 
-				out.printf("startPos %d aDestNode %s leftNode %s\n", 
+				out.printf("ExpanderMultiMulti startPos %d aDestNode %s leftNode %s\n", 
 						startPos, 
 						aDestNode.toString(),
 						leftNode.toString());
@@ -46,10 +46,29 @@ public class ExpanderMultiMulti {
 			
 			Node[] splitedNode = mRemover.mExe(removedNode, aDestNode, leftNode, startPos);
 
-			mMultiplier.mExe(aDestNode, splitedNode[0], rightNode);
+			if(splitedNode[0] != null){
+				mMultiplier.mExe(aDestNode, splitedNode[0], rightNode);
+				
+				out.printf("ExpanderMultiMulti2 aDestNode %s splitedNode[0] %s rightNode %s\n",
+						aDestNode.toString(),
+						splitedNode[0].toString(),
+						rightNode.toString());
+			}else{
+				mFactory.mCopy(aDestNode, rightNode);
+				
+				out.printf("ExpanderMultiMulti3 aDestNode %s rightNode %s\n",
+						aDestNode.toString(),
+						rightNode.toString());
+			}
 			
-			mMultiplier.mExe(aDestNode, aDestNode, splitedNode[1]);
-					
+			if(splitedNode[1] != null){
+				mMultiplier.mExe(aDestNode, aDestNode, splitedNode[1]);
+				
+				out.printf("ExpanderMultiMulti4 aDestNode %s splitedNode[1] %s\n",
+						aDestNode.toString(),
+						splitedNode[1].toString());
+			}
+			
 			expanded = true;
 			
 			startPos++;

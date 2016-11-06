@@ -37,6 +37,15 @@ public class Multiplier implements I_Operator{
 		double aCoef
 	)throws Exception{
 		
+		if(aOneNode.mNodeType == NUMBER_NODE
+		|| aOneNode.mNodeType == MONO_NODE
+		|| aOneNode.mNodeType == MULTI_NODE){
+			
+			mFactory.mCopy(aDestNode, aOneNode);
+			
+			aDestNode.mCoef *= aCoef;
+			
+		}else
 		if(aOneNode.mNodeType == POLY_NODE){
 			
 			aDestNode.mNodeType = POLY_NODE;

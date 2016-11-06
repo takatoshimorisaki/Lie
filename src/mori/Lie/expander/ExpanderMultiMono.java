@@ -60,25 +60,46 @@ public class ExpanderMultiMono {
 				if(newNode.mNodeType == MULTI_NODE
 				|| newNode.mNodeType == POLY_NODE){
 
-					aDestNode.mSubNodes.remove(id);
-					
 					if(aDestNode.mSubNodes.size() > 1){
 						
 						Node[] splitNode = mNodeSplitter.mExe(id, aDestNode);
 						
-						mMultiplier.mExe(aDestNode, splitNode[0], newNode);
+						out.printf("ExpanderMultiMono2 id %d aDestNode %s\n",
+								id,
+								aDestNode.toString());
 						
-						if(splitNode.length > 1){
-	
-							mMultiplier.mExe(aDestNode, newNode, splitNode[1]);
-						}
-					}else{
-						
-						if(id == 0){
-							mMultiplier.mExe(aDestNode, newNode, aDestNode.mGetSubNode(0));
+						if(splitNode[0] != null){
+							
+							mMultiplier.mExe(aDestNode, splitNode[0], newNode);
+
+							out.printf("ExpanderMultiMono3 aDestNode %s aplitNode[0] %s newNode %s\n",
+									aDestNode.toString(),
+									splitNode[0].toString(),
+									newNode.toString());
+							
+							if(splitNode[1] != null){
+		
+								mMultiplier.mExe(aDestNode, aDestNode, splitNode[1]);
+								
+								out.printf("ExpanderMultiMono4 aDestNode %s aplitNode[1] %s\n",
+										aDestNode.toString(),
+										splitNode[1].toString());
+							}	
 						}else{
-							mMultiplier.mExe(aDestNode, aDestNode.mGetSubNode(0), newNode);
+							
+							mMultiplier.mExe(aDestNode, newNode, splitNode[1]);
+
+							out.printf("ExpanderMultiMono5 aDestNode %s newNode %s aplitNode[1] %s\n",
+									aDestNode.toString(),
+									newNode.toString(),
+									splitNode[1].toString());
 						}
+						
+					}else{
+						String errMsg = String.format("aDestNode %s", 
+								aDestNode.toString());
+						
+						throw new Exception();
 					}
 
 				}else{
