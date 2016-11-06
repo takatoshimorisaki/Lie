@@ -18,11 +18,6 @@ public class ExpanderMultiMono {
 		Node rightNode
 	)throws Exception{
 		boolean expanded = false;
-
-		out.printf("ExpanderMultiMono arg %s leftNode %s rightNode %s\n",
-				arg.toString(),
-				leftNode.toString(),
-				rightNode.toString());
 		
 		mFactory.mCopy(aDestNode, arg);
 		
@@ -36,8 +31,14 @@ public class ExpanderMultiMono {
 			
 			boolean rtn = mExpanderMono.mExe(newNode, node, leftNode, rightNode);
 			
-			if(rtn = true){
+			if(rtn == true){
 
+				out.printf("ExpanderMultiMono newNode %s node %s leftNode %s rightNode %s\n",
+						newNode.toString(),
+						node.toString(),
+						leftNode.toString(),
+						rightNode.toString());
+				
 				if(newNode.mNodeType == NUMBER_NODE){
 					
 					aDestNode.mCoef *= newNode.mCoef;
@@ -73,26 +74,23 @@ public class ExpanderMultiMono {
 						}
 					}else{
 						
-						mMultiplier.mExe(aDestNode, aDestNode.mGetSubNode(0), newNode);
+						if(id == 0){
+							mMultiplier.mExe(aDestNode, newNode, aDestNode.mGetSubNode(0));
+						}else{
+							mMultiplier.mExe(aDestNode, aDestNode.mGetSubNode(0), newNode);
+						}
 					}
-				
+
 				}else{
 					throw new Exception("not implemented.");
 				}
-								
+
 				expanded = true;
-				
+							
 				break;
 			}// if rtn
 		}// for id
 
-		out.printf("ExpanderMultiMono2 expanded %b aDestNode %s arg %s leftNode %s rightNode %s\n",
-				expanded,
-				aDestNode.toString(),
-				arg.toString(),
-				leftNode.toString(),
-				rightNode.toString());
-		
 		return expanded;
 	}
 }

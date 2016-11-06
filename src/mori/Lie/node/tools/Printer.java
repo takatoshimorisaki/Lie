@@ -159,7 +159,15 @@ public class Printer{
 		if(Math.abs(minus) < DOUBLE_THRESHOLD){
 			return "-1";
 		}else{
-			return String.format("%f", arg);
+			int intValue = (int)arg;
+			
+			if(Math.abs((double)intValue - arg) < DOUBLE_THRESHOLD){
+				
+				return String.format("%d", intValue);
+				
+			}else{
+				return String.format("%f", arg);
+			}
 		}
 		
 	}

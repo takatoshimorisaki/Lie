@@ -19,31 +19,18 @@ public class ExpanderMultiMulti {
 		boolean expanded = false;
 		int     startPos = -1;
 
-		out.printf("ExpanderMultiMulti arg %s leftNode %s rightNode %s\n",
-				arg.toString(),
-				leftNode.toString(),
-				rightNode.toString());
-		
 		mFactory.mCopy(aDestNode, arg);
 		
 		while(startPos < arg.mSubNodes.size()){
-			Node leftSubNode = leftNode.mGetSubNode(0);
-	
-			for(int d_id = (startPos + 1); d_id < aDestNode.mSubNodes.size(); d_id++){
-				
-				Node destSubNode = aDestNode.mGetSubNode(d_id);
-				
-				startPos = mIncludeChecker.mExe(destSubNode, leftSubNode);
-				
-				if(startPos >= 0){
 
-					out.printf("startPos %d destSubNode %s leftSubNode %s\n", 
-							startPos, 
-							destSubNode.toString(),
-							leftSubNode.toString());
-					
-					break;
-				}
+			startPos = mIncludeChecker.mExe(aDestNode, leftNode);
+			
+			if(startPos >= 0){
+
+				out.printf("startPos %d aDestNode %s leftNode %s\n", 
+						startPos, 
+						aDestNode.toString(),
+						leftNode.toString());
 			}
 			
 			if(startPos == -1){

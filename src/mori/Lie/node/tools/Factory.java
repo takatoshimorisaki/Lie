@@ -39,11 +39,6 @@ public class Factory extends mori.Lie.Node{
 				
 				aDestNode.add(mExe(node));
 			}
-			
-			out.printf("Factory mCopy aSrcNode.mSubNodes size %d\n", size);
-			
-		}else{
-			out.println("Factory mCopy aSrcNode.mSubNodes is null.");
 		}
 	}
 	
