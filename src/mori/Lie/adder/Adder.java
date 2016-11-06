@@ -1,5 +1,6 @@
 package mori.Lie.adder;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import mori.Lie.I_Operator;
 import mori.Lie.Node;
@@ -53,8 +54,6 @@ public class Adder implements I_Operator{
 			throw new Exception("aAnoNode");
 			
 		}
-
-		aDestNode.mInit();
 
 		if(aOneNode.mNodeType == NUMBER_NODE){
 			
@@ -154,6 +153,11 @@ public class Adder implements I_Operator{
 			}else
 			if(aAnoNode.mNodeType == MULTI_NODE){
 
+				out.printf("mAdderMultiPoly.mExe aDestNode %s aOneNode %s aAnoNode %s\n",
+						aDestNode.toString(),
+						aOneNode.toString(),
+						aAnoNode.toString());
+				
 				mAdderMultiPoly.mExe(aDestNode, aOneNode, aAnoNode);
 			}else
 			if(aAnoNode.mNodeType == POLY_NODE){

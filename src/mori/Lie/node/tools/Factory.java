@@ -10,6 +10,10 @@ public class Factory extends mori.Lie.Node{
 		Node aDestNode,
 		Node aSrcNode
 	){
+		if(aDestNode == aSrcNode){
+			return;
+		}
+		
 		aDestNode.mNodeType = aSrcNode.mNodeType;
 		
 		aDestNode.mCoef = aSrcNode.mCoef;
@@ -33,8 +37,13 @@ public class Factory extends mori.Lie.Node{
 				
 				Node node = aSrcNode.mGetSubNode(id);
 				
-				aDestNode.add(node);
+				aDestNode.add(mExe(node));
 			}
+			
+			out.printf("Factory mCopy aSrcNode.mSubNodes size %d\n", size);
+			
+		}else{
+			out.println("Factory mCopy aSrcNode.mSubNodes is null.");
 		}
 	}
 	
@@ -49,9 +58,9 @@ public class Factory extends mori.Lie.Node{
 		
 		node.mSubNodes = new java.util.Vector<Node>();
 		
-		node.mSubNodes.add(aOne);
+		node.mSubNodes.add(mExe(aOne));
 		
-		node.mSubNodes.add(aAno);
+		node.mSubNodes.add(mExe(aAno));
 		
 		return node;
 	}

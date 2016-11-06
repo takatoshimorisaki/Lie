@@ -1,5 +1,6 @@
 package mori.Lie.adder;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
 import mori.Lie.node.tools.EqualNomialChecker;
@@ -44,9 +45,9 @@ public class AdderMultiPoly {
 		Node aOneNode,
 		Node aAnoNode
 	)throws Exception{
-
+				
 		mFactory.mCopy(aDestNode, aAnoNode);
-		
+
 		int size = aDestNode.mSubNodes.size();
 		
 		boolean added = false;

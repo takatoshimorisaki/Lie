@@ -61,8 +61,8 @@ public class Remover {
 					
 					aDestNode.add(destSubNode);
 
-					if(splitedNode[1] == null){
-						splitedNode[1] = new Node();
+					if(splitedNode[0] == null){
+						splitedNode[0] = new Node();
 					}
 					
 					splitedNode[0].add(destSubNode);
