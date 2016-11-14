@@ -2,6 +2,7 @@ package mori.Lie.expander;
 
 import static java.lang.System.out;
 import static mori.Lie.include.Holder.mIncludeChecker;
+import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mRemover;
@@ -46,6 +47,8 @@ public class ExpanderMultiMulti {
 			
 			Node[] splitedNode = mRemover.mExe(removedNode, aDestNode, leftNode, startPos);
 
+			out.printf("ExpanderMultiMulti10 removedNode %s\n", removedNode.toString());
+			
 			if(splitedNode[0] != null){
 				mMultiplier.mExe(aDestNode, splitedNode[0], rightNode);
 				
@@ -62,7 +65,12 @@ public class ExpanderMultiMulti {
 			}
 			
 			if(splitedNode[1] != null){
-				mMultiplier.mExe(aDestNode, aDestNode, splitedNode[1]);
+				
+				Node node = new Node();
+				
+				mMultiplier.mExe(node, aDestNode, splitedNode[1]);
+				
+				mFactory.mCopy(aDestNode, node);
 				
 				out.printf("ExpanderMultiMulti4 aDestNode %s splitedNode[1] %s\n",
 						aDestNode.toString(),
@@ -77,5 +85,132 @@ public class ExpanderMultiMulti {
 		}
 		
 		return expanded;
+	}
+	
+	public static void main(String[] args){
+		try{
+			ExpanderMultiMulti emm = new ExpanderMultiMulti();
+			
+			Node destNode = new Node();
+			
+			Node arg = new Node();
+			
+			arg.mNodeType = MULTINOMIAL_NODE;
+			
+			arg.mCoef = -1.0;
+			
+			Node subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "Y";
+			
+			subNode.mPower = 1;
+			
+			arg.add(subNode);
+			
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "Pz";
+			
+			subNode.mPower = 1;
+			
+			arg.add(subNode);
+			
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "X";
+			
+			subNode.mPower = 1;
+			
+			arg.add(subNode);
+
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "Pz";
+			
+			subNode.mPower = 1;
+			
+			arg.add(subNode);
+			
+			Node leftNode = new Node();
+			
+			leftNode.mNodeType = MULTINOMIAL_NODE;
+			
+			leftNode.mCoef = 1.0;
+
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "Pz";
+			
+			subNode.mPower = 1;
+			
+			leftNode.add(subNode);
+
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "X";
+			
+			subNode.mPower = 1;
+			
+			leftNode.add(subNode);
+			
+			Node rightNode = new Node();
+			
+			rightNode.mNodeType = MULTINOMIAL_NODE;
+			
+			rightNode.mCoef = 1.0;
+
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "X";
+			
+			subNode.mPower = 1;
+			
+			rightNode.add(subNode);
+
+			subNode = new Node();
+			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mCoef = 1.0;
+			
+			subNode.mToken = "Pz";
+			
+			subNode.mPower = 1;
+			
+			rightNode.add(subNode);
+			
+			boolean rtn = emm.mExe(destNode, arg, leftNode, rightNode);
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
 	}
 }
