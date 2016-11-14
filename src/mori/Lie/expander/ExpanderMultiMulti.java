@@ -58,7 +58,7 @@ public class ExpanderMultiMulti {
 				Node node = new Node();
 				
 				mMultiplier.mExe(node, aDestNode, splitedNode[1]);
-				
+
 				mFactory.mCopy(aDestNode, node);
 			}
 			
@@ -86,11 +86,15 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
+			subNode.mToken = "Z";
+					
+			arg.add(subNode);
 			
-			subNode.mToken = "Y";
+			subNode = new Node();
 			
-			subNode.mPower = 1;
+			subNode.mNodeType = MONOMIAL_NODE;
+			
+			subNode.mToken = "Py";
 			
 			arg.add(subNode);
 			
@@ -98,23 +102,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "Pz";
-			
-			subNode.mPower = 1;
-			
-			arg.add(subNode);
-			
-			subNode = new Node();
-			
-			subNode.mNodeType = MONOMIAL_NODE;
-			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "X";
-			
-			subNode.mPower = 1;
+			subNode.mToken = "Z";
 			
 			arg.add(subNode);
 
@@ -122,11 +110,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "Pz";
-			
-			subNode.mPower = 1;
+			subNode.mToken = "Px";
 			
 			arg.add(subNode);
 			
@@ -134,17 +118,11 @@ public class ExpanderMultiMulti {
 			
 			leftNode.mNodeType = MULTINOMIAL_NODE;
 			
-			leftNode.mCoef = 1.0;
-
 			subNode = new Node();
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "Pz";
-			
-			subNode.mPower = 1;
+			subNode.mToken = "Py";
 			
 			leftNode.add(subNode);
 
@@ -152,11 +130,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "X";
-			
-			subNode.mPower = 1;
+			subNode.mToken = "Z";
 			
 			leftNode.add(subNode);
 			
@@ -164,17 +138,11 @@ public class ExpanderMultiMulti {
 			
 			rightNode.mNodeType = MULTINOMIAL_NODE;
 			
-			rightNode.mCoef = 1.0;
-
 			subNode = new Node();
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "X";
-			
-			subNode.mPower = 1;
+			subNode.mToken = "Z";
 			
 			rightNode.add(subNode);
 
@@ -182,15 +150,17 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mCoef = 1.0;
-			
-			subNode.mToken = "Pz";
-			
-			subNode.mPower = 1;
+			subNode.mToken = "Py";
 			
 			rightNode.add(subNode);
 			
 			boolean rtn = emm.mExe(destNode, arg, leftNode, rightNode);
+			
+			out.printf("rtn %b\n", rtn);
+			out.printf("destNode %s\n", destNode.toString());
+			out.printf("arg %s\n",  arg.toString());
+			out.printf("leftNode %s\n", leftNode.toString());
+			out.printf("rightNode %s\n", rightNode.toString());
 			
 		}catch(Exception ex){
 			ex.printStackTrace();

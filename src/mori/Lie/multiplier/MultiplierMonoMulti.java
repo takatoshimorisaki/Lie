@@ -25,6 +25,8 @@ public class MultiplierMonoMulti {
 			
 			Node subNode = new Node();
 			
+			subNode.mNodeType = MONOMIAL_NODE;
+			
 			subNode.mToken = new String(aOneNode.mToken);
 			
 			subNode.mPower = aOneNode.mPower + anoSubNode.mPower;

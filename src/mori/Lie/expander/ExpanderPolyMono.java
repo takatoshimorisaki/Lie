@@ -35,43 +35,23 @@ public class ExpanderPolyMono {
 			
 			if(aExpander.mExe(expandedNode, node, leftNode, rightNode)){
 		
-				out.printf("ExpanderPolyMono2 expandedNode %s node %s leftNode %s rightNode %s\n",
-						expandedNode.toString(),
-						node.toString(),
-						leftNode.toString(),
-						rightNode.toString());
-				
 				Node[] splitNode = mNodeSplitter.mExe(id, aDestNode);
-				
-				out.printf("ExpanderPolyMono3 id %d aDestNode %s\n",
-						id,
-						aDestNode.toString());
 				
 				if(splitNode[0] != null){
 					
-					mAdder.mExe(aDestNode, splitNode[0], expandedNode);
+					Node addedNode = mAdder.mExe(splitNode[0], expandedNode);
 			
-					out.printf("ExpanderPolyMono4 aDestNode %s splitNode[0] %s expandedNode %s\n",
-							aDestNode.toString(),
-							splitNode[0].toString(),
-							expandedNode.toString());
-					
 					if(splitNode[1] != null){
 						
-						mAdder.mExe(aDestNode, aDestNode, splitNode[1]);
+						mAdder.mExe(aDestNode, addedNode, splitNode[1]);
 						
-						out.printf("ExpanderPolyMono5 aDestNode %s splitNode[1] %s\n",
-								aDestNode.toString(),
-								splitNode[1].toString());
+					}else{
+						
+						mFactory.mCopy(aDestNode, addedNode);
 					}
 				}else{
 					
 					mAdder.mExe(aDestNode, expandedNode, splitNode[1]);
-
-					out.printf("ExpanderPolyMono6 aDestNode %s expandedNode %s splitNode[1] %s\n",
-							aDestNode.toString(),
-							expandedNode.toString(),
-							splitNode[1].toString());
 				}
 				
 				expanded = true;
