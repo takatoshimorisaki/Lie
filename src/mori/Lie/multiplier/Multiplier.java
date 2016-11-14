@@ -1,9 +1,14 @@
 package mori.Lie.multiplier;
 
 import static java.lang.System.out;
+import static mori.Lie.multiplier.Holder.mMultiplierMonoMono;
+import static mori.Lie.multiplier.Holder.mMultiplierMonoMulti;
+import static mori.Lie.multiplier.Holder.mMultiplierMultiMono;
+import static mori.Lie.multiplier.Holder.mMultiplierMultiMulti;
+import static mori.Lie.multiplier.Holder.mMultiplierMultiNum;
+import static mori.Lie.multiplier.Holder.mMultiplierNumMulti;
 import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mFactory;
-
 import mori.Lie.I_Operator;
 import mori.Lie.Node;
 
@@ -110,33 +115,16 @@ public class Multiplier implements I_Operator{
 				
 				aDestNode.mPower = aAnoNode.mPower;
 				
-				if(aDestNode.mToken == null){
-					throw new Exception(aAnoNode.toString());
-				}
-				
 			}else
 			if(aAnoNode.mNodeType == MULTINOMIAL_NODE){
-				
-				aDestNode.mNodeType = MULTINOMIAL_NODE;
-				
-				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
 								
-				for(int cnt = 0; cnt < aAnoNode.mSubNodes.size(); cnt++){
-					
-					Node node = (Node)aAnoNode.mGetSubNode(cnt);
-					
-					aDestNode.add( mFactory.mExe(node) );
-				}
+				mMultiplierNumMulti.mExe(aDestNode, aOneNode, aAnoNode);
 				
 			}else
 			if(aAnoNode.mNodeType == POLYNOMIAL_NODE
 			|| aAnoNode.mNodeType == EQU_NODE){
 				
 				aDestNode.mNodeType = aAnoNode.mNodeType;
-				
-				if(aAnoNode.mSubNodes.size() == 0){
-					throw new Exception(aAnoNode.toString());
-				}
 				
 				for(int cnt = 0; cnt < aAnoNode.mSubNodes.size(); cnt++){
 					
@@ -169,63 +157,16 @@ public class Multiplier implements I_Operator{
 				
 				aDestNode.mPower = aOneNode.mPower;
 				
-				if(aDestNode.mToken == null || aDestNode.mToken.equals("")){
-					throw new Exception(aOneNode.toString());
-				}
 			}else
 			if(aAnoNode.mNodeType == MONOMIAL_NODE){/* MONO * MONO */
 				
-				aDestNode.mNodeType = MULTINOMIAL_NODE;
-				
-				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
-				
-				Node node1 = new Node();
-				
-				node1.mNodeType = MONOMIAL_NODE;
-				
-				node1.mToken = new String( aOneNode.mToken );
-				
-				node1.mPower = aOneNode.mPower;
-				
-				aDestNode.add( node1 );
-				
-				Node node2 = new Node();
-				
-				node2.mNodeType = MONOMIAL_NODE;
-				
-				node2.mToken = new String( aAnoNode.mToken );
-				
-				node2.mPower = aAnoNode.mPower;
-				
-				aDestNode.add( node2 );
+				mMultiplierMonoMono.mExe(aDestNode, aOneNode, aAnoNode);
 				
 			}else
 			if(aAnoNode.mNodeType == MULTINOMIAL_NODE){/* MONO * MULTI */
 				
-				aDestNode.mNodeType = MULTINOMIAL_NODE;
+				mMultiplierMonoMulti.mExe(aDestNode, aOneNode, aAnoNode);
 				
-				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
-				
-				Node node1 = new Node();
-				
-				node1.mNodeType = MONOMIAL_NODE;
-				
-				node1.mToken = new String( aOneNode.mToken );
-				
-				node1.mPower = aOneNode.mPower;
-				
-				aDestNode.add(node1);
-				
-				for(int cnt = 0; cnt < aAnoNode.mSubNodes.size(); cnt++){
-					
-					Node node2 = (Node)aAnoNode.mGetSubNode(cnt);
-					
-					if(Math.abs(node2.mCoef - 1.0) > DOUBLE_THRESHOLD){
-						throw new Exception(node2.toString());
-					}
-					
-					aDestNode.add( mFactory.mExe(node2) );
-				}
 			}else
 			if(aAnoNode.mNodeType == POLYNOMIAL_NODE
 			|| aAnoNode.mNodeType == EQU_NODE){
@@ -255,66 +196,18 @@ public class Multiplier implements I_Operator{
 			
 			if(aAnoNode.mNodeType == NUMBER_NODE){/* MULTI * NUMBER */
 				
-				aDestNode.mNodeType = MULTINOMIAL_NODE;
+				mMultiplierMultiNum.mExe(aDestNode, aOneNode, aAnoNode);
 				
-				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
-				
-				for(int cnt = 0; cnt < aOneNode.mSubNodes.size(); cnt++){
-					
-					Node node =(Node)aOneNode.mGetSubNode(cnt);
-
-					if(Math.abs(node.mCoef - 1.0) > DOUBLE_THRESHOLD){
-						throw new Exception(node.toString());
-					}
-					
-					aDestNode.add( mFactory.mExe(node) );
-				}
 			}else
-			if(aAnoNode.mNodeType == MONOMIAL_NODE){
+			if(aAnoNode.mNodeType == MONOMIAL_NODE){/* MULTI * MONO */
 				
-				aDestNode.mNodeType = MULTINOMIAL_NODE;
+				mMultiplierMultiMono.mExe(aDestNode, aOneNode, aAnoNode);
 				
-				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
-				
-				for(int cnt = 0; cnt < aOneNode.mSubNodes.size(); cnt++){
-					
-					Node node =(Node)aOneNode.mGetSubNode(cnt);
-
-					if(Math.abs(node.mCoef - 1.0) > DOUBLE_THRESHOLD){
-						throw new Exception(node.toString());
-					}
-					
-					aDestNode.add( mFactory.mExe(node) );
-				}
-				
-				Node node2 = new Node();
-				
-				node2.mNodeType = MONOMIAL_NODE;
-				
-				node2.mToken = new String( aAnoNode.mToken );
-				
-				aDestNode.add( node2 );
 			}else
 			if(aAnoNode.mNodeType == MULTINOMIAL_NODE){
 				
-				aDestNode.mNodeType = MULTINOMIAL_NODE;
+				mMultiplierMultiMulti.mExe(aDestNode, aOneNode, aAnoNode);
 				
-				aDestNode.mCoef = aOneNode.mCoef * aAnoNode.mCoef;
-				
-				for(int cnt = 0; cnt < aOneNode.mSubNodes.size(); cnt++){
-					
-					Node node =(Node)aOneNode.mGetSubNode(cnt);
-					
-					aDestNode.add( mFactory.mExe(node) );
-				}
-				
-				for(int cnt = 0; cnt < aAnoNode.mSubNodes.size(); cnt++){
-					
-					Node node =(Node)aAnoNode.mGetSubNode(cnt);
-					
-					aDestNode.add( mFactory.mExe(node) );
-				}
-											
 			}else
 			if(aAnoNode.mNodeType == POLYNOMIAL_NODE
 			|| aAnoNode.mNodeType == EQU_NODE){
