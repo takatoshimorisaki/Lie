@@ -6,7 +6,7 @@ import mori.Lie.node.tools.Printer;
 
 public class MultiplyCmd extends Lie implements I_Command {
 
-	private static mori.Lie.node.tools.Multiplier mMultiplier = new mori.Lie.node.tools.Multiplier();
+	private static mori.Lie.multiplier.Multiplier mMultiplier = new mori.Lie.multiplier.Multiplier();
 
 	private static mori.Lie.node.tools.Together mTogether = new mori.Lie.node.tools.Together(); 
 			

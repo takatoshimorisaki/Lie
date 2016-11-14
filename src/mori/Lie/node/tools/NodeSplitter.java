@@ -3,7 +3,7 @@ package mori.Lie.node.tools;
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.adder.Holder.mAdder;
-import static mori.Lie.node.tools.Holder.mMultiplier;
+import static mori.Lie.multiplier.Holder.mMultiplier;
 
 import mori.Lie.I_Operator;
 import mori.Lie.Node;

@@ -6,8 +6,6 @@ public class Holder {
 
 	public static Factory mFactory = new Factory();
 
-	public static Multiplier mMultiplier = new Multiplier();
-
 	public static NodeSplitter mNodeSplitter = new NodeSplitter();
 
 	public static Remover mRemover = new Remover();

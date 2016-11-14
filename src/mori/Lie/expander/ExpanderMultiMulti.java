@@ -3,8 +3,8 @@ package mori.Lie.expander;
 import static java.lang.System.out;
 import static mori.Lie.include.Holder.mIncludeChecker;
 import static mori.Lie.Node.*;
+import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mFactory;
-import static mori.Lie.node.tools.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mRemover;
 
 import mori.Lie.Node;
@@ -47,21 +47,10 @@ public class ExpanderMultiMulti {
 			
 			Node[] splitedNode = mRemover.mExe(removedNode, aDestNode, leftNode, startPos);
 
-			out.printf("ExpanderMultiMulti10 removedNode %s\n", removedNode.toString());
-			
 			if(splitedNode[0] != null){
 				mMultiplier.mExe(aDestNode, splitedNode[0], rightNode);
-				
-				out.printf("ExpanderMultiMulti2 aDestNode %s splitedNode[0] %s rightNode %s\n",
-						aDestNode.toString(),
-						splitedNode[0].toString(),
-						rightNode.toString());
 			}else{
 				mFactory.mCopy(aDestNode, rightNode);
-				
-				out.printf("ExpanderMultiMulti3 aDestNode %s rightNode %s\n",
-						aDestNode.toString(),
-						rightNode.toString());
 			}
 			
 			if(splitedNode[1] != null){
@@ -71,17 +60,11 @@ public class ExpanderMultiMulti {
 				mMultiplier.mExe(node, aDestNode, splitedNode[1]);
 				
 				mFactory.mCopy(aDestNode, node);
-				
-				out.printf("ExpanderMultiMulti4 aDestNode %s splitedNode[1] %s\n",
-						aDestNode.toString(),
-						splitedNode[1].toString());
 			}
 			
 			expanded = true;
 			
 			startPos++;
-			
-			out.printf("startPos %d\n", startPos);
 		}
 		
 		return expanded;

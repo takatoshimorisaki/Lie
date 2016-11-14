@@ -1,8 +1,8 @@
 package mori.Lie.node.tools;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mFactory;
-import static mori.Lie.node.tools.Holder.mMultiplier;
 
 import mori.Lie.Node;
 

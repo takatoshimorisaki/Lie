@@ -1,4 +1,4 @@
-package mori.Lie.node.tools;
+package mori.Lie.multiplier;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;

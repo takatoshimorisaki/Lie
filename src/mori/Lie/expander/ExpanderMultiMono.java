@@ -2,8 +2,8 @@ package mori.Lie.expander;
 
 import static java.lang.System.out;
 import static mori.Lie.expander.Holder.mExpanderMono;
+import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mFactory;
-import static mori.Lie.node.tools.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mNodeSplitter;
 import static mori.Lie.Node.*;
 
