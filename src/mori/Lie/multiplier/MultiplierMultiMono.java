@@ -44,8 +44,12 @@ public class MultiplierMultiMono {
 		}else{
 
 			aDestNode.add( mFactory.mExe(oneSubNode) );
+		
+			Node node2 = mFactory.mExe(aAnoNode);
 			
-			aDestNode.add( mFactory.mExe(aAnoNode) );
+			node2.mCoef = 1.0;
+			
+			aDestNode.add( node2 );
 		}
 	}
 }

@@ -54,8 +54,12 @@ public class ExpanderMultiMulti {
 			}
 			
 			if(splitedNode[1] != null){
-				
+								
 				Node node = new Node();
+
+				out.printf("aDestNode %s\n", aDestNode.toString());
+				
+				out.printf("splitedNode[1] %s\n", splitedNode[1].toString());
 				
 				mMultiplier.mExe(node, aDestNode, splitedNode[1]);
 
@@ -76,6 +80,8 @@ public class ExpanderMultiMulti {
 			
 			Node destNode = new Node();
 			
+			// arg
+			
 			Node arg = new Node();
 			
 			arg.mNodeType = MULTINOMIAL_NODE;
@@ -86,7 +92,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mToken = "Z";
+			subNode.mToken = "Y";
 					
 			arg.add(subNode);
 			
@@ -94,18 +100,10 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mToken = "Py";
+			subNode.mToken = "i";
 			
 			arg.add(subNode);
 			
-			subNode = new Node();
-			
-			subNode.mNodeType = MONOMIAL_NODE;
-			
-			subNode.mToken = "Z";
-			
-			arg.add(subNode);
-
 			subNode = new Node();
 			
 			subNode.mNodeType = MONOMIAL_NODE;
@@ -113,6 +111,8 @@ public class ExpanderMultiMulti {
 			subNode.mToken = "Px";
 			
 			arg.add(subNode);
+
+			// leftNode
 			
 			Node leftNode = new Node();
 			
@@ -122,7 +122,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mToken = "Py";
+			subNode.mToken = "Y";
 			
 			leftNode.add(subNode);
 
@@ -130,9 +130,11 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mToken = "Z";
+			subNode.mToken = "i";
 			
 			leftNode.add(subNode);
+			
+			// rightNode
 			
 			Node rightNode = new Node();
 			
@@ -142,7 +144,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mToken = "Z";
+			subNode.mToken = "i";
 			
 			rightNode.add(subNode);
 
@@ -150,7 +152,7 @@ public class ExpanderMultiMulti {
 			
 			subNode.mNodeType = MONOMIAL_NODE;
 			
-			subNode.mToken = "Py";
+			subNode.mToken = "Y";
 			
 			rightNode.add(subNode);
 			
