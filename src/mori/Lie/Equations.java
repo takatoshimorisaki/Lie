@@ -140,14 +140,12 @@ public class Equations{
 					
 					equ.mSet(1, destNode);
 					
-					out.printf("Equations expanded %b\n", expanded);
-					
 					break;
 				}
 			}// for ect
-			
-			mPrinter.mExeln(equ);
 		}
+		
+		mPrinter.mExeln(equ);
 	}
 
 	public void mRemove(int id){

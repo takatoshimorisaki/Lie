@@ -28,10 +28,6 @@ public class ExpanderMultiMulti {
 			
 			if(startPos >= 0){
 
-				out.printf("ExpanderMultiMulti startPos %d aDestNode %s leftNode %s\n", 
-						startPos, 
-						aDestNode.toString(),
-						leftNode.toString());
 			}
 			
 			if(startPos == -1){
@@ -57,10 +53,6 @@ public class ExpanderMultiMulti {
 								
 				Node node = new Node();
 
-				out.printf("aDestNode %s\n", aDestNode.toString());
-				
-				out.printf("splitedNode[1] %s\n", splitedNode[1].toString());
-				
 				mMultiplier.mExe(node, aDestNode, splitedNode[1]);
 
 				mFactory.mCopy(aDestNode, node);

@@ -32,6 +32,7 @@ Ly*i=i*Ly
 Lz*i=i*Lz
 Y*X=X*Y
 Z*Y=Y*Z
+X*Z=Z*X
 Py*Px=Px*Py
 Pz*Py=Py*Pz
 Px*Pz=Pz*Px

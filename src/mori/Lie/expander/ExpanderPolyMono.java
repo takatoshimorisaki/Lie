@@ -19,11 +19,6 @@ public class ExpanderPolyMono {
 		boolean expanded = false;
 
 		mFactory.mCopy(aDestNode, arg);
-
-		out.printf("ExpanderPolyMono arg %s leftNode %s rightNode %s\n",
-				arg.toString(),
-				leftNode.toString(),
-				rightNode.toString());
 		
 		int size = aDestNode.mSubNodes.size();
 		

@@ -16,11 +16,6 @@ public class ExpanderPolyPoly {
 		Node rightNode
 	)throws Exception{
 		boolean expanded = false;
-
-		out.printf("ExpanderPolyPoly arg %s leftNode %s rightNode %s\n",
-				arg.toString(),
-				leftNode.toString(),
-				rightNode.toString());
 		
 		int pos = mIncludeChecker.mExe(arg, leftNode);
 		

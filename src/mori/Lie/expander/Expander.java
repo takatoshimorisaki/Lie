@@ -35,11 +35,6 @@ public class Expander{
 	)throws Exception{
 		boolean expanded = false;
 		
-		out.printf("Expander arg %s leftNode %s rightNode %s\n",
-				arg.toString(),
-				leftNode.toString(),
-				rightNode.toString());
-		
 		if(arg.mNodeType == NULL_NODE
 		|| arg.mNodeType == NUMBER_NODE){
 			// nothing to do.

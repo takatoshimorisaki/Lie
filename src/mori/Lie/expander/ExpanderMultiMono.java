@@ -32,12 +32,6 @@ public class ExpanderMultiMono {
 			boolean rtn = mExpanderMono.mExe(newNode, node, leftNode, rightNode);
 			
 			if(rtn == true){
-
-				out.printf("ExpanderMultiMono newNode %s node %s leftNode %s rightNode %s\n",
-						newNode.toString(),
-						node.toString(),
-						leftNode.toString(),
-						rightNode.toString());
 				
 				if(newNode.mNodeType == NUMBER_NODE){
 					
@@ -64,35 +58,17 @@ public class ExpanderMultiMono {
 						
 						Node[] splitNode = mNodeSplitter.mExe(id, aDestNode);
 						
-						out.printf("ExpanderMultiMono2 id %d aDestNode %s\n",
-								id,
-								aDestNode.toString());
-						
 						if(splitNode[0] != null){
 							
 							mMultiplier.mExe(aDestNode, splitNode[0], newNode);
-
-							out.printf("ExpanderMultiMono3 aDestNode %s aplitNode[0] %s newNode %s\n",
-									aDestNode.toString(),
-									splitNode[0].toString(),
-									newNode.toString());
 							
 							if(splitNode[1] != null){
 		
 								mMultiplier.mExe(aDestNode, aDestNode, splitNode[1]);
-								
-								out.printf("ExpanderMultiMono4 aDestNode %s aplitNode[1] %s\n",
-										aDestNode.toString(),
-										splitNode[1].toString());
 							}	
 						}else{
 							
 							mMultiplier.mExe(aDestNode, newNode, splitNode[1]);
-
-							out.printf("ExpanderMultiMono5 aDestNode %s newNode %s aplitNode[1] %s\n",
-									aDestNode.toString(),
-									newNode.toString(),
-									splitNode[1].toString());
 						}
 						
 					}else{
