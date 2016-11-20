@@ -52,6 +52,13 @@ public class AdderPolyPoly {
 					if(mEqualChecker.mExe(anoSubNode, destSubNode) == true){
 						
 						destSubNode.mCoef += anoSubNode.mCoef;
+
+						if(Math.abs(destSubNode.mCoef) < DOUBLE_THRESHOLD){
+							
+							aDestNode.mSubNodes.remove(destId);
+							
+							destSize = aDestNode.mSubNodes.size();
+						}
 						
 						added = true;
 						
@@ -61,6 +68,13 @@ public class AdderPolyPoly {
 					if(mEqualNomialChecker.mExe(anoSubNode, destSubNode) == true){
 						
 						destSubNode.mCoef += anoSubNode.mCoef;
+
+						if(Math.abs(destSubNode.mCoef) < DOUBLE_THRESHOLD){
+							
+							aDestNode.mSubNodes.remove(destId);
+							
+							destSize = aDestNode.mSubNodes.size();
+						}
 						
 						added = true;
 						

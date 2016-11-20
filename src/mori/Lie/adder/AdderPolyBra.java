@@ -58,6 +58,13 @@ public class AdderPolyBra {
 			&& mEqualChecker.mExe(node, aBra)){
 				
 				node.mCoef += 1.0;
+
+				if(Math.abs(node.mCoef) < DOUBLE_THRESHOLD){
+					
+					aDestNode.mSubNodes.remove(destId);
+					
+					size = aDestNode.mSubNodes.size();
+				}
 				
 				added = true;
 				

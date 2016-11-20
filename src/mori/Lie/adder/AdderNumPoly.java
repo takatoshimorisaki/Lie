@@ -60,6 +60,13 @@ public class AdderNumPoly {
 			if(node.mNodeType == NUMBER_NODE){
 				
 				node.mCoef += aOneNode.mCoef;
+
+				if(Math.abs(node.mCoef) < DOUBLE_THRESHOLD){
+					
+					aDestNode.mSubNodes.remove(cnt);
+					
+					size = aDestNode.mSubNodes.size();
+				}
 				
 				added = true;
 			}

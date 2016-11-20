@@ -60,6 +60,13 @@ public class AdderMultiPoly {
 			&& mEqualNomialChecker.mExe(aOneNode, node)){
 				
 				node.mCoef += aOneNode.mCoef;
+
+				if(Math.abs(node.mCoef) < DOUBLE_THRESHOLD){
+					
+					aDestNode.mSubNodes.remove(id);
+					
+					size = aDestNode.mSubNodes.size();
+				}
 				
 				added = true;
 			}

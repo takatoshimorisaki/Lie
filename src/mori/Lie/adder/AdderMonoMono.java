@@ -33,7 +33,11 @@ public class AdderMonoMono {
 			mFactory.mCopy(aDestNode, aOneNode);
 			
 			aDestNode.mCoef += aAnoNode.mCoef;
-			
+
+			if(Math.abs(aDestNode.mCoef) < DOUBLE_THRESHOLD){
+				
+				aDestNode.mNodeType = NULL_NODE;
+			}
 		}else{
 			
 			aDestNode.mNodeType = POLY_NODE;
