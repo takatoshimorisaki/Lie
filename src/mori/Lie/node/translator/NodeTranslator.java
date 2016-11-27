@@ -1,6 +1,7 @@
 package mori.Lie.node.translator;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.translator.Holder.mMultiMonoTranslator;
 import mori.Lie.Node;
 
@@ -11,19 +12,26 @@ public class NodeTranslator {
 		Node aSrcNode
 	)throws Exception{
 
-		if(aDestNode.mSubNodes.size() == 0){
+		mFactory.mCopy(aDestNode, aSrcNode);
 		
-			aDestNode.mNodeType = NUMBER_NODE;
-					
-		}else
-		if(aDestNode.mSubNodes.size() == 1){
+		if(aSrcNode.mNodeType == MULTI_NODE){
 			
-			mMultiMonoTranslator.mExe(aDestNode, aDestNode);
+			if(aDestNode.mSubNodes.size() == 0){
+			
+				aDestNode.mNodeType = NUMBER_NODE;
+						
+			}else
+			if(aDestNode.mSubNodes.size() == 1){
+				
+				mMultiMonoTranslator.mExe(aDestNode, aSrcNode);
+				
+			}else{
+			
+				aDestNode.mNodeType = MULTI_NODE;
+			}
 			
 		}else{
-		
-			aDestNode.mNodeType = MULTI_NODE;
+			throw new Exception("not implemented.");
 		}
-		
 	}
 }

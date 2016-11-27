@@ -79,6 +79,10 @@ public class Parser extends mori.Lie.Lie {
 			if(msg.startsWith("detail") == true){
 				
 				mDetailCmd.mExe(arg);
+
+			}else
+			if(msg.startsWith("factor") == true){
+				
 				
 			}else{
 				

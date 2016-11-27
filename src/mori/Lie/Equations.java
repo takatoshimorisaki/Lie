@@ -1,6 +1,7 @@
 package mori.Lie;
 
 import static java.lang.System.out;
+import static mori.Lie.factor.Holder.mCommonFactorSearcher;
 import static mori.Lie.Node.*;
 
 import mori.Lie.expander.Expander;
@@ -112,6 +113,41 @@ public class Equations{
 	
 	public Node mGet(int id){
 		return (Node)mValues.elementAt(id);
+	}
+
+	public void mFactor(int id, String option)throws Exception{
+		
+		Node equ = mGet(id);
+		
+		add(mFactory.mExe(equ));
+		
+		equ = mGet(mValues.size() - 1);
+		
+		Node leftNode = equ.mGetSubNode(0);
+		
+		Node rightNode = equ.mGetSubNode(1);
+		
+		Node leftCommon = mCommonFactorSearcher.mExe(leftNode);
+		
+		Node rightCommon = mCommonFactorSearcher.mExe(rightNode);
+		
+		if(leftCommon != null){
+			
+			out.printf("leftCommon:%s\n", leftCommon.toString());
+			
+		}else{
+			
+			out.println("leftCommon is null.");
+		}
+		
+		if(rightCommon != null){
+
+			out.printf("rightCommon:%s\n", rightCommon.toString());
+			
+		}else{
+			
+			out.println("rightCommon is null.");
+		}
 	}
 	
 	public void mExpand(int id)throws Exception{

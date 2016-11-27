@@ -1,13 +1,12 @@
 package mori.Lie;
 
 import static java.lang.System.out;
-
+import static mori.Lie.node.tools.Holder.mEqualChecker;
+import static mori.Lie.node.tools.Holder.mEqualNomialChecker;
+import static mori.Lie.node.tools.Holder.mNodeChecker;
+import static mori.Lie.node.tools.Holder.mPrinter;
+import static mori.Lie.node.tools.Holder.mTokenChecker;
 import mori.Lie.expander.Expander;
-import mori.Lie.node.tools.EqualChecker;
-import mori.Lie.node.tools.EqualNomialChecker;
-import mori.Lie.node.tools.NodeChecker;
-import mori.Lie.node.tools.Printer;
-import mori.Lie.node.tools.TokenChecker;
 
 public class Node extends mori.Lie.Lie{
 	
@@ -31,6 +30,12 @@ public class Node extends mori.Lie.Lie{
 	
 	public final static int EQU_NODE            = 5;
 	
+	public final static int OPE_ADD_NODE        = 6;
+	
+	public final static int OPE_SUB_NODE        = 7;
+	
+	public final static int OPE_MULTI_NODE      = 8;
+	
 	public final static double DOUBLE_THRESHOLD = 1.0e-07;
 	
 	public int mNodeType = NULL_NODE;
@@ -42,16 +47,6 @@ public class Node extends mori.Lie.Lie{
 	public int mPower;
 	
 	public java.util.Vector<Node> mSubNodes;
-	
-	private static TokenChecker mTokenChecker = new TokenChecker();
-	
-	private static EqualChecker mEqualChecker = new EqualChecker();
-
-	private static EqualNomialChecker mEqualNomialChecker = new EqualNomialChecker();
-	
-	private static Printer mPrinter = new Printer();
-	
-	private static NodeChecker mNodeChecker = new NodeChecker();
 	
 	public Node(){
 		mInit();

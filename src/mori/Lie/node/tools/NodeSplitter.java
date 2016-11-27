@@ -4,12 +4,42 @@ import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.adder.Holder.mAdder;
 import static mori.Lie.multiplier.Holder.mMultiplier;
-
+import static mori.Lie.node.tools.Holder.mFactory;
 import mori.Lie.I_Operator;
 import mori.Lie.Node;
 
 public class NodeSplitter {
 
+	public Node[] mExe(
+			Node arg
+	)throws Exception{
+	
+		if(arg.mNodeType == MULTI_NODE
+		|| arg.mNodeType == POLY_NODE){
+			
+			int size = arg.mSubNodes.size();
+			
+			Node[] node = new Node[size];
+			
+			for(int id = 0; id < size; id++){
+			
+				node[id] = new Node();
+				
+				node[id] = mFactory.mExe(arg.mGetSubNode(id));
+				
+				if(id == 0){
+					
+					node[id].mCoef *= arg.mCoef;
+				}
+			}
+			
+			return node;
+			
+		}else{
+			return null;
+		}
+	}
+	
 	public Node[] mExe(
 			int splitPos, 
 			Node arg
