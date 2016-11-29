@@ -9,7 +9,7 @@ public class GreatestCommonNumber {
 			double anoValue
 	)throws Exception{
 		
-		if(Math.abs(oneValue) > Math.abs(anoValue)){
+		if(Math.abs(oneValue) >= Math.abs(anoValue)){
 			
 			double div = oneValue / anoValue;
 			

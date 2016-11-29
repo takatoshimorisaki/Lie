@@ -48,6 +48,8 @@ public class Remover {
 					
 					Node destSubNode = new Node();
 					
+					destSubNode.mNodeType = MONO_NODE;
+					
 					destSubNode.mToken = new String(largerSubNode.mToken);
 					
 					destSubNode.mPower = largerSubNode.mPower - smallerSubNode.mPower;
@@ -93,12 +95,16 @@ public class Remover {
 				throw new Exception();
 			}
 			
+			aDestNode.mNodeType = MULTI_NODE;
+			
 			mNodeTranslator.mExe(aDestNode, aDestNode);
 			
 			for(int id = 0; id < splitedNode.length; id++){
 				
 				if(splitedNode[id] != null){
 				
+					splitedNode[id].mNodeType = MULTI_NODE;
+					
 					mNodeTranslator.mExe(splitedNode[id], splitedNode[id]);
 				}
 			}

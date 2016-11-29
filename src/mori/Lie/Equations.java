@@ -127,26 +127,32 @@ public class Equations{
 		
 		Node rightNode = equ.mGetSubNode(1);
 		
-		Node leftCommon = mCommonFactorSearcher.mExe(leftNode);
-		
-		Node rightCommon = mCommonFactorSearcher.mExe(rightNode);
-		
-		if(leftCommon != null){
+		if(option.indexOf("l") >= 0){
 			
-			out.printf("leftCommon:%s\n", leftCommon.toString());
-			
-		}else{
-			
-			out.println("leftCommon is null.");
+			Node leftCommon = mCommonFactorSearcher.mExe(leftNode);
+	
+			if(leftCommon != null){
+				
+				out.printf("leftCommon:%s\n", leftCommon.toString());
+				
+			}else{
+				
+				out.println("leftCommon is null.");
+			}
 		}
-		
-		if(rightCommon != null){
 
-			out.printf("rightCommon:%s\n", rightCommon.toString());
+		if(option.indexOf("r") >= 0){
 			
-		}else{
+			Node rightCommon = mCommonFactorSearcher.mExe(rightNode);
 			
-			out.println("rightCommon is null.");
+			if(rightCommon != null){
+	
+				out.printf("rightCommon:%s\n", rightCommon.toString());
+				
+			}else{
+				
+				out.println("rightCommon is null.");
+			}
 		}
 	}
 	
