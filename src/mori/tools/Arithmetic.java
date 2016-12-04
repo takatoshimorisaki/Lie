@@ -4,6 +4,30 @@ public class Arithmetic {
 
 	public final static double THRESHOLD = 1.0E-07;
 	
+	public boolean mIsOne(double arg){
+
+		double diff = arg - 1.0;
+		
+		if(Math.abs(diff) < THRESHOLD){
+			
+			return true;
+			
+		}else{
+			
+			return false;
+		}
+	}
+	public boolean mIsZero(double arg){
+
+		if(Math.abs(arg) < THRESHOLD){
+			
+			return true;
+			
+		}else{
+			
+			return false;
+		}
+	}
 	public boolean mIsInteger(double arg){
 		int intValue = (int)arg;
 		

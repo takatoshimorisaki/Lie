@@ -15,7 +15,13 @@ public class GreatestCommonNumber {
 			
 			if(mArithmetic.mIsInteger(div)){
 				
-				return div;
+				if(mArithmetic.mIsOne(Math.abs(div))){
+					
+					return 1.0;
+				}else{
+					return div;
+				}
+				
 			}else
 			if(mArithmetic.mIsInteger(oneValue)
 			&& mArithmetic.mIsInteger(anoValue)){

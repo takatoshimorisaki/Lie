@@ -5,6 +5,7 @@ import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mEqualNomialChecker;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.translator.Holder.mNodeTranslator;
+import static mori.tools.Holder.mArithmetic;
 import static mori.tools.Holder.mGreatestCommonNumber;
 import mori.Lie.Node;
 
@@ -17,6 +18,8 @@ public class IntersectorMultiMulti {
 	) throws Exception{
 		Node destNode = new Node();
 
+		destNode.mNodeType = MULTI_NODE;
+		
 		destNode.mCoef = mGreatestCommonNumber.mExe(
 				oneNode.mCoef, 
 				anoNode.mCoef);	
@@ -55,9 +58,9 @@ public class IntersectorMultiMulti {
 				anoSubNode = anoNode.mGetSubNode(id);
 			}
 			
-			boolean equalNomialFlag = mEqualNomialChecker.mExe(anoSubNode, anoSubNode);
-			
-			if(equalNomialFlag){
+			boolean equalFlag = mEqualNomialChecker.mExe(oneSubNode, anoSubNode);
+						
+			if(equalFlag){
 				
 				destNode.add( mFactory.mExe(oneSubNode) );
 				
@@ -119,6 +122,13 @@ public class IntersectorMultiMulti {
 		
 		Node ans = mNodeTranslator.mExe(destNode);
 		
-		return ans;
+		if(ans.mNodeType == NUMBER_NODE
+		&& mArithmetic.mIsOne(ans.mCoef)){
+			
+			return null;
+		
+		}else{
+			return ans;
+		}
 	}
 }
