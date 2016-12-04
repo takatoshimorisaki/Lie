@@ -27,4 +27,7 @@ public class Holder {
 	public static Subtracter mSubtracter = new Subtracter();
 	
 	public static Inverser mInverser = new Inverser();
+	
+	public static Divider mDivider = new Divider();
+	
 }

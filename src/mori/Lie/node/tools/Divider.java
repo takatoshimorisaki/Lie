@@ -1,12 +1,27 @@
-package mori.Lie.divider;
+package mori.Lie.node.tools;
 
-import static mori.Lie.divider.Divider.*;
 import static mori.Lie.multiplier.Holder.mMultiplier;
-import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mInverser;
+import static mori.Lie.Node.*;
 import mori.Lie.Node;
 
-public class DividerMonoMulti {
+public class Divider {
+
+	public final static int DIVIDER_LEFT = 1;
+	
+	public final static int DIVIDER_RIGHT = 2;
+	
+	public Node mExe(
+		Node aOneNode,
+		Node aAnoNode,
+		int  aLeftRight
+	)throws Exception{
+		Node ans = new Node();
+		
+		mExe(ans, aOneNode, aAnoNode, aLeftRight);
+		
+		return ans;
+	}
 
 	public void mExe(
 		Node aDestNode,
@@ -14,7 +29,7 @@ public class DividerMonoMulti {
 		Node aAnoNode,
 		int  aLeftRight
 	)throws Exception{
-
+		
 		Node invNode = mInverser.mExe(aAnoNode, aLeftRight);
 		
 		if(aLeftRight == DIVIDER_LEFT){
