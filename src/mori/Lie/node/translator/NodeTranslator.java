@@ -7,6 +7,16 @@ import mori.Lie.Node;
 
 public class NodeTranslator {
 
+	public Node mExe(
+		Node aSrcNode
+	)throws Exception{
+		Node ans = new Node();
+	
+		mExe(ans, aSrcNode);
+		
+		return ans;
+	}
+	
 	public void mExe(
 		Node aDestNode,
 		Node aSrcNode

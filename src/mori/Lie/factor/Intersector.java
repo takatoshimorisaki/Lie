@@ -12,9 +12,14 @@ import mori.Lie.Node;
  */
 public class Intersector {
 
+	public final static int INTERSECTOR_LEFT = 1;
+	
+	public final static int INTERSECTOR_RIGHT = 2;
+	
 	public Node mExe(
 			Node oneNode,
-			Node anoNode
+			Node anoNode,
+			int  aLeftRight
 	) throws Exception{
 
 		if(oneNode.mNodeType == NULL_NODE
@@ -49,7 +54,7 @@ public class Intersector {
 			}else
 			if(anoNode.mNodeType == MULTI_NODE){
 				
-				return mIntersectorMonoMulti.mExe(oneNode, anoNode);
+				return mIntersectorMonoMulti.mExe(oneNode, anoNode, aLeftRight);
 			}else{
 
 				throw new Exception("not implemented.");
@@ -64,12 +69,12 @@ public class Intersector {
 			}else
 			if(anoNode.mNodeType == MONO_NODE){
 
-				return mIntersectorMonoMulti.mExe(anoNode, oneNode);
+				return mIntersectorMonoMulti.mExe(anoNode, oneNode, aLeftRight);
 
 			}else
 			if(anoNode.mNodeType == MULTI_NODE){
 				
-				return mIntersectorMultiMulti.mExe(oneNode, anoNode);
+				return mIntersectorMultiMulti.mExe(oneNode, anoNode, aLeftRight);
 				
 			}else{
 

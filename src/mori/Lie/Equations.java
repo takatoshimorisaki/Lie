@@ -2,6 +2,7 @@ package mori.Lie;
 
 import static java.lang.System.out;
 import static mori.Lie.factor.Holder.mCommonFactorSearcher;
+import static mori.Lie.factor.Intersector.*;
 import static mori.Lie.Node.*;
 
 import mori.Lie.expander.Expander;
@@ -115,44 +116,56 @@ public class Equations{
 		return (Node)mValues.elementAt(id);
 	}
 
-	public void mFactor(int id, String option)throws Exception{
+	public void mFactor(int id)throws Exception{
 		
 		Node equ = mGet(id);
-		
-		add(mFactory.mExe(equ));
-		
-		equ = mGet(mValues.size() - 1);
 		
 		Node leftNode = equ.mGetSubNode(0);
 		
 		Node rightNode = equ.mGetSubNode(1);
-		
-		if(option.indexOf("l") >= 0){
-			
-			Node leftCommon = mCommonFactorSearcher.mExe(leftNode);
 	
-			if(leftCommon != null){
-				
-				out.printf("leftCommon:%s\n", leftCommon.toString());
-				
-			}else{
-				
-				out.println("leftCommon is null.");
-			}
+		Node leftCommon = mCommonFactorSearcher.mExe(leftNode, INTERSECTOR_LEFT);
+
+		if(leftCommon != null){
+			
+			out.printf("INTERSECTOR_LEFT leftCommon:%s\n", leftCommon.toString());
+			
+		}else{
+			
+			out.println("INTERSECTOR_LEFT leftCommon is null.");
 		}
 
-		if(option.indexOf("r") >= 0){
+		leftCommon = mCommonFactorSearcher.mExe(leftNode, INTERSECTOR_RIGHT);
+
+		if(leftCommon != null){
 			
-			Node rightCommon = mCommonFactorSearcher.mExe(rightNode);
+			out.printf("INTERSECTOR_RIGHT leftCommon:%s\n", leftCommon.toString());
 			
-			if(rightCommon != null){
-	
-				out.printf("rightCommon:%s\n", rightCommon.toString());
-				
-			}else{
-				
-				out.println("rightCommon is null.");
-			}
+		}else{
+			
+			out.println("INTERSECTOR_RIGHT leftCommon is null.");
+		}
+
+		Node rightCommon = mCommonFactorSearcher.mExe(rightNode, INTERSECTOR_LEFT);
+		
+		if(rightCommon != null){
+
+			out.printf("INTERSECTOR_LEFT rightCommon:%s\n", rightCommon.toString());
+			
+		}else{
+			
+			out.println("INTERSECTOR_LEFT rightCommon is null.");
+		}
+
+		rightCommon = mCommonFactorSearcher.mExe(rightNode, INTERSECTOR_RIGHT);
+		
+		if(rightCommon != null){
+
+			out.printf("INTERSECTOR_RIGHT rightCommon:%s\n", rightCommon.toString());
+			
+		}else{
+			
+			out.println("INTERSECTOR_RIGHT rightCommon is null.");
 		}
 	}
 	

@@ -8,7 +8,8 @@ import mori.Lie.Node;
 public class CommonFactorSearcher {
 
 	public static Node mExe(
-			Node arg
+			Node arg,
+			int  aLeftRight
 	)throws Exception{
 		
 		if(arg.mNodeType == NULL_NODE
@@ -27,11 +28,17 @@ public class CommonFactorSearcher {
 			
 			Node[] parts = mNodeSplitter.mExe(arg);
 			
-			Node ans = mIntersector.mExe(parts[0], parts[1]);
+			Node ans = mIntersector.mExe(
+					parts[0], 
+					parts[1],
+					aLeftRight);
 			
 			for(int id = 2; id < parts.length; id++){
 				
-				ans = mIntersector.mExe(ans, parts[id]);
+				ans = mIntersector.mExe(
+						ans, 
+						parts[id],
+						aLeftRight);
 			}
 			
 			return ans;
