@@ -23,7 +23,20 @@ public class NodeTranslator {
 	)throws Exception{
 
 		mFactory.mCopy(aDestNode, aSrcNode);
-		
+
+		if(aSrcNode.mNodeType == NULL_NODE
+		|| aSrcNode.mNodeType == NUMBER_NODE){
+			// nothing to do.
+		}else
+		if(aSrcNode.mNodeType == MONO_NODE){
+			
+			if(aSrcNode.mToken == null){
+				
+				aDestNode.mPower = 1;
+				
+				aDestNode.mNodeType = NUMBER_NODE;
+			}
+		}else
 		if(aSrcNode.mNodeType == MULTI_NODE){
 			
 			if(aDestNode.mSubNodes.size() == 0){
@@ -41,7 +54,7 @@ public class NodeTranslator {
 			}
 			
 		}else{
-			throw new Exception("not implemented.");
+			throw new Exception("not implemented." + aSrcNode.toNodeType());
 		}
 	}
 }

@@ -44,8 +44,7 @@ public class CommonFactorSearcher {
 			return ans;
 			
 		}else{
-		
-			throw new Exception("not implemented.");
+			return null;
 		}
 	}
 }
