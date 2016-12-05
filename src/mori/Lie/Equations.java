@@ -3,6 +3,7 @@ package mori.Lie;
 import static java.lang.System.out;
 import static mori.Lie.factor.Holder.mFactorizer;
 import static mori.Lie.Node.*;
+import static mori.Lie.node.tools.Holder.mShrinker;
 import mori.Lie.expander.Expander;
 
 public class Equations{
@@ -116,6 +117,10 @@ public class Equations{
 
 	public void mFactor(int id)throws Exception{
 		mFactorizer.mExe(id);
+	}
+
+	public void mShrink(int id)throws Exception{
+		mShrinker.mExe(id);
 	}
 	
 	public void mExpand(int id)throws Exception{

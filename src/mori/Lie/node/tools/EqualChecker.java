@@ -43,7 +43,6 @@ public class EqualChecker{
 			}
 		}
 		if(oneNode.mNodeType == MULTI_NODE
-		|| oneNode.mNodeType == POLY_NODE
 		|| oneNode.mNodeType == BRACKET_NODE
 		|| oneNode.mNodeType == EQU_NODE){
 
@@ -66,6 +65,34 @@ public class EqualChecker{
 			}else{
 				return false;
 			}
+		}else
+		if(oneNode.mNodeType == POLY_NODE){
+			
+			for(int oneCnt = 0; oneCnt < oneNode.mSubNodes.size(); oneCnt++){
+				
+				boolean finded     = false;
+				Node    oneSubNode = oneNode.mGetSubNode(oneCnt);
+				
+				for(int anoCnt = 0; anoCnt < anoNode.mSubNodes.size(); anoCnt++){
+					
+					Node anoSubNode = anoNode.mGetSubNode(anoCnt);
+					
+					boolean isEqual = this.mExe(oneSubNode, anoSubNode);
+					
+					if(isEqual){
+						finded = true;
+						
+						break;
+					}
+				}
+				
+				if(finded == false){
+					return false;
+				}
+			}
+			
+			return true;
+			
 		}else{
 			throw new Exception();
 		}

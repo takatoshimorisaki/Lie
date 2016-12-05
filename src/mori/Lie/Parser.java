@@ -25,6 +25,8 @@ public class Parser extends mori.Lie.Lie {
 	private static mori.Lie.cmd.I_Command mAddCmd = new mori.Lie.cmd.AddCmd();
 
 	private static mori.Lie.cmd.I_Command mFactorCmd = new mori.Lie.cmd.FactorCmd();
+
+	private static mori.Lie.cmd.I_Command mShrinkCmd = new mori.Lie.cmd.ShrinkCmd();
 	
 	public Parser(){
 		
@@ -86,6 +88,11 @@ public class Parser extends mori.Lie.Lie {
 			if(msg.startsWith("factor") == true){
 				
 				mFactorCmd.mExe(arg);
+
+			}else
+			if(msg.startsWith("shrink") == true){
+				
+				mShrinkCmd.mExe(arg);
 				
 			}else{
 				

@@ -31,4 +31,7 @@ public class Holder {
 	public static Divider mDivider = new Divider();
 	
 	public static ParenthesisWrapper mParenthesisWrapper = new ParenthesisWrapper();
+	
+	public static Shrinker mShrinker = new Shrinker();
+	
 }
