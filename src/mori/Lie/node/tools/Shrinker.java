@@ -1,8 +1,10 @@
 package mori.Lie.node.tools;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mEqualNomialChecker;
 import static mori.Lie.node.tools.Holder.mFactory;
+import static mori.Lie.node.translator.Holder.mNodeTranslator;
 import mori.Lie.Node;
 
 public class Shrinker extends mori.Lie.Lie{
@@ -67,7 +69,7 @@ public class Shrinker extends mori.Lie.Lie{
 
 		Node equ = mEquations.mGet(id);
 		
-		mEquations.add(equ);
+		mEquations.add( mFactory.mExe(equ) );
 		
 		equ = mEquations.mGet(mEquations.size() - 1);
 		
@@ -78,6 +80,16 @@ public class Shrinker extends mori.Lie.Lie{
 		if(shrinked == false){
 			
 			mEquations.mRemove(mEquations.size() - 1);
+			
+		}else{
+			
+			equ = mNodeTranslator.mExe(equ);
+			
+			out.printf("%d:%s\n", 
+					mEquations.size() - 1,
+					equ.toString());
+			
+			mEquations.mSet(mEquations.size() - 1, equ);
 		}
 	}
 }

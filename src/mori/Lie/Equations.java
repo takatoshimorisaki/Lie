@@ -55,6 +55,12 @@ public class Equations{
 			}
 		}
 	}
+	
+	public void mSet(int id, Node node){
+		
+		mValues.set(id, node);
+	}
+	
 	public int add(Node equ){
 	
 		mValues.add(equ);

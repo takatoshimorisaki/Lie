@@ -6,4 +6,8 @@ public class Holder {
 	
 	public static NodeTranslator mNodeTranslator = new NodeTranslator();
 	
+	public static ParenthesisTranslator mParenthesisTranslator = new ParenthesisTranslator();
+	
+	public static OpeNodeTranslator mOpeNodeTranslator = new OpeNodeTranslator();
+	
 }
