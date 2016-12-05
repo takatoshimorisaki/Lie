@@ -1,10 +1,8 @@
 package mori.Lie;
 
 import static java.lang.System.out;
-import static mori.Lie.factor.Holder.mCommonFactorSearcher;
-import static mori.Lie.factor.Intersector.*;
+import static mori.Lie.factor.Holder.mFactorizer;
 import static mori.Lie.Node.*;
-
 import mori.Lie.expander.Expander;
 
 public class Equations{
@@ -117,56 +115,7 @@ public class Equations{
 	}
 
 	public void mFactor(int id)throws Exception{
-		
-		Node equ = mGet(id);
-		
-		Node leftNode = equ.mGetSubNode(0);
-		
-		Node rightNode = equ.mGetSubNode(1);
-	
-		Node leftCommon = mCommonFactorSearcher.mExe(leftNode, INTERSECTOR_LEFT);
-
-		if(leftCommon != null){
-			
-			out.printf("INTERSECTOR_LEFT leftCommon:%s\n", leftCommon.toString());
-			
-		}else{
-			
-			out.println("INTERSECTOR_LEFT leftCommon is null.");
-		}
-
-		leftCommon = mCommonFactorSearcher.mExe(leftNode, INTERSECTOR_RIGHT);
-
-		if(leftCommon != null){
-			
-			out.printf("INTERSECTOR_RIGHT leftCommon:%s\n", leftCommon.toString());
-			
-		}else{
-			
-			out.println("INTERSECTOR_RIGHT leftCommon is null.");
-		}
-
-		Node rightCommon = mCommonFactorSearcher.mExe(rightNode, INTERSECTOR_LEFT);
-		
-		if(rightCommon != null){
-
-			out.printf("INTERSECTOR_LEFT rightCommon:%s\n", rightCommon.toString());
-			
-		}else{
-			
-			out.println("INTERSECTOR_LEFT rightCommon is null.");
-		}
-
-		rightCommon = mCommonFactorSearcher.mExe(rightNode, INTERSECTOR_RIGHT);
-		
-		if(rightCommon != null){
-
-			out.printf("INTERSECTOR_RIGHT rightCommon:%s\n", rightCommon.toString());
-			
-		}else{
-			
-			out.println("INTERSECTOR_RIGHT rightCommon is null.");
-		}
+		mFactorizer.mExe(id);
 	}
 	
 	public void mExpand(int id)throws Exception{
@@ -199,6 +148,8 @@ public class Equations{
 				}
 			}// for ect
 		}
+		
+		out.printf("%d:", size - 1);
 		
 		mPrinter.mExeln(equ);
 	}

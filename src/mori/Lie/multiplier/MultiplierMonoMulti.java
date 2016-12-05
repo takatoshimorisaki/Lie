@@ -31,8 +31,10 @@ public class MultiplierMonoMulti {
 			
 			subNode.mPower = aOneNode.mPower + anoSubNode.mPower;
 
-			aDestNode.add(subNode);
-
+			if(subNode.mPower != 0){
+				aDestNode.add(subNode);
+			}
+			
 			for(int cnt = 1; cnt < aAnoNode.mSubNodes.size(); cnt++){
 				
 				Node node2 = (Node)aAnoNode.mGetSubNode(cnt);

@@ -14,4 +14,6 @@ public class Holder {
 	
 	public static IntersectorNumNum mIntersectorNumNum = new IntersectorNumNum();
 	
+	public static Factorizer mFactorizer = new Factorizer();
+	
 }

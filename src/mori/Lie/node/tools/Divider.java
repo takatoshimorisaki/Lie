@@ -43,7 +43,5 @@ public class Divider {
 		}else{
 			throw new Exception();
 		}
-		
-		throw new Exception();
 	}
 }
