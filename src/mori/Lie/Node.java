@@ -29,12 +29,18 @@ public class Node extends mori.Lie.Lie{
 	public final static int BRACKET_NODE        = 4;
 	
 	public final static int EQU_NODE            = 5;
+
+	public final static int EQUATION_NODE       = 5;
 	
 	public final static int OPE_ADD_NODE        = 6;
 	
 	public final static int OPE_SUB_NODE        = 7;
 	
 	public final static int OPE_MULTI_NODE      = 8;
+	
+	public final static int OPE_DIV_NODE        = 9;
+	
+	public final static int PARENTHESIS_NODE    = 20;
 	
 	public final static double DOUBLE_THRESHOLD = 1.0e-07;
 	

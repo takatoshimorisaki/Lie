@@ -129,6 +129,52 @@ public class Printer{
 			ans = String.format("%s = %s", 
 					this.toString(firstNode),
 					this.toString(secondNode));
+		}else
+		if(aNode.mNodeType == OPE_ADD_NODE){
+
+			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+			
+			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+
+			ans = String.format("%s + %s", 
+					this.toString(firstNode),
+					this.toString(secondNode));
+		}else
+		if(aNode.mNodeType == OPE_SUB_NODE){
+
+			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+			
+			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+
+			ans = String.format("%s - %s", 
+					this.toString(firstNode),
+					this.toString(secondNode));
+		}else
+		if(aNode.mNodeType == OPE_MULTI_NODE){
+
+			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+			
+			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+
+			ans = String.format("%s * %s", 
+					this.toString(firstNode),
+					this.toString(secondNode));
+		}else
+		if(aNode.mNodeType == OPE_DIV_NODE){
+
+			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+			
+			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+
+			ans = String.format("%s / %s", 
+					this.toString(firstNode),
+					this.toString(secondNode));
+		}else
+		if(aNode.mNodeType == PARENTHESIS_NODE){
+
+			Node subNode = (Node)aNode.mSubNodes.elementAt(0);
+			
+			ans = String.format("(%s)", this.toString(subNode));
 		}
 		
 		return ans;

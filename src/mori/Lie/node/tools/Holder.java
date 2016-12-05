@@ -30,4 +30,5 @@ public class Holder {
 	
 	public static Divider mDivider = new Divider();
 	
+	public static ParenthesisWrapper mParenthesisWrapper = new ParenthesisWrapper();
 }
