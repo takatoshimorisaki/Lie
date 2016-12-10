@@ -2,6 +2,7 @@ package mori.Lie.multiplier;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class MultiplierMonoMono {
 
@@ -19,7 +20,7 @@ public class MultiplierMonoMono {
 			
 			aDestNode.mToken = new String(aOneNode.mToken);
 			
-			aDestNode.mPower = aOneNode.mPower + aAnoNode.mPower;
+			aDestNode.mPower = aOneNode.mPower.mAdd(aAnoNode.mPower);
 			
 		}else{
 			
@@ -33,7 +34,7 @@ public class MultiplierMonoMono {
 			
 			node1.mToken = new String( aOneNode.mToken );
 			
-			node1.mPower = aOneNode.mPower;
+			node1.mPower = new Rational( aOneNode.mPower );
 			
 			aDestNode.add( node1 );
 			
@@ -43,7 +44,7 @@ public class MultiplierMonoMono {
 			
 			node2.mToken = new String( aAnoNode.mToken );
 			
-			node2.mPower = aAnoNode.mPower;
+			node2.mPower = new Rational( aAnoNode.mPower );
 			
 			aDestNode.add( node2 );
 		}

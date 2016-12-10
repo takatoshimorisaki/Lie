@@ -33,7 +33,7 @@ public class EqualChecker{
 			if(Math.abs(diff) < DOUBLE_THRESHOLD){
 				
 				if(oneNode.mToken.equals(anoNode.mToken) 
-				&& oneNode.mPower == anoNode.mPower){
+				&& oneNode.mPower.mEquals(anoNode.mPower)){
 					return true;
 				}else{
 					return false;

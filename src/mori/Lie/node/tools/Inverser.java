@@ -35,7 +35,7 @@ public class Inverser {
 			
 			ans.mToken = new String( aSrcNode.mToken );
 			
-			ans.mPower = - aSrcNode.mPower;
+			ans.mPower = aSrcNode.mPower.mMinus();
 			
 			return ans;
 

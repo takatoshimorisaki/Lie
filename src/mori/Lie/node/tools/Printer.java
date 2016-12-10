@@ -70,9 +70,9 @@ public class Printer{
 				ans = String.format("%s%s", mAdjust(aNode.mCoef), aNode.mToken);
 			}
 
-			if(aNode.mPower != 1){
+			if(aNode.mPower.mEquals(1) != true){
 				
-				ans = String.format("%s^%d", ans, aNode.mPower);
+				ans = String.format("%s^(%s)", ans, aNode.mPower.toString());
 				
 			}else{
 				// nothing to do.

@@ -3,8 +3,8 @@ package mori.Lie.node.tools;
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mFactory;
-
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class Together extends mori.Lie.Lie{
 
@@ -38,7 +38,7 @@ public class Together extends mori.Lie.Lie{
 					
 					if(oneNode.mToken.equals(anoNode.mToken)){
 						
-						oneNode.mPower++;
+						oneNode.mPower = oneNode.mPower.mIncrement();
 						
 						aDestNode.mSubNodes.remove(oneCnt+1);
 						
@@ -58,7 +58,7 @@ public class Together extends mori.Lie.Lie{
 				
 				aDestNode.mNodeType = MONOMIAL_NODE;
 								
-				aDestNode.mPower = node.mPower;
+				aDestNode.mPower = new Rational(node.mPower);
 				
 				aDestNode.mSubNodes = null;
 			}

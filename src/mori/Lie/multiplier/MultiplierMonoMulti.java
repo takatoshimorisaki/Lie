@@ -4,8 +4,8 @@ import static mori.Lie.Node.DOUBLE_THRESHOLD;
 import static mori.Lie.Node.MONOMIAL_NODE;
 import static mori.Lie.Node.MULTINOMIAL_NODE;
 import static mori.Lie.node.tools.Holder.mFactory;
-
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class MultiplierMonoMulti {
 
@@ -29,9 +29,9 @@ public class MultiplierMonoMulti {
 			
 			subNode.mToken = new String(aOneNode.mToken);
 			
-			subNode.mPower = aOneNode.mPower + anoSubNode.mPower;
+			subNode.mPower = aOneNode.mPower.mAdd(anoSubNode.mPower);
 
-			if(subNode.mPower != 0){
+			if(subNode.mPower.mEquals(0) == false){
 				aDestNode.add(subNode);
 			}
 			
@@ -54,7 +54,7 @@ public class MultiplierMonoMulti {
 			
 			node1.mToken = new String( aOneNode.mToken );
 			
-			node1.mPower = aOneNode.mPower;
+			node1.mPower = new Rational(aOneNode.mPower);
 			
 			aDestNode.add(node1);
 			

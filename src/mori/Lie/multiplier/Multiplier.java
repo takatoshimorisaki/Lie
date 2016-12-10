@@ -11,6 +11,7 @@ import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mFactory;
 import mori.Lie.I_Operator;
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class Multiplier implements I_Operator{
 	
@@ -59,7 +60,7 @@ public class Multiplier implements I_Operator{
 			
 			aDestNode.mToken = null;
 			
-			aDestNode.mPower = 1;
+			aDestNode.mPower.mInit();
 			
 			int size = aOneNode.mSubNodes.size();
 			
@@ -113,7 +114,7 @@ public class Multiplier implements I_Operator{
 				
 				aDestNode.mToken = new String(aAnoNode.mToken);
 				
-				aDestNode.mPower = aAnoNode.mPower;
+				aDestNode.mPower = new Rational(aAnoNode.mPower);
 				
 			}else
 			if(aAnoNode.mNodeType == MULTINOMIAL_NODE){
@@ -155,7 +156,7 @@ public class Multiplier implements I_Operator{
 				
 				aDestNode.mToken = new String(aOneNode.mToken);
 				
-				aDestNode.mPower = aOneNode.mPower;
+				aDestNode.mPower = new Rational( aOneNode.mPower );
 				
 			}else
 			if(aAnoNode.mNodeType == MONOMIAL_NODE){/* MONO * MONO */

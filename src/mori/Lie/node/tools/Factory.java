@@ -1,8 +1,8 @@
 package mori.Lie.node.tools;
 
 import static java.lang.System.out;
-
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class Factory extends mori.Lie.Node{
 	
@@ -23,7 +23,7 @@ public class Factory extends mori.Lie.Node{
 			aDestNode.mToken = new String(aSrcNode.mToken);
 		}
 		
-		aDestNode.mPower = aSrcNode.mPower;
+		aDestNode.mPower = new Rational(aSrcNode.mPower);
 
 		aDestNode.mSubNodes = null;
 		
@@ -74,7 +74,7 @@ public class Factory extends mori.Lie.Node{
 			destNode.mToken = new String(aSrcNode.mToken);
 		}
 		
-		destNode.mPower = aSrcNode.mPower;
+		destNode.mPower = new Rational(aSrcNode.mPower);
 		
 		if(aSrcNode.mSubNodes != null){
 			
@@ -159,7 +159,7 @@ public class Factory extends mori.Lie.Node{
 				
 				dest.mCoef = (new Double(arg)).doubleValue();
 				
-				dest.mPower = 1;
+				dest.mPower.mInit();
 
 			}catch(Exception ex){
 				
@@ -184,13 +184,13 @@ public class Factory extends mori.Lie.Node{
 					
 					dest.mToken = new String(parts[0]);
 					
-					dest.mPower = Integer.parseInt(parts[1]);
+					dest.mPower = new Rational(Integer.parseInt(parts[1]));
 					
 				}else{
 				
 					dest.mToken = new String(arg1);
 					
-					dest.mPower = 1;
+					dest.mPower.mInit();
 					
 				}
 			}

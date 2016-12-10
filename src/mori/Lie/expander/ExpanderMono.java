@@ -4,8 +4,8 @@ import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mFactory;
-
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class ExpanderMono {
 
@@ -21,24 +21,24 @@ public class ExpanderMono {
 		
 		if(aDestNode.mToken.equals(leftNode.mToken)){
 			
-			if(aDestNode.mPower > 0
-			&& leftNode.mPower > 0
-			&& aDestNode.mPower >= leftNode.mPower){
+			if(aDestNode.mPower.mGreater(0)
+			&& leftNode.mPower.mGreater(0)
+			&& aDestNode.mPower.mGreaterEqual(leftNode.mPower)){
 				
 				aDestNode.mCoef /= leftNode.mCoef;
 				
-				aDestNode.mPower -= leftNode.mPower;
+				aDestNode.mPower = aDestNode.mPower.mSubtract(leftNode.mPower);
 				
 				expanded = true;
 				
 			}else
-			if(aDestNode.mPower < 0
-			&& leftNode.mPower < 0
-			&& aDestNode.mPower <= leftNode.mPower){
+			if(aDestNode.mPower.mLesser(0)
+			&& leftNode.mPower.mLesser(0)
+			&& aDestNode.mPower.mLesserEqual(leftNode.mPower)){
 
 				aDestNode.mCoef /= leftNode.mCoef;
-				
-				aDestNode.mPower -= leftNode.mPower;
+
+				aDestNode.mPower = aDestNode.mPower.mSubtract(leftNode.mPower);
 								
 				expanded = true;
 			}
@@ -46,11 +46,11 @@ public class ExpanderMono {
 		
 		if(expanded == true){
 
-			if(aDestNode.mPower == 0){
+			if(aDestNode.mPower.mEquals(0)){
 				
 				aDestNode.mToken = null;
 				
-				aDestNode.mPower = 1;
+				aDestNode.mPower.mInit();
 				
 				aDestNode.mNodeType = NUMBER_NODE;
 			}

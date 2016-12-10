@@ -7,6 +7,7 @@ import static mori.Lie.node.tools.Holder.mNodeChecker;
 import static mori.Lie.node.tools.Holder.mPrinter;
 import static mori.Lie.node.tools.Holder.mTokenChecker;
 import mori.Lie.expander.Expander;
+import mori.tools.Rational;
 
 public class Node extends mori.Lie.Lie{
 	
@@ -50,7 +51,7 @@ public class Node extends mori.Lie.Lie{
 	
 	public String mToken;
 	
-	public int mPower;
+	public Rational mPower = new Rational();
 	
 	public java.util.Vector<Node> mSubNodes;
 	
@@ -64,7 +65,7 @@ public class Node extends mori.Lie.Lie{
 		
 		mToken = null;
 		
-		mPower = 1;
+		mPower.mInit();
 		
 		mSubNodes = new java.util.Vector<Node>();
 	}

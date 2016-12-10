@@ -52,9 +52,9 @@ public class Remover {
 					
 					destSubNode.mToken = new String(largerSubNode.mToken);
 					
-					destSubNode.mPower = largerSubNode.mPower - smallerSubNode.mPower;
+					destSubNode.mPower = largerSubNode.mPower.mSubtract(smallerSubNode.mPower);
 					
-					if(destSubNode.mPower != 0){
+					if(destSubNode.mPower.mEquals(0) != true){
 						
 						aDestNode.add(destSubNode);
 
@@ -134,7 +134,7 @@ public class Remover {
 			
 			subNode.mToken = "Y";
 			
-			subNode.mPower = 1;
+			subNode.mPower.mInit();
 			
 			arg.add(subNode);
 			
@@ -146,7 +146,7 @@ public class Remover {
 			
 			subNode.mToken = "Pz";
 			
-			subNode.mPower = 1;
+			subNode.mPower.mInit();
 			
 			arg.add(subNode);
 			
@@ -158,7 +158,7 @@ public class Remover {
 			
 			subNode.mToken = "X";
 			
-			subNode.mPower = 1;
+			subNode.mPower.mInit();
 			
 			arg.add(subNode);
 
@@ -170,7 +170,7 @@ public class Remover {
 			
 			subNode.mToken = "Pz";
 			
-			subNode.mPower = 1;
+			subNode.mPower.mInit();
 			
 			arg.add(subNode);
 			
@@ -188,7 +188,7 @@ public class Remover {
 			
 			subNode.mToken = "Pz";
 			
-			subNode.mPower = 1;
+			subNode.mPower.mInit();
 			
 			leftNode.add(subNode);
 
@@ -200,7 +200,7 @@ public class Remover {
 			
 			subNode.mToken = "X";
 			
-			subNode.mPower = 1;
+			subNode.mPower.mInit();
 			
 			leftNode.add(subNode);
 			

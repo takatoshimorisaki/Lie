@@ -37,7 +37,7 @@ public class MultiplierMultiMono {
 			
 			node2.mToken = new String( aAnoNode.mToken );
 			
-			node2.mPower = oneSubNode.mPower + aAnoNode.mPower;
+			node2.mPower = oneSubNode.mPower.mAdd(aAnoNode.mPower);
 			
 			aDestNode.add( node2 );
 			

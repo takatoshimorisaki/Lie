@@ -2,6 +2,7 @@ package mori.Lie.node.translator;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class MultiMonoTranslator {
 
@@ -18,7 +19,7 @@ public class MultiMonoTranslator {
 			
 			aDestNode.mToken = new String(node.mToken);
 					
-			aDestNode.mPower = node.mPower;
+			aDestNode.mPower = new Rational(node.mPower);
 			
 			aDestNode.mSubNodes = null;
 			

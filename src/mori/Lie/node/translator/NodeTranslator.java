@@ -34,7 +34,7 @@ public class NodeTranslator {
 			
 			if(aSrcNode.mToken == null){
 				
-				aDestNode.mPower = 1;
+				aDestNode.mPower.mInit();
 				
 				aDestNode.mNodeType = NUMBER_NODE;
 			}

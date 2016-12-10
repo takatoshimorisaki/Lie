@@ -3,6 +3,7 @@ package mori.Lie.factor;
 import static mori.Lie.Node.*;
 import static mori.tools.Holder.mGreatestCommonNumber;
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class IntersectorMonoMono {
 
@@ -18,36 +19,36 @@ public class IntersectorMonoMono {
 		
 		if(oneNode.mToken.equals(anoNode.mToken)){
 			
-			if(oneNode.mPower > 0
-			&& anoNode.mPower > 0){
+			if(oneNode.mPower.mGreater(0)
+			&& anoNode.mPower.mGreater(0)){
 
 				ans.mNodeType = MONO_NODE;
 			
 				ans.mToken = new String(oneNode.mToken);
 				
-				if(oneNode.mPower < anoNode.mPower){
+				if(oneNode.mPower.mLesser(anoNode.mPower)){
 					
-					ans.mPower = oneNode.mPower;
+					ans.mPower = new Rational(oneNode.mPower);
 					
 				}else{
 					
-					ans.mPower = anoNode.mPower;
+					ans.mPower = new Rational(anoNode.mPower);
 				}
 			}else
-			if(oneNode.mPower < 0
-			&& anoNode.mPower < 0){
+			if(oneNode.mPower.mLesser(0)
+			&& anoNode.mPower.mLesser(0)){
 
 				ans.mNodeType = MONO_NODE;
 
 				ans.mToken = new String(oneNode.mToken);
 
-				if(oneNode.mPower < anoNode.mPower){
+				if(oneNode.mPower.mLesser(anoNode.mPower)){
 
-					ans.mPower = anoNode.mPower;
+					ans.mPower = new Rational(anoNode.mPower);
 					
 				}else{
 
-					ans.mPower = oneNode.mPower;
+					ans.mPower = new Rational(oneNode.mPower);
 				}
 			}else{
 

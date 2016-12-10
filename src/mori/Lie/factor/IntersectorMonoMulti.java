@@ -5,6 +5,7 @@ import static mori.Lie.factor.Intersector.*;
 import static mori.Lie.Node.*;
 import static mori.tools.Holder.mGreatestCommonNumber;
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class IntersectorMonoMulti {
 
@@ -44,7 +45,7 @@ public class IntersectorMonoMulti {
 			
 			ans.mToken = new String( node.mToken );
 			
-			ans.mPower = node.mPower;
+			ans.mPower = new Rational( node.mPower );
 			
 		}else{
 		

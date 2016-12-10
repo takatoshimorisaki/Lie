@@ -6,8 +6,8 @@ import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mNodeSplitter;
 import static mori.Lie.Node.*;
-
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class ExpanderMultiMono {
 	
@@ -48,7 +48,7 @@ public class ExpanderMultiMono {
 					
 					node.mToken = new String(newNode.mToken);
 					
-					node.mPower = newNode.mPower;
+					node.mPower = new Rational(newNode.mPower);
 
 				}else
 				if(newNode.mNodeType == MULTI_NODE

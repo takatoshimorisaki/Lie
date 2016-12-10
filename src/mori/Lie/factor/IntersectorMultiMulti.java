@@ -8,6 +8,7 @@ import static mori.Lie.node.translator.Holder.mNodeTranslator;
 import static mori.tools.Holder.mArithmetic;
 import static mori.tools.Holder.mGreatestCommonNumber;
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class IntersectorMultiMulti {
 
@@ -74,18 +75,18 @@ public class IntersectorMultiMulti {
 
 					node.mToken = new String( oneSubNode.mToken );
 					
-					if(oneSubNode.mPower > 0 && anoSubNode.mPower > 0){
+					if(oneSubNode.mPower.mGreater(0) && anoSubNode.mPower.mGreater(0)){
 						
-						if(oneSubNode.mPower < anoSubNode.mPower){
+						if(oneSubNode.mPower.mLesser(anoSubNode.mPower)){
 							
-							node.mPower = oneSubNode.mPower;
+							node.mPower = new Rational(oneSubNode.mPower);
 							
 							destNode.add(node);
 							
 						}else
-						if(oneSubNode.mPower > anoSubNode.mPower){
+						if(oneSubNode.mPower.mGreater(anoSubNode.mPower)){
 
-							node.mPower = anoSubNode.mPower;
+							node.mPower = new Rational(anoSubNode.mPower);
 
 							destNode.add(node);
 							
@@ -93,18 +94,19 @@ public class IntersectorMultiMulti {
 							throw new Exception();
 						}
 					}else
-					if(oneSubNode.mPower < 0 && anoSubNode.mPower < 0){
+					if(oneSubNode.mPower.mLesser(0) 
+					&& anoSubNode.mPower.mLesser(0)){
 						
-						if(oneSubNode.mPower < anoSubNode.mPower){
+						if(oneSubNode.mPower.mLesser(anoSubNode.mPower)){
 
-							node.mPower = anoSubNode.mPower;
+							node.mPower = new Rational(anoSubNode.mPower);
 							
 							destNode.add(node);
 							
 						}else
-						if(oneSubNode.mPower > anoSubNode.mPower){
+						if(oneSubNode.mPower.mGreater(anoSubNode.mPower)){
 
-							node.mPower = oneSubNode.mPower;
+							node.mPower = new Rational(oneSubNode.mPower);
 							
 							destNode.add(node);
 							

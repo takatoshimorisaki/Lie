@@ -1,6 +1,7 @@
 package mori.Lie.include;
 
 import mori.Lie.Node;
+import mori.tools.Rational;
 
 public class IncludeCheckerMonoMono {
 
@@ -12,16 +13,16 @@ public class IncludeCheckerMonoMono {
 
 		if(aLargerNode.mToken.equals(aSmallerNode.mToken)){
 			
-			if(aLargerNode.mPower > 0
-			&& aSmallerNode.mPower > 0
-			&& aLargerNode.mPower >= aSmallerNode.mPower){
+			if(aLargerNode.mPower.mGreater(0)
+			&& aSmallerNode.mPower.mGreater(0)
+			&& aLargerNode.mPower.mGreaterEqual(aSmallerNode.mPower)){
 				
 				ans = 0;
 				
 			}else
-			if(aLargerNode.mPower < 0
-			&& aSmallerNode.mPower < 0
-			&& aLargerNode.mPower <= aSmallerNode.mPower){
+			if(aLargerNode.mPower.mLesser(0)
+			&& aSmallerNode.mPower.mLesser(0)
+			&& aLargerNode.mPower.mLesserEqual(aSmallerNode.mPower)){
 		
 				ans = 0;
 			}

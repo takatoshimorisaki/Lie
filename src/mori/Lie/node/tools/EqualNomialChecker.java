@@ -22,7 +22,7 @@ public class EqualNomialChecker{
 		if(oneNode.mNodeType == MONO_NODE){
 			
 			if(oneNode.mToken.equals(anoNode.mToken) 
-			&& oneNode.mPower == anoNode.mPower){
+			&& oneNode.mPower.mEquals(anoNode.mPower)){
 				return true;
 			}else{
 				return false;
