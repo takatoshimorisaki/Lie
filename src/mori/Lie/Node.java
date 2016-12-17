@@ -114,16 +114,9 @@ public class Node extends mori.Lie.Lie{
 		return mEqualChecker.mExe(this, anoNode);
 	}
 	
-	public String toString(){
-		String ans = null;
-		
-		try{
-			ans = mPrinter.toString(this);
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}finally{
-			return ans;
-		}
+	public String mToString()throws Exception{
+
+		return mPrinter.mToString(this);
 	}
 	
 	public String toNodeType(){

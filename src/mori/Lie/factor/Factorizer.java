@@ -26,11 +26,11 @@ public class Factorizer extends mori.Lie.Lie{
 		
 		if(leftSideLeftAngle != null){
 			
-			out.printf("leftSideLeftAngle:%s\n", leftSideLeftAngle.toString());
+			out.printf("leftSideLeftAngle:%s\n", leftSideLeftAngle.mToString());
 			
 			Node dividedNode = mDivider.mExe(leftNode, leftSideLeftAngle, INTERSECTOR_LEFT);
 			
-			out.printf("dividedNode:%s\n", dividedNode.toString());
+			out.printf("dividedNode:%s\n", dividedNode.mToString());
 			
 			Node parenthesisNode = mParenthesisWrapper.mExe(dividedNode);
 			
@@ -61,11 +61,11 @@ public class Factorizer extends mori.Lie.Lie{
 
 		if(leftSideRightAngle != null){
 			
-			out.printf("leftSideRightAngle:%s\n", leftSideRightAngle.toString());
+			out.printf("leftSideRightAngle:%s\n", leftSideRightAngle.mToString());
 
 			Node dividedNode = mDivider.mExe(leftNode, leftSideRightAngle, INTERSECTOR_RIGHT);
 			
-			out.printf("dividedNode:%s\n", dividedNode.toString());
+			out.printf("dividedNode:%s\n", dividedNode.mToString());
 
 			Node parenthesisNode = mParenthesisWrapper.mExe(dividedNode);
 			
@@ -96,11 +96,11 @@ public class Factorizer extends mori.Lie.Lie{
 		
 		if(rightSideLeftAngle != null){
 
-			out.printf("rightSideLeftAngle:%s\n", rightSideLeftAngle.toString());
+			out.printf("rightSideLeftAngle:%s\n", rightSideLeftAngle.mToString());
 
 			Node dividedNode = mDivider.mExe(rightNode, rightSideLeftAngle, INTERSECTOR_LEFT);
 			
-			out.printf("dividedNode:%s\n", dividedNode.toString());
+			out.printf("dividedNode:%s\n", dividedNode.mToString());
 
 			Node parenthesisNode = mParenthesisWrapper.mExe(dividedNode);
 			
@@ -131,11 +131,11 @@ public class Factorizer extends mori.Lie.Lie{
 		
 		if(rightSideRightAngle != null){
 
-			out.printf("rightSideRightAngle:%s\n", rightSideRightAngle.toString());
+			out.printf("rightSideRightAngle:%s\n", rightSideRightAngle.mToString());
 
 			Node dividedNode = mDivider.mExe(rightNode, rightSideRightAngle, INTERSECTOR_RIGHT);
 			
-			out.printf("dividedNode:%s\n", dividedNode.toString());
+			out.printf("dividedNode:%s\n", dividedNode.mToString());
 
 			Node parenthesisNode = mParenthesisWrapper.mExe(dividedNode);
 			

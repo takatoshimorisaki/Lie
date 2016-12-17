@@ -151,10 +151,10 @@ public class ExpanderMultiMulti {
 			boolean rtn = emm.mExe(destNode, arg, leftNode, rightNode);
 			
 			out.printf("rtn %b\n", rtn);
-			out.printf("destNode %s\n", destNode.toString());
-			out.printf("arg %s\n",  arg.toString());
-			out.printf("leftNode %s\n", leftNode.toString());
-			out.printf("rightNode %s\n", rightNode.toString());
+			out.printf("destNode %s\n", destNode.mToString());
+			out.printf("arg %s\n",  arg.mToString());
+			out.printf("leftNode %s\n", leftNode.mToString());
+			out.printf("rightNode %s\n", rightNode.mToString());
 			
 		}catch(Exception ex){
 			ex.printStackTrace();

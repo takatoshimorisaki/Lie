@@ -83,7 +83,7 @@ public class Together extends mori.Lie.Lie{
 			
 		}else{
 		
-			throw new Exception(arg.toString());
+			throw new Exception(arg.mToString());
 		}
 		
 		return togethered;

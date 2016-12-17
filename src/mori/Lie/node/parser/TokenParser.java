@@ -206,7 +206,7 @@ public class TokenParser {
 			mStrBuf = null;
 		}
 		
-		out.printf("TokenParser mParse mRoot %s\n", mRoot.toString());
+		out.printf("TokenParser mParse mRoot %s\n", mRoot.mToString());
 		
 		Node ans = mNodeParser.mExe(mRoot);
 		

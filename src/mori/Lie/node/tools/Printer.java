@@ -49,7 +49,7 @@ public class Printer{
 		return ans;
 	}
 	
-	public String toString(
+	public String mToString(
 		Node aNode
 	)throws Exception{
 		String ans = "";
@@ -66,7 +66,7 @@ public class Printer{
 				
 					Node node = aNode.mGetSubNode(id);
 					
-					ans += String.format(" %s", node.toString());
+					ans += String.format(" %s", node.mToString());
 				}
 				
 				ans += ")";
@@ -87,7 +87,7 @@ public class Printer{
 
 			if(aNode.mPower.mEquals(1) != true){
 				
-				ans = String.format("%s^(%s)", ans, aNode.mPower.toString());
+				ans = String.format("%s^(%s)", ans, aNode.mPower.mToString());
 				
 			}else{
 				// nothing to do.
@@ -106,7 +106,7 @@ public class Printer{
 				Node node = (Node)aNode.mSubNodes.elementAt(cnt);
 				
 				ans = String.format("%s%s", 
-						ans, this.toString(node) );
+						ans, this.mToString(node) );
 			}
 		}else
 		if(aNode.mNodeType == POLYNOMIAL_NODE){
@@ -122,7 +122,7 @@ public class Printer{
 				
 				ans = String.format("%s%s", 
 						ans, 
-						this.toString(node) );
+						this.mToString(node) );
 			}
 		}else
 		if(aNode.mNodeType == BRACKET_NODE){
@@ -132,8 +132,8 @@ public class Printer{
 			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
 			
 			ans = String.format("[%s, %s]", 
-					this.toString(firstNode),
-					this.toString(secondNode));
+					this.mToString(firstNode),
+					this.mToString(secondNode));
 		}else
 		if(aNode.mNodeType == EQU_NODE){
 			
@@ -142,14 +142,15 @@ public class Printer{
 			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
 
 			ans = String.format("%s = %s", 
-					this.toString(firstNode),
-					this.toString(secondNode));
+					this.mToString(firstNode),
+					this.mToString(secondNode));
 		}else
 		if(aNode.mNodeType == OPE_ADD_NODE){
 
-			if(aNode.mSubNodes == null){
+			if(aNode.mSubNodes == null
+			|| aNode.mSubNodes.size() == 0){
 				
-				ans = "+";
+				ans = ":";
 				
 			}else{
 				Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
@@ -157,14 +158,15 @@ public class Printer{
 				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
 	
 				ans = String.format("%s + %s", 
-						this.toString(firstNode),
-						this.toString(secondNode));
+						this.mToString(firstNode),
+						this.mToString(secondNode));
 			}
 			
 		}else
 		if(aNode.mNodeType == OPE_SUB_NODE){
 
-			if(aNode.mSubNodes == null){
+			if(aNode.mSubNodes == null
+			|| aNode.mSubNodes.size() == 0){
 				
 				ans = "-";
 				
@@ -174,13 +176,14 @@ public class Printer{
 				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
 	
 				ans = String.format("%s - %s", 
-						this.toString(firstNode),
-						this.toString(secondNode));
+						this.mToString(firstNode),
+						this.mToString(secondNode));
 			}
 		}else
 		if(aNode.mNodeType == OPE_MULTI_NODE){
 
-			if(aNode.mSubNodes == null){
+			if(aNode.mSubNodes == null
+			|| aNode.mSubNodes.size() == 0){
 				
 				ans = "*";
 				
@@ -190,13 +193,14 @@ public class Printer{
 				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
 	
 				ans = String.format("%s * %s", 
-						this.toString(firstNode),
-						this.toString(secondNode));
+						this.mToString(firstNode),
+						this.mToString(secondNode));
 			}
 		}else
 		if(aNode.mNodeType == OPE_DIV_NODE){
 
-			if(aNode.mSubNodes == null){
+			if(aNode.mSubNodes == null
+			|| aNode.mSubNodes.size() == 0){
 				
 				ans = "/";
 				
@@ -206,15 +210,15 @@ public class Printer{
 				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
 	
 				ans = String.format("%s / %s", 
-						this.toString(firstNode),
-						this.toString(secondNode));
+						this.mToString(firstNode),
+						this.mToString(secondNode));
 			}
 		}else
 		if(aNode.mNodeType == PARENTHESIS_NODE){
 
 			Node subNode = (Node)aNode.mSubNodes.elementAt(0);
 			
-			ans = String.format("(%s)", this.toString(subNode));
+			ans = String.format("(%s)", this.mToString(subNode));
 		}
 		
 		return ans;
@@ -222,13 +226,13 @@ public class Printer{
 	
 	public void mExe(
 		Node aNode
-	){
-		out.printf("%s", aNode.toString());
+	)throws Exception{
+		out.printf("%s", aNode.mToString());
 	}
 	
 	public void mExeln(
 		Node aNode
-	){
+	)throws Exception{
 		mExe(aNode);
 		
 		out.println();

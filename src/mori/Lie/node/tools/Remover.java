@@ -208,11 +208,11 @@ public class Remover {
 			
 			Node[] splitedNode = mRemover.mExe(removedNode, arg, leftNode, 1);
 			
-			out.printf("arg            %s\n", arg.toString());
-			out.printf("leftNode       %s\n", leftNode.toString());
-			out.printf("removedNode    %s\n", removedNode.toString());
-			out.printf("splitedNode[0] %s\n", splitedNode[0].toString());
-			out.printf("splitedNode[1] %s\n", splitedNode[1].toString());
+			out.printf("arg            %s\n", arg.mToString());
+			out.printf("leftNode       %s\n", leftNode.mToString());
+			out.printf("removedNode    %s\n", removedNode.mToString());
+			out.printf("splitedNode[0] %s\n", splitedNode[0].mToString());
+			out.printf("splitedNode[1] %s\n", splitedNode[1].mToString());
 			
 		}catch(Exception ex){
 			ex.printStackTrace();

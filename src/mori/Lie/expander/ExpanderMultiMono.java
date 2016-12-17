@@ -73,7 +73,7 @@ public class ExpanderMultiMono {
 						
 					}else{
 						String errMsg = String.format("aDestNode %s", 
-								aDestNode.toString());
+								aDestNode.mToString());
 						
 						throw new Exception();
 					}

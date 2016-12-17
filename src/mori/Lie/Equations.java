@@ -96,7 +96,7 @@ public class Equations{
 		mValues.add(equ);
 	}
 	
-	public void mList(){
+	public void mList()throws Exception{
 		
 		for(int cnt = 0; cnt < mValues.size(); cnt++){
 			

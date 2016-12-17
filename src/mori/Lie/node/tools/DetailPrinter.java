@@ -27,7 +27,7 @@ public class DetailPrinter {
 			
 			out.printf("%smToken %s\n", aSpace, arg.mToken);
 			
-			out.printf("%smPower %s\n", aSpace, arg.mPower.toString());
+			out.printf("%smPower %s\n", aSpace, arg.mPower.mToString());
 		}else
 		if(arg.mNodeType == MULTI_NODE
 		|| arg.mNodeType == POLY_NODE
@@ -40,7 +40,7 @@ public class DetailPrinter {
 			
 			out.printf("%smToken %s\n", aSpace, arg.mToken);
 			
-			out.printf("%smPower %s\n", aSpace, arg.mPower.toString());
+			out.printf("%smPower %s\n", aSpace, arg.mPower.mToString());
 			
 			int size = arg.mSubNodes.size();
 					

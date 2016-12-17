@@ -178,7 +178,7 @@ public class Rational {
 		}
 	}
 	
-	public String toString(){
+	public String mToString(){
 	
 		if(this.mDenominator == 1){
 

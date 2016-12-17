@@ -15,7 +15,7 @@ public class NodeChecker {
 			int size = arg.mSubNodes.size();
 			
 			if(size == 1){
-				throw new Exception(arg.toString() + " 15");
+				throw new Exception(arg.mToString() + " 15");
 			}
 			
 			for(int cnt = 0; cnt < size; cnt++){
@@ -24,7 +24,7 @@ public class NodeChecker {
 				
 				if(node.mToken == null || node.mToken.equals("")){
 					
-					throw new Exception(arg.toString() + " 20");
+					throw new Exception(arg.mToString() + " 20");
 				}
 			}
 			
@@ -33,7 +33,7 @@ public class NodeChecker {
 				
 			if(arg.mToken != null){
 				
-				throw new Exception(arg.toString() + " 29");
+				throw new Exception(arg.mToString() + " 29");
 			}
 
 			int size = arg.mSubNodes.size();

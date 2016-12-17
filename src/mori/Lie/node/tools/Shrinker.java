@@ -87,7 +87,7 @@ public class Shrinker extends mori.Lie.Lie{
 			
 			out.printf("%d:%s\n", 
 					mEquations.size() - 1,
-					equ.toString());
+					equ.mToString());
 			
 			mEquations.mSet(mEquations.size() - 1, equ);
 		}
