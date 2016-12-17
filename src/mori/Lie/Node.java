@@ -3,6 +3,7 @@ package mori.Lie;
 import static java.lang.System.out;
 import static mori.Lie.node.tools.Holder.mEqualChecker;
 import static mori.Lie.node.tools.Holder.mEqualNomialChecker;
+import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mNodeChecker;
 import static mori.Lie.node.tools.Holder.mPrinter;
 import static mori.Lie.node.tools.Holder.mTokenChecker;
@@ -40,8 +41,12 @@ public class Node extends mori.Lie.Lie{
 	public final static int OPE_MULTI_NODE      = 8;
 	
 	public final static int OPE_DIV_NODE        = 9;
+
+	public final static int OPE_POWER_NODE      = 10;
 	
 	public final static int PARENTHESIS_NODE    = 20;
+
+	public final static int ALPHABET_NODE       = 21;
 	
 	public final static double DOUBLE_THRESHOLD = 1.0e-07;
 	
@@ -72,7 +77,7 @@ public class Node extends mori.Lie.Lie{
 	
 	public void add(Node arg){
 		
-		mSubNodes.add(arg);
+		mSubNodes.add( mFactory.mExe(arg) );
 	}
 	
 	public void mSet(int id, Node node){

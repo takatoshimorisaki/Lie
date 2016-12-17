@@ -55,7 +55,22 @@ public class Printer{
 		String ans = "";
 		
 		if(aNode.mNodeType == NULL_NODE){
-			// nothing to do.
+			
+			ans = "null";
+			
+			if(aNode.mSubNodes != null){
+				
+				ans += "(";
+				
+				for(int id = 0; id < aNode.mSubNodes.size(); id++){
+				
+					Node node = aNode.mGetSubNode(id);
+					
+					ans += String.format(" %s", node.toString());
+				}
+				
+				ans += ")";
+			}
 		}else
 		if(aNode.mNodeType == NUMBER_NODE){
 			
@@ -132,43 +147,68 @@ public class Printer{
 		}else
 		if(aNode.mNodeType == OPE_ADD_NODE){
 
-			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+			if(aNode.mSubNodes == null){
+				
+				ans = "+";
+				
+			}else{
+				Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+				
+				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+	
+				ans = String.format("%s + %s", 
+						this.toString(firstNode),
+						this.toString(secondNode));
+			}
 			
-			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
-
-			ans = String.format("%s + %s", 
-					this.toString(firstNode),
-					this.toString(secondNode));
 		}else
 		if(aNode.mNodeType == OPE_SUB_NODE){
 
-			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
-			
-			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
-
-			ans = String.format("%s - %s", 
-					this.toString(firstNode),
-					this.toString(secondNode));
+			if(aNode.mSubNodes == null){
+				
+				ans = "-";
+				
+			}else{
+				Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+				
+				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+	
+				ans = String.format("%s - %s", 
+						this.toString(firstNode),
+						this.toString(secondNode));
+			}
 		}else
 		if(aNode.mNodeType == OPE_MULTI_NODE){
 
-			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
-			
-			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
-
-			ans = String.format("%s * %s", 
-					this.toString(firstNode),
-					this.toString(secondNode));
+			if(aNode.mSubNodes == null){
+				
+				ans = "*";
+				
+			}else{
+				Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+				
+				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+	
+				ans = String.format("%s * %s", 
+						this.toString(firstNode),
+						this.toString(secondNode));
+			}
 		}else
 		if(aNode.mNodeType == OPE_DIV_NODE){
 
-			Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
-			
-			Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
-
-			ans = String.format("%s / %s", 
-					this.toString(firstNode),
-					this.toString(secondNode));
+			if(aNode.mSubNodes == null){
+				
+				ans = "/";
+				
+			}else{
+				Node firstNode = (Node)aNode.mSubNodes.elementAt(0);
+				
+				Node secondNode = (Node)aNode.mSubNodes.elementAt(1);
+	
+				ans = String.format("%s / %s", 
+						this.toString(firstNode),
+						this.toString(secondNode));
+			}
 		}else
 		if(aNode.mNodeType == PARENTHESIS_NODE){
 

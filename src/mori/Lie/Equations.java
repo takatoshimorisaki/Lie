@@ -5,6 +5,7 @@ import static mori.Lie.factor.Holder.mFactorizer;
 import static mori.Lie.Node.*;
 import static mori.Lie.node.tools.Holder.mShrinker;
 import mori.Lie.expander.Expander;
+import mori.Lie.node.parser.Holder;
 
 public class Equations{
 	
@@ -74,9 +75,13 @@ public class Equations{
 		
 		String rightStr = arg.substring(arg.indexOf("=")+1, arg.length()).trim();
 		
-		Node leftNode = mFactory.mExe(leftStr);
+		out.printf("Equations add leftStr %s\n", leftStr);
 		
-		Node rightNode = mFactory.mExe(rightStr);
+		Node leftNode = Holder.mExe(leftStr); // mFactory.mExe(leftStr);
+
+		out.printf("Equations add rightStr %s\n", rightStr);
+		
+		Node rightNode = Holder.mExe(rightStr); // mFactory.mExe(rightStr);
 		
 		Node equ = new Node();
 		

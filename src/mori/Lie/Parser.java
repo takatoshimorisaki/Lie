@@ -30,7 +30,6 @@ public class Parser extends mori.Lie.Lie {
 	
 	public Parser(){
 		
-		this.read();
 	}
 	
 	public void add(String arg){
@@ -40,6 +39,14 @@ public class Parser extends mori.Lie.Lie {
 			
 			if(msg.length() == 0){
 				// nothig to do.
+			}else
+			if(msg.startsWith("#") == true){
+				// nothing to do.
+			}else
+			if(msg.startsWith("read") == true){
+
+				this.read();
+				
 			}else
 			if(msg.startsWith("token") == true){
 				
@@ -107,7 +114,10 @@ public class Parser extends mori.Lie.Lie {
 	
 	private void read(){
 		try{
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("DOC/input.txt"),mCharSet));
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(
+							new FileInputStream("DOC/input.txt"),
+							mCharSet));
 			
 			String line = null;
 

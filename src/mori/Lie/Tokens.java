@@ -4,7 +4,7 @@ import static java.lang.System.out;
 
 public class Tokens{
 	
-	public java.util.Vector mValues = new java.util.Vector<Token>();
+	public java.util.Vector<Token> mValues = new java.util.Vector<Token>();
 	
 	public Tokens(){
 		
@@ -63,5 +63,12 @@ public class Tokens{
 		}
 	}
 	
+	public int size(){
+		return mValues.size();
+	}
+	
+	public Token get(int id){
+		return mValues.get(id);
+	}
 }
 
