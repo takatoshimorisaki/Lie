@@ -42,8 +42,13 @@ public class Printer{
 		case EQU_NODE:
 			ans = String.format("EQU_NODE");
 			break;
+		case RATIONAL_NODE:
+			ans = String.format("RATIONAL_NODE");
+			break;
 		default:
-			throw new Exception();
+			String errMsg = String.format("arg.mNodeType %d", arg.mNodeType);
+			
+			throw new Exception(errMsg);
 		}
 		
 		return ans;
@@ -214,11 +219,24 @@ public class Printer{
 						this.mToString(secondNode));
 			}
 		}else
+		if(aNode.mNodeType == OPE_POWER_NODE){
+
+			ans = "^";
+			
+		}else
 		if(aNode.mNodeType == PARENTHESIS_NODE){
 
 			Node subNode = (Node)aNode.mSubNodes.elementAt(0);
 			
 			ans = String.format("(%s)", this.mToString(subNode));
+
+		}else
+		if(aNode.mNodeType == RATIONAL_NODE){
+			
+			ans = aNode.mPower.mToString();
+			
+		}else{
+			throw new Exception(aNode.toNodeType());
 		}
 		
 		return ans;

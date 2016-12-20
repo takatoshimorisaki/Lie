@@ -43,11 +43,17 @@ public class Node extends mori.Lie.Lie{
 	public final static int OPE_DIV_NODE        = 9;
 
 	public final static int OPE_POWER_NODE      = 10;
+
+	public final static int OPE_PLUS_NODE       = 11;
+
+	public final static int OPE_MINUS_NODE      = 12;
 	
 	public final static int PARENTHESIS_NODE    = 20;
 
 	public final static int ALPHABET_NODE       = 21;
-	
+
+	public final static int RATIONAL_NODE       = 22;
+		
 	public final static double DOUBLE_THRESHOLD = 1.0e-07;
 	
 	public int mNodeType = NULL_NODE;

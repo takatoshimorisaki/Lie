@@ -11,6 +11,11 @@ public class Rational {
 	public Rational(){
 	}
 	
+	public Rational(String arg){
+	
+		this.mNumerator = Integer.parseInt(arg);
+	}
+	
 	public Rational(int arg){
 		this.mNumerator = arg;
 	}
@@ -104,6 +109,22 @@ public class Rational {
 		}
 	}
 
+	public Rational mMultiply(Rational arg){
+		Rational ans = new Rational();
+		
+		ans.mNumerator = this.mNumerator * arg.mNumerator;
+		
+		ans.mDenominator = this.mDenominator * arg.mDenominator;
+
+		int gcd = mArithmetic.mGcd(ans.mNumerator, ans.mDenominator);
+		
+		ans.mNumerator /= gcd;
+		
+		ans.mDenominator /= gcd;
+		
+		return ans;
+	}
+	
 	public Rational mAdd(Rational arg){
 		Rational ans = new Rational();
 		

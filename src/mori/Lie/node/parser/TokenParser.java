@@ -5,6 +5,7 @@ import static mori.Lie.Node.*;
 import mori.Lie.Node;
 import mori.tools.AlphabetChecker;
 import mori.tools.NumericChecker;
+import mori.tools.Rational;
 
 public class TokenParser {
 
@@ -15,6 +16,8 @@ public class TokenParser {
 	private int mNodeType0;
 	
 	private int mNodeType1;
+
+	private int mNodeType2;
 	
 	private int mParenthesisDepth;
 	
@@ -37,7 +40,9 @@ public class TokenParser {
 			
 			mStrBuf = new StringBuffer();
 		}
-	
+
+		mNodeType2 = mNodeType1;
+		
 		mNodeType1 = mNodeType0;
 		
 		if(NumericChecker.mExe(token)){
@@ -56,13 +61,9 @@ public class TokenParser {
 		}else
 		if(token.equals("+")){
 
-			mAddNumberAlphabetNode();
-			
 			mStrBuf.append(token);
 			
-			mNodeType0 = OPE_ADD_NODE;
-			
-			mAddNode();
+			mNodeType0 = NUMBER_NODE;
 			
 		}else
 		if(token.equals(":")){
@@ -78,13 +79,9 @@ public class TokenParser {
 		}else
 		if(token.equals("-")){
 
-			mAddNumberAlphabetNode();
-			
 			mStrBuf.append(token);
 			
-			mNodeType0 = OPE_SUB_NODE;
-
-			mAddNode();
+			mNodeType0 = NUMBER_NODE;
 			
 		}else
 		if(token.equals("*")){
@@ -150,9 +147,22 @@ public class TokenParser {
 			
 			Node node = new Node();
 			
-			node.mNodeType = NUMBER_NODE;
+			if(mNodeType2 == OPE_POWER_NODE){
+
+				node.mNodeType = RATIONAL_NODE;
+				
+				node.mPower = new Rational(mStrBuf.toString());
+				
+			}else{
+
+				node.mNodeType = NUMBER_NODE;
+				
+				node.mCoef = Double.parseDouble( mStrBuf.toString() );
+			}
 			
-			node.mToken = mStrBuf.toString();
+			node.mToken = null;
+
+			out.printf("TokenParser number %s\n", node.mToString());
 			
 			mRoot.add(node);
 			
@@ -163,19 +173,23 @@ public class TokenParser {
 			
 			Node node = mAlphabetParser.mExe( mStrBuf.toString() );
 
+			out.printf("TokenParser alphabet %s\n", node.mToString());
+			
 			mRoot.add(node);
 			
 			mStrBuf = new StringBuffer();
 		}
 	}
 
-	private void mAddNode(){
+	private void mAddNode()throws Exception{
 
 		if(mParenthesisDepth == 0){
 			
 			Node node = new Node();
 			
 			node.mNodeType = mNodeType0;
+			
+			out.printf("TokenParser mAddNode %s\n", node.mToString());
 			
 			mRoot.add(node);
 			
@@ -189,9 +203,19 @@ public class TokenParser {
 
 			Node node = new Node();
 			
-			node.mNodeType = NUMBER_NODE;
+			if(mNodeType1 == OPE_POWER_NODE){
+
+				node.mNodeType = RATIONAL_NODE;
+				
+				node.mPower = new Rational(mStrBuf.toString());
+			}else{
+
+				node.mNodeType = NUMBER_NODE;
+				
+				node.mCoef = Double.parseDouble( mStrBuf.toString() );
+			}
 			
-			node.mToken = mStrBuf.toString();
+			node.mToken = null;
 			
 			mRoot.add(node);
 			

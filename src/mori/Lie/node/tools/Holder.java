@@ -14,6 +14,8 @@ public class Holder {
 	
 	public static NodeSplitter mNodeSplitter = new NodeSplitter();
 
+	public static Power mPower = new Power();
+	
 	public static Printer mPrinter = new Printer();
 	
 	public static Remover mRemover = new Remover();

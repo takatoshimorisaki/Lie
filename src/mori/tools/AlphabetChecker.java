@@ -7,7 +7,10 @@ public class AlphabetChecker {
 	public static boolean mExe(String token){
 		
 		char charValue = token.charAt(0);
-		
+
+		if(charValue == '^'){
+			return false;
+		}else
 		if(charValue >= 'A' && charValue <= 'z'){
 			return true;
 		}else{
@@ -32,6 +35,10 @@ public class AlphabetChecker {
 		out.println(ans);
 
 		ans = nc.mExe("a");
+
+		out.println(ans);
+
+		ans = nc.mExe("^");
 
 		out.println(ans);
 	}

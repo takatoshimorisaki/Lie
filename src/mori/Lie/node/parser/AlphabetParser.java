@@ -15,23 +15,36 @@ public class AlphabetParser extends mori.Lie.Lie{
 		
 		String str = arg.substring(0);
 		
-		for(int id = 0; id < mTokens.size(); id++){
+		while(str != null && str.length() > 0){
 			
-			Token token = mTokens.get(id);
+			boolean find = false;
 			
-			if(str.startsWith(token.mValue)){
+			for(int id = 0; id < mTokens.size(); id++){
 				
-				Node node = new Node();
+				Token token = mTokens.get(id);
 				
-				node.mNodeType = MONO_NODE;
-				
-				node.mToken = new String( token.mValue );
-				
-				mNodes.add(node);
-				
-				id += token.mValue.length();
+				if(str.startsWith(token.mValue)){
+					
+					Node node = new Node();
+					
+					node.mNodeType = MONO_NODE;
+					
+					node.mToken = new String( token.mValue );
+					
+					mNodes.add(node);
+			
+					find = true;
+					
+					str = str.substring(token.mValue.length());
+					
+					break;
+				}
+			}// for id
+			
+			if(find == false){
+				throw new Exception(str);
 			}
-		}// for id
+		}// while
 		
 		Node ans = new Node();
 		
