@@ -202,20 +202,14 @@ public class NodeParser {
 	
 	public Node mExe(Node arg)throws Exception{
 
-		out.println("NodeParser");
-		
 		for(int id = 0; id < arg.mSubNodes.size(); id++){
 			
 			Node node = arg.mGetSubNode(id);
-			
-			out.printf("id %d node %s\n", id, node.mToString());
 			
 			if(node.mNodeType != NULL_NODE){
 			
 				mPush(node);
 			}
-			
-			out.printf("mNode0 %s\n", mNode0.mToString());
 		}
 		
 		return mNode0;

@@ -75,12 +75,8 @@ public class Equations{
 		
 		String rightStr = arg.substring(arg.indexOf("=")+1, arg.length()).trim();
 		
-		out.printf("Equations add leftStr %s\n", leftStr);
-		
 		Node leftNode = Holder.mExe(leftStr); // mFactory.mExe(leftStr);
 
-		out.printf("Equations add rightStr %s\n", rightStr);
-		
 		Node rightNode = Holder.mExe(rightStr); // mFactory.mExe(rightStr);
 		
 		Node equ = new Node();

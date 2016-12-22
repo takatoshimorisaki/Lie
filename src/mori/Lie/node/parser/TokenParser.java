@@ -162,8 +162,6 @@ public class TokenParser {
 			
 			node.mToken = null;
 
-			out.printf("TokenParser number %s\n", node.mToString());
-			
 			mRoot.add(node);
 			
 			mStrBuf = new StringBuffer();
@@ -173,8 +171,6 @@ public class TokenParser {
 			
 			Node node = mAlphabetParser.mExe( mStrBuf.toString() );
 
-			out.printf("TokenParser alphabet %s\n", node.mToString());
-			
 			mRoot.add(node);
 			
 			mStrBuf = new StringBuffer();
@@ -188,8 +184,6 @@ public class TokenParser {
 			Node node = new Node();
 			
 			node.mNodeType = mNodeType0;
-			
-			out.printf("TokenParser mAddNode %s\n", node.mToString());
 			
 			mRoot.add(node);
 			
@@ -229,8 +223,6 @@ public class TokenParser {
 			
 			mStrBuf = null;
 		}
-		
-		out.printf("TokenParser mParse mRoot %s\n", mRoot.mToString());
 		
 		Node ans = mNodeParser.mExe(mRoot);
 		
