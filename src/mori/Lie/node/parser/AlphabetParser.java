@@ -1,5 +1,6 @@
 package mori.Lie.node.parser;
 
+import static java.lang.System.out;
 import static mori.Lie.Node.*;
 import java.util.Vector;
 import mori.Lie.Node;

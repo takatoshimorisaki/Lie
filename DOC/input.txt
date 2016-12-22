@@ -8,6 +8,7 @@ token Pz
 token Lx
 token Ly
 token Lz
+token r
 Px*X=X*Px:-1*i
 Px*Y=Y*Px
 Px*Z=Z*Px
@@ -36,3 +37,4 @@ X*Z=Z*X
 Py*Px=Px*Py
 Pz*Py=Py*Pz
 Px*Pz=Pz*Px
+[r, Px] = -i*X*r^-1
