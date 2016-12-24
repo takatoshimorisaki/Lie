@@ -1,13 +1,15 @@
 package mori.Lie.node.tools;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mBracketExpander;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mSignReverser;
 
+import mori.Lie.I_Operator;
 import mori.Lie.Node;
 
-public class Subtracter{
+public class Subtracter implements I_Operator{
 
 	public Node mExe(
 		Node aOneNode,

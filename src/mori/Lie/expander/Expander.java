@@ -7,6 +7,7 @@ import static mori.Lie.expander.Holder.mExpanderMultiMulti;
 import static mori.Lie.expander.Holder.mExpanderPolyMono;
 import static mori.Lie.expander.Holder.mExpanderPolyPoly;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 
 public class Expander{

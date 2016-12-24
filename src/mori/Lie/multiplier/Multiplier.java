@@ -8,6 +8,7 @@ import static mori.Lie.multiplier.Holder.mMultiplierMultiMulti;
 import static mori.Lie.multiplier.Holder.mMultiplierMultiNum;
 import static mori.Lie.multiplier.Holder.mMultiplierNumMulti;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mFactory;
 import mori.Lie.I_Operator;
 import mori.Lie.Node;

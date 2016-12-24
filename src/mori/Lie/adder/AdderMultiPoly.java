@@ -2,6 +2,7 @@ package mori.Lie.adder;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 import mori.Lie.node.tools.EqualNomialChecker;
 import mori.Lie.node.tools.Factory;

@@ -2,6 +2,7 @@ package mori.Lie.node.tools;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 
 public class Printer{
@@ -42,8 +43,38 @@ public class Printer{
 		case EQU_NODE:
 			ans = String.format("EQU_NODE");
 			break;
+		case OPE_ADD_NODE:
+			ans = String.format(":");
+			break;
+		case OPE_SUB_NODE:
+			ans = String.format("OPE_SUB_NODE");
+			break;
+		case OPE_MULTI_NODE:
+			ans = String.format("OPE_MULTI_NODE");
+			break;
+		case OPE_DIV_NODE:
+			ans = String.format("/");
+			break;
+		case OPE_POWER_NODE:
+			ans = String.format("^");
+			break;
+		case OPE_PLUS_NODE:
+			ans = String.format("+");
+			break;
+		case OPE_MINUS_NODE:
+			ans = String.format("-");
+			break;
 		case RATIONAL_NODE:
 			ans = String.format("RATIONAL_NODE");
+			break;
+		case BRACKET_START_NODE:
+			ans = String.format("[");
+			break;
+		case BRACKET_END_NODE:
+			ans = String.format("]");
+			break;
+		case COMMA_NODE:
+			ans = String.format(",");
 			break;
 		default:
 			String errMsg = String.format("arg.mNodeType %d", arg.mNodeType);
@@ -230,6 +261,21 @@ public class Printer{
 			
 			ans = String.format("(%s)", this.mToString(subNode));
 
+		}else
+		if(aNode.mNodeType == BRACKET_START_NODE){
+
+			ans = "[";
+			
+		}else
+		if(aNode.mNodeType == BRACKET_END_NODE){
+
+			ans = "]";
+			
+		}else
+		if(aNode.mNodeType == COMMA_NODE){
+
+			ans = ",";
+			
 		}else
 		if(aNode.mNodeType == RATIONAL_NODE){
 			

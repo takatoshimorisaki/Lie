@@ -6,6 +6,7 @@ import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mNodeSplitter;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 import mori.tools.Rational;
 

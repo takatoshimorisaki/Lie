@@ -27,15 +27,19 @@ public class NumericChecker {
 
 		out.println(ans);
 		
-		nc.mExe("2");
-		nc.mExe("3");
-		nc.mExe("4");
-		nc.mExe("5");
-		nc.mExe("6");
-		nc.mExe("7");
-		nc.mExe("8");
-		nc.mExe("9");
 		ans = nc.mExe("A");
+
+		out.println(ans);
+
+		ans = nc.mExe("[");
+
+		out.println(ans);
+
+		ans = nc.mExe("]");
+
+		out.println(ans);
+
+		ans = nc.mExe(",");
 
 		out.println(ans);
 	}

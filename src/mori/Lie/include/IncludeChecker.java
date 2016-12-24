@@ -1,6 +1,7 @@
 package mori.Lie.include;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 
 public class IncludeChecker {

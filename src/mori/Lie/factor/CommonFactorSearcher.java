@@ -2,6 +2,7 @@ package mori.Lie.factor;
 
 import static mori.Lie.factor.Holder.mIntersector;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mNodeSplitter;
 import mori.Lie.Node;
 

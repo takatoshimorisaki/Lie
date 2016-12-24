@@ -1,6 +1,7 @@
 package mori.Lie.node.translator;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 import mori.tools.Rational;
 

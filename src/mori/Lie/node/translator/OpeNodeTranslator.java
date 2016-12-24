@@ -1,6 +1,7 @@
 package mori.Lie.node.translator;
 
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.adder.Holder.mAdder;
 import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.node.translator.Holder.mNodeTranslator;

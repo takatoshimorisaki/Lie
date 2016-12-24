@@ -3,6 +3,7 @@ package mori.Lie.factor;
 import static mori.Lie.factor.Holder.mIntersectorMonoMono;
 import static mori.Lie.factor.Intersector.*;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.tools.Holder.mGreatestCommonNumber;
 import mori.Lie.Node;
 import mori.tools.Rational;

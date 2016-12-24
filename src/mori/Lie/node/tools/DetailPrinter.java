@@ -3,6 +3,7 @@ package mori.Lie.node.tools;
 import static java.lang.System.out;
 import static mori.TabStop.*;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 
 public class DetailPrinter {

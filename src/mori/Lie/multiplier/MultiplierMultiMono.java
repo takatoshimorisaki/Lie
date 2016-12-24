@@ -1,7 +1,6 @@
 package mori.Lie.multiplier;
 
-import static mori.Lie.Node.MONOMIAL_NODE;
-import static mori.Lie.Node.MULTINOMIAL_NODE;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mFactory;
 
 import mori.Lie.Node;

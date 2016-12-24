@@ -5,6 +5,7 @@ import static mori.Lie.factor.Holder.mCommonFactorSearcher;
 import static mori.Lie.factor.Intersector.INTERSECTOR_LEFT;
 import static mori.Lie.factor.Intersector.INTERSECTOR_RIGHT;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mDivider;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mParenthesisWrapper;

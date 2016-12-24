@@ -2,6 +2,7 @@ package mori.Lie.multiplier;
 
 import static mori.Lie.Node.*;
 import mori.Lie.Node;
+import static mori.Lie.NodeType.*;
 import mori.tools.Rational;
 
 public class MultiplierMonoMono {

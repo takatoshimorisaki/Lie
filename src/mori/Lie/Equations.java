@@ -2,7 +2,7 @@ package mori.Lie;
 
 import static java.lang.System.out;
 import static mori.Lie.factor.Holder.mFactorizer;
-import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mShrinker;
 import mori.Lie.expander.Expander;
 import mori.Lie.node.parser.Holder;

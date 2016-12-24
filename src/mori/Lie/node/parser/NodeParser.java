@@ -4,10 +4,12 @@ import static java.lang.System.out;
 import static mori.Lie.adder.Holder.mAdder;
 import static mori.Lie.multiplier.Holder.mMultiplier;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import static mori.Lie.node.tools.Holder.mDivider;
 import static mori.Lie.node.tools.Holder.mFactory;
 import static mori.Lie.node.tools.Holder.mPower;
 import static mori.Lie.node.tools.Holder.mSubtracter;
+import mori.Lie.I_Operator;
 import mori.Lie.Node;
 import mori.tools.Rational;
 
@@ -16,9 +18,13 @@ public class NodeParser {
 	private Node mNode0;
 	
 	private Node mNode1;
+
+	private Node mLeftNode;
 	
-	private Node mOpeNode;
+	private Node mRightNode;
 	
+	private I_Operator mOperator;
+		
 	private Rational mRational;
 	
 	public void mPush(Node arg)throws Exception{
@@ -26,177 +32,83 @@ public class NodeParser {
 		mNode0 = arg;
 		
 		if(mNode1 == null){
+			// nothing to do.
+		}else
+		if(mNode1.mNodeType == BRACKET_START_NODE){
 
-			mNode1 = mFactory.mExe(mNode0);
+			mLeftNode = mFactory.mExe(mNode0);
 			
 		}else
-		if(mNode1.mNodeType == NUMBER_NODE
-		|| mNode1.mNodeType == MONO_NODE
-		|| mNode1.mNodeType == MULTI_NODE
-		|| mNode1.mNodeType == POLY_NODE
-		|| mNode1.mNodeType == BRACKET_NODE){
+		if(mNode1.mNodeType == COMMA_NODE){
+
+			mRightNode = mFactory.mExe(mNode0);
 			
-			if(mOpeNode != null){
+		}else
+		if(mNode0.mNodeType == BRACKET_END_NODE){
+			
+			mNode0.mNodeType = BRACKET_NODE;
+			
+			mNode0.mSubNodes = new java.util.Vector<Node>();
+			
+			mNode0.add(mLeftNode);
+			
+			mNode0.add(mRightNode);
+			
+		}else
+		if(NodeTypeChecker.mIsNomialNode(mNode1)){
+			
+			if(mOperator != null){
 				
-				if(mOpeNode.mNodeType == OPE_ADD_NODE){
-					
-					if(mNode0.mNodeType == NUMBER_NODE
-					|| mNode0.mNodeType == MONO_NODE
-					|| mNode0.mNodeType == MULTI_NODE
-					|| mNode0.mNodeType == POLY_NODE
-					|| mNode0.mNodeType == BRACKET_NODE){
-						
-						mNode0 = mAdder.mExe(mNode1, mNode0);
-
-						mNode1 = mFactory.mExe(mNode0);
-						
-						mOpeNode = null;
-						
-					}else{
-						throw new Exception();
-					}
-				}else
-				if(mOpeNode.mNodeType == OPE_SUB_NODE){
-
-					if(mNode0.mNodeType == NUMBER_NODE
-					|| mNode0.mNodeType == MONO_NODE
-					|| mNode0.mNodeType == MULTI_NODE
-					|| mNode0.mNodeType == POLY_NODE
-					|| mNode0.mNodeType == BRACKET_NODE){
-						
-						mNode0 = mSubtracter.mExe(mNode1, mNode0);
-
-						mNode1 = mFactory.mExe(mNode0);
-						
-						mOpeNode = null;
-
-					}else{
-						throw new Exception();
-					}	
-				}else
-				if(mOpeNode.mNodeType == OPE_MULTI_NODE){
-
-					if(mNode0.mNodeType == NUMBER_NODE
-					|| mNode0.mNodeType == MONO_NODE
-					|| mNode0.mNodeType == MULTI_NODE
-					|| mNode0.mNodeType == POLY_NODE
-					|| mNode0.mNodeType == BRACKET_NODE){
+					if(NodeTypeChecker.mIsNomialNode(mNode0)){
 						
 						if(mNode1.mSubNodes.size() == 0){
 							
-							mNode0 = mMultiplier.mExe(mNode1, mNode0);
+							mNode0 = mOperator.mExe(mNode1, mNode0);
 						
 						}else{
 						
 							Node node = mNode1.mGetSubNode(mNode1.mSubNodes.size() - 1);
 
-							node = mMultiplier.mExe(node, mNode0);
+							node = mOperator.mExe(node, mNode0);
 							
-							mNode1.mSet(
-									mNode1.mSubNodes.size() - 1,
-									node);
-							
-							mNode0 = mNode1;
-						}
-						
-						mNode1 = mFactory.mExe(mNode0);
-						
-						mOpeNode = null;
-
-					}else{
-						throw new Exception();
-					}
-				}else
-				if(mOpeNode.mNodeType == OPE_DIV_NODE){
-
-					if(mNode0.mNodeType == NUMBER_NODE
-					|| mNode0.mNodeType == MONO_NODE
-					|| mNode0.mNodeType == MULTI_NODE
-					|| mNode0.mNodeType == POLY_NODE
-					|| mNode0.mNodeType == BRACKET_NODE){
-						
-						if(mNode0.mNodeType == NUMBER_NODE
-						|| mNode0.mNodeType == MONO_NODE
-						|| mNode0.mNodeType == MULTI_NODE
-						|| mNode0.mNodeType == POLY_NODE
-						|| mNode0.mNodeType == BRACKET_NODE){
-							
-							if(mNode1.mSubNodes.size() == 0){
+							if(node.mNodeType == POLY_NODE){
 								
-								mNode0 = mDivider.mExe(mNode1, mNode0, mDivider.DIVIDER_RIGHT);
+								mNode1.mRemove(mNode1.mSubNodes.size() - 1);
+								
+								mNode1 = mAdder.mExe(mNode1, node);
 								
 							}else{
-							
-								Node node = mNode1.mGetSubNode(mNode1.mSubNodes.size() - 1);
-
-								mNode0 = mDivider.mExe(node, mNode0, mDivider.DIVIDER_RIGHT);
-
 								mNode1.mSet(
 										mNode1.mSubNodes.size() - 1,
 										node);
-
-								mNode1 = mFactory.mExe(mNode0);
 							}
-							
-							mNode1 = mFactory.mExe(mNode0);
-							
-							mOpeNode = null;
-
-						}else{
-							throw new Exception();
 						}
+						
+						mOperator = null;
+
 					}else{
 						throw new Exception();
 					}
-				}else
-				if(mOpeNode.mNodeType == OPE_POWER_NODE){
-
-					if(mNode1.mSubNodes.size() == 0){
-						
-						mNode0 = mPower.mExe(mNode1, mNode0.mPower);
-					
-					}else{
-					
-						Node node = mNode1.mGetSubNode(mNode1.mSubNodes.size() - 1);
-
-						node = mPower.mExe(node, mNode0.mPower);
-						
-						mNode1.mSet(
-								mNode1.mSubNodes.size() - 1,
-								node);
-						
-						mNode0 = mNode1;
-					}
-					
-					mNode1 = mFactory.mExe(mNode0);
-					
-					mOpeNode = null;
-					
-				}else{
-					throw new Exception();
-				}
 			}else
-			if(mNode0.mNodeType == NUMBER_NODE
-			|| mNode0.mNodeType == MONO_NODE
-			|| mNode0.mNodeType == MULTI_NODE
-			|| mNode0.mNodeType == POLY_NODE
-			|| mNode0.mNodeType == BRACKET_NODE){
+			if(NodeTypeChecker.mIsNomialNode(mNode0)){
 				
 				mNode0 = mMultiplier.mExe(mNode1, mNode0);
 
-				mNode1 = mFactory.mExe(mNode0);
-			
 			}else
-			if(mNode0.mNodeType == OPE_ADD_NODE
-			|| mNode0.mNodeType == OPE_SUB_NODE
-			|| mNode0.mNodeType == OPE_MULTI_NODE
-			|| mNode0.mNodeType == OPE_POWER_NODE){
+			if(NodeTypeChecker.mIsOperatorNode(mNode0)){
 				
-				mOpeNode = mFactory.mExe(mNode0);
+				mOperator = mFactory.mGetOperator(mNode0);
 				
+			}else
+			if(mNode0.mNodeType == COMMA_NODE){
+				// NOTHING TO DO.
 			}else{
-				throw new Exception();
+				throw new Exception(mNode0.toNodeType());
 			}
+		}
+
+		if(mOperator == null){
+			mNode1 = mFactory.mExe(mNode0);
 		}
 	}
 	

@@ -8,7 +8,10 @@ public class AlphabetChecker {
 		
 		char charValue = token.charAt(0);
 
-		if(charValue == '^'){
+		if(charValue == '^'
+		|| charValue == '['
+		|| charValue == ']'
+		|| charValue == ','){
 			return false;
 		}else
 		if(charValue >= 'A' && charValue <= 'z'){

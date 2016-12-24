@@ -12,6 +12,10 @@ public class Holder {
 			
 			String str = arg.substring(id, id+1);
 			
+			if(str.equals(" ") || str.equals("\t")){
+				continue;
+			}
+			
 			tp.mExe(str);
 		}
 		

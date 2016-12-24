@@ -5,6 +5,7 @@ import static mori.Lie.factor.Holder.mIntersectorMonoMulti;
 import static mori.Lie.factor.Holder.mIntersectorMultiMulti;
 import static mori.Lie.factor.Holder.mIntersectorNumNum;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 
 /**

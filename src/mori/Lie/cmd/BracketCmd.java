@@ -2,6 +2,7 @@ package mori.Lie.cmd;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
 import mori.Lie.node.tools.*;
 

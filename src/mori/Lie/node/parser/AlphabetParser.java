@@ -2,6 +2,7 @@ package mori.Lie.node.parser;
 
 import static java.lang.System.out;
 import static mori.Lie.Node.*;
+import static mori.Lie.NodeType.*;
 import java.util.Vector;
 import mori.Lie.Node;
 import mori.Lie.Token;

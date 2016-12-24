@@ -1,10 +1,44 @@
 package mori.Lie.node.tools;
 
 import static java.lang.System.out;
+import static mori.Lie.NodeType.*;
 import mori.Lie.Node;
+import mori.Lie.I_Operator;
 import mori.tools.Rational;
 
 public class Factory extends mori.Lie.Node{
+	
+	public I_Operator mGetOperator(Node arg)throws Exception{
+		
+		if(arg.mNodeType == OPE_ADD_NODE){
+			
+			return mori.Lie.adder.Holder.mAdder;
+			
+		}else
+		if(arg.mNodeType == OPE_SUB_NODE){
+			
+			return mori.Lie.node.tools.Holder.mSubtracter;
+			
+		}else
+		if(arg.mNodeType == OPE_MULTI_NODE){
+			
+			return mori.Lie.multiplier.Holder.mMultiplier;
+			
+		}else
+		if(arg.mNodeType == OPE_DIV_NODE){
+
+			return mori.Lie.node.tools.Holder.mDivider;
+			
+		}else
+		if(arg.mNodeType == OPE_POWER_NODE){
+
+			return mori.Lie.node.tools.Holder.mPower;
+			
+		}else{
+			throw new Exception(arg.toNodeType()); 
+		}
+			
+	}
 	
 	public void mCopy(
 		Node aDestNode,
