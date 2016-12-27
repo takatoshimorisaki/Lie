@@ -14,6 +14,10 @@ public class Divider implements I_Operator{
 	
 	public final static int DIVIDER_RIGHT = 2;
 
+	public String mToString(){
+		return "Divider";
+	}
+	
 	public Node mExe(
 		Node aOneNode,
 		Node aAnoNode

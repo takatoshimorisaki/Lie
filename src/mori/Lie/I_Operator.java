@@ -12,4 +12,6 @@ public interface I_Operator {
 		Node aOneNode,
 		Node aAnoNode
 	)throws Exception;
+	
+	public String mToString();
 }

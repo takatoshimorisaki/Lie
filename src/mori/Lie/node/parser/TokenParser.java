@@ -244,12 +244,16 @@ public class TokenParser {
 				
 				node.mCoef = 1.0;
 				
+				node.mPower = new Rational(1);
+				
 			}else
 			if(mNodeType0 == OPE_MINUS_NODE){
 
 				node.mNodeType = NUMBER_NODE;
 
 				node.mCoef = -1.0;
+
+				node.mPower = new Rational(-1);
 			}
 			
 			out.printf("TokenParser mAddNode node.mNodeType %s\n", mPrinter.toNodeType(node));

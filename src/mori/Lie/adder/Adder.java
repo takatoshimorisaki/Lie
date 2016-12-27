@@ -25,6 +25,10 @@ public class Adder implements I_Operator{
 	private static AdderPolyBra mAdderPolyBra = new AdderPolyBra();
 	
 	private static AdderBraBra mAdderBraBra = new AdderBraBra();
+
+	public String mToString(){
+		return "Adder";
+	}
 	
 	public Node mExe(
 		Node aOneNode,

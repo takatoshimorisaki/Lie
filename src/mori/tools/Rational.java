@@ -116,7 +116,9 @@ public class Rational {
 		
 		ans.mDenominator = this.mDenominator * arg.mDenominator;
 
-		int gcd = mArithmetic.mGcd(ans.mNumerator, ans.mDenominator);
+		int gcd = mArithmetic.mGcd(
+				Math.abs(ans.mNumerator), 
+				Math.abs(ans.mDenominator));
 		
 		ans.mNumerator /= gcd;
 		

@@ -15,6 +15,10 @@ import mori.Lie.Node;
 import mori.tools.Rational;
 
 public class Multiplier implements I_Operator{
+
+	public String mToString(){
+		return "Multiplier";
+	}
 	
 	public Node mExe(
 		Node aOneNode,

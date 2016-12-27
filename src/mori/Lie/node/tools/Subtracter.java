@@ -11,6 +11,10 @@ import mori.Lie.Node;
 
 public class Subtracter implements I_Operator{
 
+	public String mToString(){
+		return "Subtracter";
+	}
+	
 	public Node mExe(
 		Node aOneNode,
 		Node aAnoNode

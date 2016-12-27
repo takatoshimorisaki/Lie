@@ -10,6 +10,10 @@ import mori.Lie.Node;
 
 public class Power implements I_Operator{
 
+	public String mToString(){
+		return "Power";
+	}
+	
 	public Node mExe(
 		Node aOneNode,
 		Node aAnoNode
