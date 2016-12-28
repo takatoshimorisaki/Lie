@@ -35,7 +35,7 @@ public class Factory extends mori.Lie.Node{
 			return mori.Lie.node.tools.Holder.mPower;
 			
 		}else{
-			throw new Exception(arg.toNodeType()); 
+			throw new Exception(arg.mToNodeType()); 
 		}
 			
 	}

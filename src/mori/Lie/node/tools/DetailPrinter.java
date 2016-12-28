@@ -35,7 +35,7 @@ public class DetailPrinter {
 		|| arg.mNodeType == EQU_NODE
 		|| arg.mNodeType == BRACKET_NODE){
 
-			out.printf("%s%s\n", aSpace, arg.toNodeType());
+			out.printf("%s%s\n", aSpace, arg.mToNodeType());
 			
 			out.printf("%smCoef %f\n", aSpace, arg.mCoef);
 			

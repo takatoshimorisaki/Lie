@@ -15,10 +15,10 @@ public class Printer{
 	}
 	public void mPrintNodeType(Node arg)throws Exception{
 		
-		out.print(this.toNodeType(arg));
+		out.print(this.mToNodeType(arg));
 	}
 	
-	public String toNodeType(Node arg)throws Exception{
+	public String mToNodeType(Node arg)throws Exception{
 		String ans = null;
 		
 		switch(arg.mNodeType){
@@ -110,21 +110,12 @@ public class Printer{
 		}else
 		if(aNode.mNodeType == NUMBER_NODE){
 			
-			ans = String.format("%s", aNode.mCoef);
+			ans = String.format("%s", mAdjust(aNode.mCoef));
 		}else
 		if(aNode.mNodeType == MONOMIAL_NODE){
 			
-			if(Math.abs(aNode.mCoef) - 1.0 < DOUBLE_THRESHOLD){
-
-				if(aNode.mCoef > 0.0){
-					ans = String.format("%s", aNode.mToken);
-				}else{
-					ans = String.format("-%s", aNode.mToken);
-				}
-			}else{
-				ans = String.format("%s%s", mAdjust(aNode.mCoef), aNode.mToken);
-			}
-
+			ans = String.format("%s%s", mAdjust(aNode.mCoef), aNode.mToken);
+	
 			if(aNode.mPower.mEquals(1) != true){
 				
 				ans = String.format("%s^(%s)", ans, aNode.mPower.mToString());
@@ -286,7 +277,7 @@ public class Printer{
 			ans = aNode.mPower.mToString();
 			
 		}else{
-			throw new Exception(aNode.toNodeType());
+			throw new Exception(aNode.mToNodeType());
 		}
 		
 		return ans;

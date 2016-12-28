@@ -86,9 +86,9 @@ public class Node extends mori.Lie.Lie{
 		return mPrinter.mToString(this);
 	}
 	
-	public String toNodeType()throws Exception{
+	public String mToNodeType()throws Exception{
 		
-		return mPrinter.toNodeType(this);
+		return mPrinter.mToNodeType(this);
 	}
 	
 }

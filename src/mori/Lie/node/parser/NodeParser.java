@@ -31,8 +31,6 @@ public class NodeParser {
 	
 	public void mPush(Node arg)throws Exception{
 	
-		out.printf("NodeParser mPush %s\n", arg.mToString());
-		
 		mNode0 = arg;
 		
 		if(mNode1 == null){
@@ -81,7 +79,16 @@ public class NodeParser {
 	
 							Node dest = mOperator.mExe(node, mNode0);
 
-							mFactory.mCopy(node, dest);
+							mNode1.mRemove(mNode1.mSubNodes.size() - 1);
+							
+							if(mNode1.mNodeType == POLY_NODE){
+							
+								mNode1 = mAdder.mExe(mNode1, dest);
+								
+							}else{
+							
+								mNode1 = mMultiplier.mExe(mNode1, dest);
+							}
 						}
 						
 						mNode0 = mFactory.mExe(mNode1);
@@ -90,7 +97,7 @@ public class NodeParser {
 					mOperator = null;
 
 				}else{
-					throw new Exception();
+					throw new Exception(mNode0.mToString()+" " + mNode0.mToNodeType());
 				}
 			}else
 			if(NodeTypeChecker.mIsNomialNode(mNode0)){
@@ -106,15 +113,13 @@ public class NodeParser {
 			if(mNode0.mNodeType == COMMA_NODE){
 				// NOTHING TO DO.
 			}else{
-				throw new Exception(mNode0.toNodeType());
+				throw new Exception(mNode0.mToNodeType());
 			}
 		}
 
 		if(mOperator == null){
 			mNode1 = mFactory.mExe(mNode0);
 		}
-		
-		out.printf("NodeParser end %s\n", mNode0.mToString());
 	}
 	
 	public Node mExe(Node arg)throws Exception{

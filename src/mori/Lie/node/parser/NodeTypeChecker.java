@@ -12,7 +12,8 @@ public class NodeTypeChecker {
 		|| arg.mNodeType == MONO_NODE
 		|| arg.mNodeType == MULTI_NODE
 		|| arg.mNodeType == POLY_NODE
-		|| arg.mNodeType == BRACKET_NODE){
+		|| arg.mNodeType == BRACKET_NODE
+		|| arg.mNodeType == RATIONAL_NODE){
 			
 			return true;
 			

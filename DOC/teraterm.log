@@ -13,14 +13,14 @@ NodeParser mPush Px
 NodeParser end X*Px
 NodeParser mPush :
 NodeParser end :
-NodeParser mPush -1.0
-NodeParser end X*Px:-1.0
-NodeParser mPush 1.0
-NodeParser end X*Px:-1.0
+NodeParser mPush -1
+NodeParser end X*Px:-1
+NodeParser mPush 
+NodeParser end X*Px:-1
 NodeParser mPush *
 NodeParser end *
 NodeParser mPush i
-NodeParser end X*Px:-i
+NodeParser end X*Px:-1i
 NodeParser mPush Px
 NodeParser end Px
 NodeParser mPush *
@@ -33,6 +33,46 @@ NodeParser mPush *
 NodeParser end *
 NodeParser mPush Px
 NodeParser end Y*Px
+NodeParser mPush i
+NodeParser end i
+NodeParser mPush ^
+NodeParser end ^
+NodeParser mPush 2
+NodeParser end i^(2)
+NodeParser mPush -1
+NodeParser end -1
+NodeParser mPush 
+NodeParser end -1
+NodeParser mPush [
+NodeParser end [
+NodeParser mPush r
+NodeParser end r
+NodeParser mPush ,
+NodeParser end ,
+NodeParser mPush Px
+NodeParser end Px
+NodeParser mPush ]
+NodeParser end [r, Px]
+NodeParser mPush -1
+NodeParser end -1
+NodeParser mPush i
+NodeParser end -1i
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush X
+NodeParser end -1i*X
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush r
+NodeParser end -1i*X*r
+NodeParser mPush ^
+NodeParser end ^
+NodeParser mPush -1
+NodeParser end -1i*X*r
+NodeParser mPush 
+NodeParser end -1i*X*r
 list
-0 Px*X = X*Px:-i
+0 Px*X = X*Px:-1i
 1 Px*Y = Y*Px
+2 i^(2) = -1
+3 [r, Px] = -1i*X*r

@@ -78,7 +78,7 @@ public class Expander{
 				// nothing to do.
 			}
 		}else{
-			String errMsg = String.format("arg %s", arg.toNodeType());
+			String errMsg = String.format("arg %s", arg.mToNodeType());
 			
 			throw new Exception(errMsg);
 		}
