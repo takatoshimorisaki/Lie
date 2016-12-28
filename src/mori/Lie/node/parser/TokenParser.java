@@ -53,8 +53,6 @@ public class TokenParser {
 			
 			mStrBuf.append(token);
 			
-			out.printf("TokenParser mExe 1 %s\n", token);
-			
 		}else
 		if(AlphabetChecker.mExe(token)){
 
@@ -69,8 +67,6 @@ public class TokenParser {
 
 			mStrBuf.append(token);
 			
-			out.printf("TokenParser mExe 2 %s\n", token);
-
 			mAddNode();
 			
 		}else
@@ -80,8 +76,6 @@ public class TokenParser {
 
 			mStrBuf.append(token);
 			
-			out.printf("TokenParser mExe 3 %s\n", token);
-
 			mAddNode();
 			
 		}else
@@ -195,16 +189,12 @@ public class TokenParser {
 			
 			if(mNodeType2 == OPE_POWER_NODE){
 
-				out.printf("mAddNumberAlphabetNode 3 %s\n", mStrBuf.toString());
-				
 				node.mNodeType = RATIONAL_NODE;
 				
 				node.mPower = new Rational(mStrBuf.toString());
 				
 			}else{
 
-				out.printf("mAddNumberAlphabetNode 2 %s\n", mStrBuf.toString());
-				
 				node.mNodeType = NUMBER_NODE;
 				
 				node.mCoef = Double.parseDouble( mStrBuf.toString() );
@@ -219,8 +209,6 @@ public class TokenParser {
 		if(mNodeType0 != ALPHABET_NODE
 		&& mNodeType1 == ALPHABET_NODE
 		&& mParenthesisDepth == 0){
-			
-			out.printf("mAddNumberAlphabetNode 1 %s\n", mStrBuf.toString());
 			
 			Node node = mAlphabetParser.mExe( mStrBuf.toString() );
 
@@ -255,8 +243,6 @@ public class TokenParser {
 
 				node.mPower = new Rational(-1);
 			}
-			
-			out.printf("TokenParser mAddNode node.mNodeType %s\n", mPrinter.toNodeType(node));
 			
 			mRoot.add(node);
 			

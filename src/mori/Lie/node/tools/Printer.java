@@ -114,9 +114,13 @@ public class Printer{
 		}else
 		if(aNode.mNodeType == MONOMIAL_NODE){
 			
-			if(Math.abs(aNode.mCoef - 1.0) < DOUBLE_THRESHOLD){
+			if(Math.abs(aNode.mCoef) - 1.0 < DOUBLE_THRESHOLD){
 
-				ans = String.format("%s", aNode.mToken);
+				if(aNode.mCoef > 0.0){
+					ans = String.format("%s", aNode.mToken);
+				}else{
+					ans = String.format("-%s", aNode.mToken);
+				}
 			}else{
 				ans = String.format("%s%s", mAdjust(aNode.mCoef), aNode.mToken);
 			}

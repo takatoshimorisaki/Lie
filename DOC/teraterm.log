@@ -1,51 +1,38 @@
 read
-TokenParser mAddNode node.mNodeType [
-mAddNumberAlphabetNode 1 r
-TokenParser mAddNode node.mNodeType ,
-mAddNumberAlphabetNode 1 Px
-TokenParser mAddNode node.mNodeType ]
-NodeParser mExe 0 [
-NodeParser mNode1 == null
-NodeParser mExe 1 r
-NodeParser BRACKET_START_NODE r
-NodeParser mExe 2 ,
-NodeParser mExe 3 Px
-NodeParser COMMA_NODE Px
-NodeParser mExe 4 ]
-NodeParser BRACKET_END_NODE
-TokenParser mExe 3 -
-TokenParser mAddNode node.mNodeType NUMBER_NODE
-mAddNumberAlphabetNode 1 i
-TokenParser mAddNode node.mNodeType OPE_MULTI_NODE
-mAddNumberAlphabetNode 1 X
-TokenParser mAddNode node.mNodeType OPE_MULTI_NODE
-mAddNumberAlphabetNode 1 r
-TokenParser mAddNode node.mNodeType ^
-TokenParser mExe 3 -
-TokenParser mAddNode node.mNodeType NUMBER_NODE
-TokenParser mExe 1 1
-NodeParser mExe 0 -1.0
-NodeParser mNode1 == null
-NodeParser mExe 1 i
-NodeParser Before -1.0 i
-NodeParser After -1i
-NodeParser mExe 2 *
-Nodeparser mOperator Multiplier
-NodeParser mExe 3 X
-NodeParser Before -1i(MONOMIAL_NODE,0) X(MONOMIAL_NODE,0)
-NodeParser After -1i*X(MULTINOMIAL_NODE,2)
-NodeParser mExe 4 *
-Nodeparser mOperator Multiplier
-NodeParser mExe 5 r
-NodeParser2 Before -1i*X(MULTINOMIAL_NODE,2) r(MONOMIAL_NODE,0)
-NodeParser2 mid X*r(MULTINOMIAL_NODE,2)
-NodeParser2 After -1i*X*r(MULTINOMIAL_NODE,2)
-NodeParser mExe 6 ^
-Nodeparser mOperator Power
-NodeParser mExe 7 -1.0
-NodeParser2 Before -1i*X*r(MULTINOMIAL_NODE,2) -1.0(NUMBER_NODE,0)
-NodeParser2 mid X*r(MULTINOMIAL_NODE,2)
-NodeParser2 After -1i*X*r(MULTINOMIAL_NODE,2)
-NodeParser mExe 8 1.0
-NodeParser Before -1i*X*r 1.0
-NodeParser After -1i*X*r
+NodeParser mPush Px
+NodeParser end Px
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush X
+NodeParser end Px*X
+NodeParser mPush X
+NodeParser end X
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush Px
+NodeParser end X*Px
+NodeParser mPush :
+NodeParser end :
+NodeParser mPush -1.0
+NodeParser end X*Px:-1.0
+NodeParser mPush 1.0
+NodeParser end X*Px:-1.0
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush i
+NodeParser end X*Px:-i
+NodeParser mPush Px
+NodeParser end Px
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush Y
+NodeParser end Px*Y
+NodeParser mPush Y
+NodeParser end Y
+NodeParser mPush *
+NodeParser end *
+NodeParser mPush Px
+NodeParser end Y*Px
+list
+0 Px*X = X*Px:-i
+1 Px*Y = Y*Px
